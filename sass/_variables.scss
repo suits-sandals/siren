@@ -1,0 +1,89 @@
+/*Sassy Siren*/
+/*Version 1.5*/
+/*6/2/13*/
+
+//For the Maths
+$hundred : 100%;
+
+
+/******
+RHYTHM
+AND
+SIZING
+******/
+
+/*Set up for vertical rhythm*/
+$base-font-size : 16px;
+$base-line-height : 24px;
+
+/*Base modular ratio*/
+$ratio : golden();
+
+/*Set initial font sizes*/
+
+$primary-size : $base-font-size;
+$secondary-size : 10px;
+$base-size: $primary-size $secondary-size;
+
+
+
+/********
+*********
+*COLORS*
+*********
+********/
+
+$color1: #000; /*Black*/
+$color2: #fff;  /*White*/
+$color3: #efefef;  /*Light Gray*/
+$color4: #898989;  /*Gray*/
+
+/********
+*********
+*FONTS*
+*********
+********/
+
+//Icon Font
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*FONT FAMILIES*/
+
+
+%fontThin{
+	font-family: "proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+}
+
+%fontRegular{
+	font-family: "proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+%fontBlack{
+	font-family: "proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 700;	
+}
+
+%icon{
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}

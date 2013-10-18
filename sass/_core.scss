@@ -1,0 +1,97 @@
+/*Sassy Siren*/
+/*Version 1.0*/
+/*1/1/13*/
+
+/*CORE SASS FILE*/
+
+/*THIS IS YOUR CORE FILE*/
+/*This is where your element stylings go*/
+/*Classes only if they have universal purposes*/
+/*Fonts, backgrounds, etc. Go in here up top*/
+
+
+/*ELEMENTS*/
+body{
+	@extend %fontRegular;
+	color: $color1;
+	}
+
+/*a tags*/
+a{
+	text-decoration: none; 
+	color: $color3;
+	@include transition-property(all);
+  	@include transition-duration(.7s);
+
+	&:hover{
+		color: darken($color3,15%);
+		}
+	&:focus { 
+		outline: thin dotted; 
+	}
+	&:hover, &:active { 
+		outline: 0; 
+	}
+
+	img{
+		border: none;
+	}
+}
+
+
+h1,h2,h3{
+	@extend %fontBlack;
+}
+
+/*Headers*/
+h1  { 
+	@include adjust-font-size-to(modular-scale(6,$base-size,$ratio));
+	text-transform: uppercase;
+	}
+
+h2  { 
+	@include adjust-font-size-to(modular-scale(4,$base-size,$ratio));
+	text-transform: uppercase;
+	}
+
+h3   { 
+	@include adjust-font-size-to(modular-scale(2,$base-size,$ratio));
+	}
+
+
+
+
+/*Paragraphs*/
+p {
+	@include adjust-font-size-to($primary_size);
+	@include trailer;
+	}
+
+small{
+	@include adjust-font-size-to($secondary-size);
+}
+
+/*Lists*/
+ul{
+	list-style: none;
+	@include adjust-font-size-to($primary_size);
+	}
+
+li{
+	@include adjust-font-size-to($primary_size);
+}
+
+
+hr{
+	width: 100%;
+	height: 2px;
+	background: $color1;
+	border: none;
+}
+
+b, strong{
+	@extend %fontBlack;
+}
+
+
+

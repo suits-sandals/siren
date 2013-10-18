@@ -1,0 +1,83 @@
+/*Sassy Siren*/
+/*Version 1.5*/
+/*6/2/13*/
+
+/*FORM*/
+
+form{
+	width: 100%;
+	
+	div{
+		width: 100%;
+		margin: 10px 0;
+		clear: both;
+	}
+}
+
+input, textarea{
+	border: 1px $color1 solid;
+	outline: 0;
+	font-size : 1em;
+	width: 60%;
+	padding: 5px;
+	margin-top: 1em;
+	float: left;
+}
+
+input[type='text'], input[type='date'], input[type='url'], input[type='email'] ,select{
+	height: 35px;
+}
+
+input:focus{
+	color: $color4;
+}
+
+label{
+	width: 40%;
+	padding-top: 1em;
+	float: left;
+}
+
+.select {
+  border: 1px $color1 solid;
+  width: 60%;
+  height: 35px;
+  margin-top: 1em;
+  margin-bottom: 0;
+  float: left;
+  clear: none;
+  position: relative;
+  overflow: hidden;
+  background: url(../images/small_arrow.png) no-repeat right $color2;
+}
+
+  select {
+	font-size : 1em;
+    background: transparent;
+    border: 0;
+    border-radius:0;
+    width: 110%;
+    padding: 2px;
+    -webkit-appearance: none;
+    outline: 0; 
+}
+
+textarea{
+	height: 100px;
+	resize: none;
+}
+
+input[type='submit']{
+	text-align: center;
+	background: $color2;
+	@extend %fontDecorative;
+	width: 100px;
+	margin-left: 40%;
+	cursor: pointer;
+	@include transition-property(all);
+  	@include transition-duration(.7s);
+
+	&:hover{
+		color: $color4;
+	}
+}

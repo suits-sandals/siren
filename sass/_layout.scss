@@ -1,0 +1,163 @@
+/*Siren Grid System V2.1*/
+/*SASS VERSION*/
+/*1/1/13*/
+/*www.sasbranding.com*/
+
+/*Variables*/
+
+/* Widths and Column Count */
+$hundred : 100%; /* Variable to specify full width */
+$columns : 12;	/* Number of columns */
+$base : $hundred/$columns; /* Calculate base width of columns */
+
+
+/* Break Points */
+
+$maxwidth : 1140px; /* Maximum row width */
+$breakpoint : 767px; /* The breakpoint to snap to single column layout */
+
+/* Gutters */
+
+$gutterwidth : 20px; /* Full width of gutters */
+$padding : $gutterwidth/2; /* Added padding */
+
+
+/* Mixin in for the basic column model */
+@mixin col ($column){
+	width: $base*$column;
+}
+
+/* Main container and Rows */
+
+.container {
+	width: $hundred;
+	padding-left:$padding;
+	padding-right:$padding;
+	margin-right: 0;
+	margin-left: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.row {
+	width: $hundred;
+	max-width:$maxwidth;
+	min-width:$breakpoint - ($gutterwidth*2);
+	overflow:hidden;
+	margin-left: auto;
+	margin-right: auto;
+
+	/*Nested row*/
+	 .row {
+	min-width:0;
+	margin-right: 0;
+	margin-left: 0;
+	}
+}
+
+
+/*Gutters and other defaults*/
+
+[class*='col_']{
+	padding-left: $padding;
+	padding-right: $padding;
+	margin-left:0;
+	margin-right:0;
+	float:left;
+	min-height:1px;
+}
+
+
+
+/* Create columns */
+/* CLASS NAME RULE : .col_{column number} */
+
+@for $a from 1 through $columns{
+	.col_#{$a}{
+		@include col($a);
+	}
+}
+
+/*Images, videos, objects, and embeds should be full widht of column*/
+
+img,object,embed,iframe {
+	max-width:$hundred;
+}
+
+img {
+	height:auto;
+}
+
+/*When the screens begin to shrink*/
+
+@media handheld,only screen and (max-width : $breakpoint){
+
+	.container {
+		padding-left:$padding/2;
+		padding-right:$padding/2;
+	}
+
+	.row {
+		width:100%;
+		min-width:0;
+		padding-left:0;
+		padding-right:0;
+
+		 [class*='col_']{
+			width:100%;
+			float:none;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: $padding/2;
+			padding-right: $padding/2;
+		}
+	}
+
+	.row .row{
+
+		 [class*='col_']{
+			position:relative;
+			float:left;
+		}
+
+		@for $a from 1 through $columns{
+			.col_#{$a}{
+				width: $base*$a;
+			}
+		}
+
+	}
+
+}
+
+
+
+
+/*fixes*/
+/*A combination of Amazium's solution and code found at http://www.webtoolkit.info/css-clearfix.html*/
+
+.clearfix:before,.clearfix:after,.row:before,.row:after {
+	content:".";
+	display:block;
+	clear:both;
+	visibility:hidden;
+	line-height:0;
+	height:0;
+}
+
+.clearfix {
+	display:inline-block;
+	zoom:1;
+}
+
+.clear,.row:after,.clarfix:after {
+	clear:both;
+}
+
+html[xmlns] .clearfix {
+	display:block;
+}
+
+* html .clearfix {
+	height:1%;
+}
