@@ -27,7 +27,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" />
 
 	<!-- Your styles -->
-	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 
 	<!-- Print styles-->
 	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
