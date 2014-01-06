@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['js/*.js'],
-        tasks: ['uglify'],
+        tasks: ['jshint', 'uglify', 'yuidoc'],
         options: {
           spawn: false
         }
@@ -22,14 +22,22 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
         }
+      },
+      images: {
+        file: ['images/*.{png,jpg,gif}', 'imagesSrc/*.{png,jpg,gif}'],
+        tasks: ['imagemin'],
+        options: {
+          spawn: false,
+        }
       }
     },
 
     //Uglify for JS
     uglify: {
       build: {
-        src: ['js/libs/*.js', 'js/script.js'], //Input
-        dest: 'js/build/script.min.js' //Output
+       // src: ['js/libs/jquery.js', 'js/functions.js' 'js/global.js'], //When jQuery is needed
+       src: ['js/functions.js', 'js/global.js'], //When jQuery is not needed
+        dest: 'js/build/global.min.js' //Output
       }
     },
 
@@ -43,17 +51,51 @@ module.exports = function(grunt) {
           environment: 'development'
         }
       }
+    },
+
+    //JS Hinting
+    jshint: {
+      all: ['Gruntfile.js', 'js/*.js', 'js/**/*.js']
+    },
+
+    //Image Optimization
+    imagemin: {  
+      dynamic: {                  
+        files: [{
+          expand: true,  
+          cwd: 'imagesSrc/',     
+          src: ['**/*.{png,jpg,gif}'],  
+          dest: 'images/'   
+        }]
+      }
+    },
+
+    //Javascript documentation
+    yuidoc: {
+        all: {
+            name: 'Siren Core',
+            description: 'Change this on project start',
+            version: '0',
+            url: '',
+            options: {
+                paths: ['js/'],
+                outdir: 'docs/'
+            }
+        }
     }
 
     
   });
 
   // Load up pluggins
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-watch'); //Update watcher
+  grunt.loadNpmTasks('grunt-contrib-uglify'); //Uglify JS
+  grunt.loadNpmTasks('grunt-contrib-compass'); //Compress Compass
+  grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
+  grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
+  grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'watch']);
+  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin']);
 
 };

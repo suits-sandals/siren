@@ -1,0 +1,149 @@
+{
+    "project": {
+        "name": "Siren Core",
+        "description": "Change this on project start",
+        "version": "0",
+        "url": ""
+    },
+    "files": {
+        "js/plugins/jquery.validate.js": {
+            "name": "js/plugins/jquery.validate.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/plugins/jquery.validate.min.js": {
+            "name": "js/plugins/jquery.validate.min.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/functions.js": {
+            "name": "js/functions.js",
+            "modules": {
+                "Siren-Core": 1
+            },
+            "classes": {
+                "hasClass": 1,
+                "activeState": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/global.js": {
+            "name": "js/global.js",
+            "modules": {
+                "Global": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Siren-Core": {
+            "name": "Siren-Core",
+            "submodules": {},
+            "classes": {
+                "hasClass": 1,
+                "activeState": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js/functions.js",
+            "line": 15,
+            "description": "This file contains core functions used in the Siren Framework"
+        },
+        "Global": {
+            "name": "Global",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js/global.js",
+            "line": 1,
+            "description": "This file contains the Global calls and custom functions of the project"
+        }
+    },
+    "classes": {
+        "hasClass": {
+            "name": "hasClass",
+            "shortname": "hasClass",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Siren-Core",
+            "namespace": "",
+            "file": "js/functions.js",
+            "line": 6,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The target element",
+                    "type": "Object"
+                },
+                {
+                    "name": "className",
+                    "description": "The class name to check against",
+                    "type": "String"
+                }
+            ]
+        },
+        "activeState": {
+            "name": "activeState",
+            "shortname": "activeState",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Siren-Core",
+            "namespace": "",
+            "file": "js/functions.js",
+            "line": 15,
+            "description": "Used to add a class \"active\" to triggers and related targets",
+            "params": [
+                {
+                    "name": "trigger",
+                    "description": "The name of the trigger",
+                    "type": "String"
+                },
+                {
+                    "name": "target",
+                    "description": "The name of the target",
+                    "type": "String"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "js/plugins/jquery.validate.js",
+            "line": 1,
+            "description": "jQuery Validation Plugin 1.9.0\n\nhttp://bassistance.de/jquery-plugins/jquery-plugin-validation/\nhttp://docs.jquery.com/Plugins/Validation\n\nCopyright (c) 2006 - 2011 Jörn Zaefferer\n\nDual licensed under the MIT and GPL licenses:\n  http://www.opensource.org/licenses/mit-license.php\n  http://www.gnu.org/licenses/gpl.html",
+            "class": "hasClass"
+        },
+        {
+            "file": "js/plugins/jquery.validate.min.js",
+            "line": 1,
+            "description": "jQuery Validation Plugin 1.9.0\n\nhttp://bassistance.de/jquery-plugins/jquery-plugin-validation/\nhttp://docs.jquery.com/Plugins/Validation\n\nCopyright (c) 2006 - 2011 Jörn Zaefferer\n\nDual licensed under the MIT and GPL licenses:\n  http://www.opensource.org/licenses/mit-license.php\n  http://www.gnu.org/licenses/gpl.html",
+            "class": "hasClass"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\njQuery Validation Plugin 1.9.0\n\nhttp://bassistance.de/jquery-plugins/jquery-plugin-validation/\nhttp://docs.jquery.com/Plugins/Validation\n\nCopyright (c) 2006 - 2011 Jörn Zaefferer\n\nDual licensed under the MIT and GPL licenses:\n  http://www.opensource.org/licenses/mit-license.php\n  http://www.gnu.org/licenses/gpl.html",
+            "line": " js/plugins/jquery.validate.js:1"
+        },
+        {
+            "message": "Missing item type\njQuery Validation Plugin 1.9.0\n\nhttp://bassistance.de/jquery-plugins/jquery-plugin-validation/\nhttp://docs.jquery.com/Plugins/Validation\n\nCopyright (c) 2006 - 2011 Jörn Zaefferer\n\nDual licensed under the MIT and GPL licenses:\n  http://www.opensource.org/licenses/mit-license.php\n  http://www.gnu.org/licenses/gpl.html",
+            "line": " js/plugins/jquery.validate.min.js:1"
+        }
+    ]
+}
