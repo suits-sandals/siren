@@ -11,5 +11,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-imagemin": "~0.4.0",
     "grunt-kss": "~0.2.4"
+  },
+  "dependencies": {
+    "grunt-responsive-images": "~0.1.1"
   }
 }

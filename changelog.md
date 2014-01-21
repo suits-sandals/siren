@@ -145,4 +145,22 @@ GRUNT PLUGGINS TO GET
 
 ### (9:30PM) Javascript vallidation  ###
 - http://rickharrison.github.io/validate.js/
+- Beautiful!
+
+### (11:30PM) Clean Javascript  ###
+- Made a jQuery functions file for reference
+
+
+*****
+
+## 01/21/2014 ##
+
+### (10:30AM) Responsive Image Solution  ###
+- Put in grunt task to create responsive images
+- Changed the Staging directories to {type}Src
+- Gonna find an implementation solution
+- Picturefill?
+- PHP function to automatically make the picturefill markup in the future? YES (tonight!)
+- May want to determine the order in which things are cleaned then resized? Which way is better? Gonna say clean in SRC then move with resize
+- Gonna have to work out the kinks but seems to work!
 

@@ -16,7 +16,6 @@
 		require('scripts/form_key.php');
 		//Start the class
 		$formKey = new formKey();
-		print_r($formKey);
     }
 ?>
 

@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         livereload: true,
       },
       scripts: {
-        files: ['jsstaging/*.js'],
+        files: ['jsSrc/*.js','jsSrc/build/*.js'],
         tasks: ['jshint', 'uglify', 'yuidoc'],
         options: {
           spawn: false
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       },
       images: {
         files: ['images/*.{png,jpg,gif}', 'imagesStaging/*.{png,jpg,gif}'],
-        tasks: ['imagemin'],
+        tasks: ['imagemin','responsive_images'],
         options: {
           spawn: false,
         }
@@ -34,14 +34,16 @@ module.exports = function(grunt) {
 
      //JS Hinting
     jshint: {
-      all: ['Gruntfile.js', 'jsstaging/functions.js', 'jsstaging/global.js']
+      all: ['Gruntfile.js', 'jsSrc/functions.js', 'jsSrc/global.js', 'jsSrc/plugins/validate.js', 'jsSrc/contact.js']
     },
 
     //Uglify for JS
     uglify: {
-      files:{
-        'js/global.min.js' : ['jsstaging/functions.js', 'jsstaging/global.js'],
-       // 'js/build/contact.min.js' : ['js/plugins/validate.js', 'js/contact.js']
+      dist:{
+        files:{
+          'js/global.min.js' : ['jsSrc/polyfills/picturefill.js','jsSrc/functions.js', 'jsSrc/global.js'],
+          'js/contact.min.js' : ['jsSrc/plugins/validate.js', 'jsSrc/contact.js']
+        }
       }
     },
 
@@ -63,10 +65,33 @@ module.exports = function(grunt) {
     imagemin: {  
       dynamic: {                  
         files: [{
-          expand: true,  
-          cwd: 'imagesSrc/',     
+          expand: true,    
           src: ['**/*.{png,jpg,gif}'],  
+          cwd: 'imagesSrc/',
           dest: 'images/'   
+        }]
+      }
+    },
+
+    //Create Images for Responsive Images
+    //Configure size feature per project
+    responsive_images: {
+        dev: {
+        sizes: [{
+          name: 'small',
+          width: 320
+        },{
+          name: 'medium',
+          width: 640
+        },{
+          name: "large",
+          width: 1024
+        }],
+        files: [{
+          expand: true,
+          src: ['**/*.{png,jpg,gif}'],  
+          cwd: 'images/',
+          dest: 'images/res/'
         }]
       }
     },
@@ -94,9 +119,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass'); //Compress Compass
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
+  grunt.loadNpmTasks('grunt-responsive-images'); //Responsive Image Creator; imageMagick should be installed on computer as well through homebrew
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin', 'yuidoc']);
+  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin', 'responsive_images', 'yuidoc']);
 
 };

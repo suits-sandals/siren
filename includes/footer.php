@@ -9,11 +9,11 @@
 	<p class="page-footer_content">Legal Jargon</p>
 </footer>
 
-<script src="js/build/global.min.js"></script>
+<script src="js/global.min.js"></script>
 
 
 <?php if($pagename == 'contact'){ ?>
-    <!-- FORM VAILIDATION -->
+    <script src="js/contact.min.js"></script>
 <?php } ?>
 
 

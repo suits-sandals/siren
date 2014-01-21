@@ -24,17 +24,19 @@ PHP
 - Improve form; look for tutorial for awesomeness (DONE!)
 
 Javascript
-- Form a concrete plan for the javascript
-- FIND NEW FORM PROTECTION
-- Execute plan
+- FIND NEW FORM PROTECTION (DONE!)
+- Form a concrete plan for the javascript (DONE)
+- Execute plan (DONE)
 
 RESPONSIVE IMAGES
-- incorperate an RESS solution that can be included if neccessary
-- Use Filament groups suggestions to perfect implementation
+- incorperate an RESS solution that can be included if neccessary (DONE)
+- Use Filament groups suggestions to perfect implementation (DONE)
+- Rework order of image minification
+- Create PHP function to generate pictureFill mark up
 
 MISC
 - Check against awesome people
-- Inspect file structure and names; perfect for ease of use
+- Inspect file structure and names; perfect for ease of use (DONE)
 - See if there's anything else that should be in core
 
 DOCUMENTATION

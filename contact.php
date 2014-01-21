@@ -24,7 +24,7 @@
 			<input type="text" id="form_company" name="input_company" />
 		</div>
 		<div>
-			<label for="input_email">E-mail:</label>
+			<label for="input_email">Email:</label>
 			<input type="email" id="form_email"  name="input_email" required class="required email" />
 		</div>
 		<div>
