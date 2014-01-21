@@ -53,22 +53,18 @@
 
 </section>
 <!-- End article/class section -->
-<span data-picture data-alt="A Demo Image">
-	<span data-src="images/res/test-small.png"></span>
-	<span data-src="images/res/test-medium.png" data-media="(min-width: 400px)"></span>
-	<span data-src="images/res/test-large.png" data-media="(min-width: 700px)"></span>
-        <!--[if (lt IE 9) & (!IEMobile)]>
-            <span data-src="images/res/test-medium.png"></span>
-            <![endif]-->
 
-        <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
-    <noscript>
-        <img src="images/res/test-small.png" alt="A Demo Image">
-    </noscript>
-</span>
 <!--Start Picture Fill Example -->
 <section>
-	
+	<?php
+		$sizes = array(
+			'small' => '',
+			'medium' => '400px',
+			'large' => '700px'
+			);
+
+		pictureFill('images/test', 'png', 'A Test Image', $sizes);
+	?>
 </section>
 <!--End Picture Fill Example -->
 

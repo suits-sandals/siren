@@ -31,8 +31,8 @@ Javascript
 RESPONSIVE IMAGES
 - incorperate an RESS solution that can be included if neccessary (DONE)
 - Use Filament groups suggestions to perfect implementation (DONE)
-- Rework order of image minification
-- Create PHP function to generate pictureFill mark up
+- Rework order of image minification (DONE)
+- Create PHP function to generate pictureFill mark up (DONE)
 
 MISC
 - Check against awesome people

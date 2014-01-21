@@ -164,3 +164,13 @@ GRUNT PLUGGINS TO GET
 - May want to determine the order in which things are cleaned then resized? Which way is better? Gonna say clean in SRC then move with resize
 - Gonna have to work out the kinks but seems to work!
 
+### (11:10AM) Responsive Image Solution Continued  ###
+- So the order will be: images are imagemin'ed in src folder and then pushed over
+- Perfect
+- Created the Picturefill function, be careful with that back boy but it looks awesome
+
+### (11:50AM) Serve simple stylesheets for old browsers ###
+- quick research then implementation
+- Gonna seperate out the core
+- gotta remember now though that I can't extend base elements......
+- PUT A NOTE TO WATCH THIS CLOSELY

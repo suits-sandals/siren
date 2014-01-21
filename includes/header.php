@@ -17,6 +17,8 @@
 		//Start the class
 		$formKey = new formKey();
     }
+
+    require('scripts/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +42,16 @@
 
 	<!-- STYLES -->
 
-	<!-- Main Styles -->
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<!-- Main Styles: 
+		Calls basic, element, styles 
+		Then use conditional statements to load the enhanced version the right way
+		TEST AND WATCH THIS, if it messes up work flow just move core back into style
+	-->
+	<link rel="stylesheet" href="css/basic.css" />
+	<!--[if (gt IE 6) & (lte IE 8)]>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<![endif]-->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="only all" />
 
 	<!-- Print styles-->
 	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" /> 
@@ -51,9 +61,6 @@
 	<!-- Styles for IE -->
 	<!--[if lte IE 8]>
 		<script type="text/javascript" src="js/html5.js"></script>
-	<![endif]-->
-
-	<!--[if lte IE 8]>
 		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
 	<![endif]-->
 
