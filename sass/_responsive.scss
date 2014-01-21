@@ -1,95 +1,18 @@
-/*Sassy Siren*/
-/*Version 1.5*/
-/*6/2/13*/
+/**
+Siren Framework v2.0
+File Name: Responsive
+File Purpose: Media query calls go here
+File Notes: 
+*/
 
-/*Put your responsiveness here*/
 
-
-/* "Column" Break Point */
 @media all and (max-width: 767px){
+	//Adjust font size for devices and browsers smaller than an vertical iPad 
 	$base-font-size : 14px;
 	$base-line-height : 21px;
 	@include establish-baseline($base-font-size);
-
 }
 
 @media all and (max-width: 500px){
 
-	.header{
-		background: none;
-		color: $color1;
-		text-align: center;
-	}
-	//MOBILE NAV
-	.nav-button{
-		text-align: center;
-		color: $color2;
-		background: $color1;
-		width: 100%;
-		padding: 2px 2px 0px 2px;
-		display: block;
-		position: relative;
-		cursor: pointer;
-
-		&:before {
-			font-size: 1.8em;
-			font-family: 'icomoon';
-			speak: none;
-			font-style: normal;
-			font-weight: normal;
-			font-variant: normal;
-			text-transform: none;
-			line-height: 1;
-			-webkit-font-smoothing: antialiased;
-			content: "\e000";
-		}
-
-		&:after { 
-			content: " ";
-			border-left: 10px solid transparent;
-			border-right: 10px solid transparent;
-			border-top: 10px solid $color1;
-			width: 0; 
-			height: 0;
-			margin-left: -5px;
-			position: absolute;
-			bottom: -10px;
-			left: 50%;
-		}
-	}
-
-	.nav{
-		background: $color1;
-		border-top: none;
-		width: 100%;
-		margin-bottom: 10px;
-
-  		ul{
-  			text-align: center;
-			border-bottom: 1px $color1 solid;
-  			height: 0px;
-  			padding: 0;
-  			margin: 0;
-  			overflow: hidden;
-			@include transition-property(height);
-  			@include transition-duration(1s);
-
-  			&.active{
-  				height: 175px;
-  			}
-  		}
-
-  		li{
-  			font-size: 1.3em;
-  			border-top: 1px lighten($color4,20%) solid;
-  			width: 100%;
-  			display: block;
-  			float: none;
-
-  			a{
-  				width: 100%;
-  				padding: 10px;
-  			}
-  		}
-	}
 }

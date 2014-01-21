@@ -1,0 +1,13 @@
+{
+    "project": {
+        "name": "Siren Core",
+        "description": "Change this on project start",
+        "version": "0",
+        "url": ""
+    },
+    "files": {},
+    "modules": {},
+    "classes": {},
+    "classitems": [],
+    "warnings": []
+}

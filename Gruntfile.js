@@ -7,10 +7,10 @@ module.exports = function(grunt) {
     //Watching Functionality
     watch: {
       options: {
-        livereload: 35729,
+        livereload: true,
       },
       scripts: {
-        files: ['js/*.js'],
+        files: ['jsstaging/*.js'],
         tasks: ['jshint', 'uglify', 'yuidoc'],
         options: {
           spawn: false
@@ -18,13 +18,13 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['sass/*.scss'],
-        tasks: ['compass'],
+       tasks: ['compass'],
         options: {
           spawn: false,
         }
       },
       images: {
-        file: ['images/*.{png,jpg,gif}', 'imagesSrc/*.{png,jpg,gif}'],
+        files: ['images/*.{png,jpg,gif}', 'imagesStaging/*.{png,jpg,gif}'],
         tasks: ['imagemin'],
         options: {
           spawn: false,
@@ -32,12 +32,16 @@ module.exports = function(grunt) {
       }
     },
 
+     //JS Hinting
+    jshint: {
+      all: ['Gruntfile.js', 'jsstaging/functions.js', 'jsstaging/global.js']
+    },
+
     //Uglify for JS
     uglify: {
-      build: {
-       // src: ['js/libs/jquery.js', 'js/functions.js' 'js/global.js'], //When jQuery is needed
-       src: ['js/functions.js', 'js/global.js'], //When jQuery is not needed
-        dest: 'js/build/global.min.js' //Output
+      files:{
+        'js/global.min.js' : ['jsstaging/functions.js', 'jsstaging/global.js'],
+       // 'js/build/contact.min.js' : ['js/plugins/validate.js', 'js/contact.js']
       }
     },
 
@@ -53,10 +57,7 @@ module.exports = function(grunt) {
       }
     },
 
-    //JS Hinting
-    jshint: {
-      all: ['Gruntfile.js', 'js/*.js', 'js/**/*.js']
-    },
+   
 
     //Image Optimization
     imagemin: {  
@@ -79,7 +80,7 @@ module.exports = function(grunt) {
             url: '',
             options: {
                 paths: ['js/'],
-                outdir: 'docs/'
+                outdir: 'docs/docs-js/'
             }
         }
     }
@@ -96,6 +97,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin']);
+  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin', 'yuidoc']);
 
 };

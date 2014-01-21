@@ -1,10 +1,23 @@
 <?php
-	/*Siren v2.0*/
-	/*HEADER*/
+//Siren Framework v2.0
+//File Name: Global Header
+//File Purpose: Starts page, include <head> element, includes styled header of page
+//File Notes: 
 
 	//Get Page Name
 	$file = basename($_SERVER['PHP_SELF']);
     $pagename = str_replace(".php","",$file); 
+
+    //Form Token Vallidation To Make Sure Its Not A Random Request/Hack
+    if($pagename == 'contact' || $pagename == 'result'){
+    	//Start the session
+		session_start();
+		//Require the class
+		require('scripts/form_key.php');
+		//Start the class
+		$formKey = new formKey();
+		print_r($formKey);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,76 +34,53 @@
 
 	<title>Suits &amp; Sandals Sample Framework</title>
 
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-	<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
+	<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png" />
 
-	<!-- Your styles -->
+	<!-- STYLES -->
+
+	<!-- Main Styles -->
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 
 	<!-- Print styles-->
-	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
-
+	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" /> 
+	
+	<!-- STYLES END -->
 
 	<!-- Styles for IE -->
 	<!--[if lte IE 8]>
 		<script type="text/javascript" src="js/html5.js"></script>
-		<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
 	<![endif]-->
 
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
 	<![endif]-->
+
 </head>
 
-<body>
-<!--TWO TYPES OF HEADERS-->
-<header class="container header">
+<!-- Page class and page specific class -->
+<body class="page page-<?php echo $pagename; ?>"> 
 
-<!--TYPE 1 : Everything in one row-->
-	<div class="row">
-		<div class="col_3">
-			<h1>	
-				<!--<img src="images/logo.png" alt="LOGO" />-->
-				Demo
-			</h1>
-		</div>
+<!-- main-header -->
+<header class="main-header">
 
-		<nav class="col_9 nav">
-			<div class="nav-button"></div>
-			<ul>
-				<li><a href="index">HOME</a></li>
-				<li><a href="#">ABOUT</a></li>
-				<li><a href="#">ANOTHER PAGE</a></li>
-				<li><a href="contact">CONTACT</a></li>
-			</ul>
-		</nav>
-	</div> 
-<!--END FIRST TYPE OF HEADER-->
-
-
-<!--TYPE 2 : Two Rows-->
-<!-- <div class="row">
-		<div class="col_12">
-			<h1>
-				<img src="images/logo.png" alt="LOGO" />
-			</h1>
-		</div>
+	<!-- main-title -->
+	<div class="main-title">
+		<h1 class="main-title_logo">
+			Demo
+		</h1>
 	</div>
 
-	<div class="row">
-		<nav class="col_12 nav">
-			<div class="nav-button"></div>
-			<ul>
-				<li><a href="index">HOME</a></li>
-				<li><a href="#">ABOUT</a></li>
-				<li><a href="#">ANOTHER PAGE</a></li>
-				<li><a href="contact">CONTACT</a></li>
-			</ul>
-		</nav>
-	</div>
-	-->
-<!--END SECOND TYPE OF HEADER-->
+	<nav class="main-nav">
+		<div class="main-nav_button">MENU</div>
+		<ul class="main-nav_list">
+			<li class="main-nav_item" ><a href="index">Home</a></li>
+			<li class="main-nav_item" ><a href="#">About</a></li>
+			<li class="main-nav_item" ><a href="#">Another Page</a></li>
+			<li class="main-nav_item" ><a href="contact">Contact</a></li>
+		</ul>
+	</nav>
 
 </header>

@@ -1,9 +1,11 @@
-/*Sassy Siren*/
-/*Version 1.5*/
-/*6/2/13*/
+/**
+Siren Framework v2.0
+File Name: Forms
+File Purpose: The standard stylings for forms
+File Notes: 
+*/
 
-/*FORM*/
-
+//Form Element and Creation of Rows
 form{
 	width: 100%;
 	
@@ -11,20 +13,22 @@ form{
 		width: 100%;
 		margin: 10px 0;
 		clear: both;
+		overflow: hidden;
 	}
 }
 
+//Inputs, Selects, and Textareas
 input, textarea{
+	font-size : 1em;
 	border: 1px $color1 solid;
 	outline: 0;
-	font-size : 1em;
 	width: 60%;
-	padding: 5px;
 	margin-top: 1em;
+	padding: 5px;
 	float: left;
 }
 
-input[type='text'], input[type='date'], input[type='url'], input[type='email'] ,select{
+input, select{
 	height: 35px;
 }
 
@@ -38,28 +42,29 @@ label{
 	float: left;
 }
 
+//For Special Arrow Styling
 .select {
-  border: 1px $color1 solid;
-  width: 60%;
-  height: 35px;
-  margin-top: 1em;
-  margin-bottom: 0;
-  float: left;
-  clear: none;
-  position: relative;
-  overflow: hidden;
-  background: url(../images/small_arrow.png) no-repeat right $color2;
+	background: url(../images/small_arrow.png) no-repeat right $color2;
+	border: 1px $color1 solid;
+	width: 60%;
+	height: 35px;
+	margin-top: 1em;
+	margin-bottom: 0;
+	float: left;
+	clear: none;
+	position: relative;
+	overflow: hidden;
 }
 
-  select {
+select {
 	font-size : 1em;
-    background: transparent;
-    border: 0;
-    border-radius:0;
-    width: 110%;
-    padding: 2px;
-    -webkit-appearance: none;
-    outline: 0; 
+	background: transparent;
+	border: 0;
+	outline: 0;
+	-webkit-appearance: none; 
+	border-radius:0;
+	width: 110%;
+	padding: 2px;
 }
 
 textarea{
@@ -67,15 +72,14 @@ textarea{
 	resize: none;
 }
 
+//Submit Button
 input[type='submit']{
 	text-align: center;
 	background: $color2;
-	@extend %fontDecorative;
-	width: 100px;
-	margin-left: 40%;
 	cursor: pointer;
+	width: 100px;
 	@include transition-property(all);
-  	@include transition-duration(.7s);
+	@include transition-duration(.7s);
 
 	&:hover{
 		color: $color4;

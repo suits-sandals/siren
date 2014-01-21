@@ -1,34 +1,26 @@
 <?php
-//FOOTER//
-//SUITS AND SANDALS//
+//Siren Framework v2.0
+//File Name: Global Footer
+//File Purpose: Ends each page, includes styled footer, includes Javascript
+//File Notes: 
 ?>
 
-<footer class="footer">
-	<p>Legal Jargon</p>
+<footer class="page-footer">
+	<p class="page-footer_content">Legal Jargon</p>
 </footer>
 
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="js/script-ck.js"></script>
+<script src="js/build/global.min.js"></script>
 
 
 <?php if($pagename == 'contact'){ ?>
-    <script src="js/plugins/jquery.validate.min.js"></script>
-    <script>
-        $('#contact').vallidate();
-    </script>
+    <!-- FORM VAILIDATION -->
 <?php } ?>
 
 
-
-
-
-
-  <!--[if lt IE 7 ]>
+<!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
+<![endif]-->
 
 
 </body>

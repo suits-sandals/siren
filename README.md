@@ -1,26 +1,25 @@
 sassysiren
 ==========
 
-
-# (Sassy) Siren Framework # 
-##Version 1.0##
+# Siren Framework # 
+##Version 2.0##
 ## by Zachary Brady ##
 www.zacharybrady.com
 
-Siren is the work horse framework of Suits & Sandals, LLC. (www.sasbranding.com) It strives to provide simple building blocks in order to make coding quiker.
+Siren is the work horse scalfolding of Suits & Sandals, LLC. (www.sasbranding.com). It strives to provide simple building blocks in order to make coding quiker. 
 
-=======
-(Sassy) Siren Framework 
-by Zachary Brady
-www.zacharybrady.com
-12/23/2012
+Siren uses SCSS with Compass, Grunt, the OOCSS philosophy, and uses PHP with HTML5 for markup. These are the standards of the SaS development team.
 
-Siren is the work horse framework of Suits & Sandals, LLC. (www.sasbranding.com) It strives to provide simple building blocks in order to make coding quiker.
+For more information please inspect styleguide.md
 
-While emphasizing OOCSS and DRYCSS.
 
-Started as regular CSS, now its SASSY and will stay that way.
+## Headline Forment
+The required headline for script titles
 
+Siren Framework v2.0
+File Name: {file name}
+File Purpose: {file purpose}
+File Notes: {notes for file}
 
 
 

@@ -1,19 +1,42 @@
 <?php
-/*HOME*/
-/*SUITS AND SANDALS*/
+//Siren Framework v2.0
+//File Name: Contact Page
+//File Purpose: The Main Contact Page
+//File Notes: Loads the email-script to display form and handled validation
 ?>
 
 <?php require_once('includes/header.php'); ?>
 
 
 
-<div class="container">
-	<div class="row">
-		<section class="col_12">
-			<?php require_once('scripts/email-script.php'); ?>
-		</section>
-	</div>
-</div>
+<section>
+
+	<form  action="result" method="post" enctype="multipart/form-data" name="contact" id="contact">
+		<input type="hidden" name="form_name" value="contact" />
+        <?php $formKey->outputKey(); ?>  
+		<div>
+			<label for="input_name">Name:</label>
+			<input type="text" id="form_name" name="input_name" required class="required" />
+
+		</div>	
+		<div>
+			<label for="input_company">Company:</label>
+			<input type="text" id="form_company" name="input_company" />
+		</div>
+		<div>
+			<label for="input_email">E-mail:</label>
+			<input type="email" id="form_email"  name="input_email" required class="required email" />
+		</div>
+		<div>
+			<label for="input_message">Message:</label>
+			<textarea name="input_message" ></textarea>
+		</div> 
+		<div class="submit">
+			<input type="submit" value="Submit"/>
+		</div>
+	</form>
+</section>
+
 
 
 
