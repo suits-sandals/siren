@@ -60,7 +60,7 @@
 
 	<!-- Styles for IE -->
 	<!--[if lte IE 8]>
-		<script type="text/javascript" src="js/html5.js"></script>
+		<script type="text/javascript" src="js/polyfills/html5.js"></script>
 		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
 	<![endif]-->
 
@@ -70,7 +70,7 @@
 <body class="page page-<?php echo $pagename; ?>"> 
 
 <!-- main-header -->
-<header class="main-header">
+<header class="main-header" role="banner">
 
 	<!-- main-title -->
 	<div class="main-title">
@@ -79,8 +79,8 @@
 		</h1>
 	</div>
 
-	<nav class="main-nav">
-		<div class="main-nav_button">MENU</div>
+	<nav class="main-nav" role="nav">
+		<a href="#" class="main-nav_button">MENU</a>
 		<ul class="main-nav_list">
 			<li class="main-nav_item" ><a href="index">Home</a></li>
 			<li class="main-nav_item" ><a href="#">About</a></li>

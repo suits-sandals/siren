@@ -59,8 +59,6 @@ module.exports = function(grunt) {
       }
     },
 
-   
-
     //Image Optimization
     imagemin: {  
       dynamic: {                  

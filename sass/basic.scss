@@ -9,4 +9,10 @@
 @import "compass/css3";
 @import "modular-scale";
 
-@import "core";
+@import "base/reset";
+ 
+@import "variables/mixins"; 
+@import "variables/variables"; 
+@include establish-baseline($base-font-size);
+
+@import "base/core";

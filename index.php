@@ -61,7 +61,7 @@
 			'small' => '',
 			'medium' => '400px',
 			'large' => '700px'
-			);
+		);
 
 		pictureFill('images/test', 'png', 'A Test Image', $sizes);
 	?>

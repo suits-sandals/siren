@@ -11,6 +11,7 @@ Classed Elements and Components: Header/Footer, form, then classed objects
 Style Trumps: Special classes like error messages
 Responsive
 
+- There will be a default directory setup but this can change. For instance, if we need two layout partials then we create a folder
 */
 
 
@@ -19,16 +20,17 @@ Responsive
 @import "compass/css3";
 @import "modular-scale";
 
-@import "variables"; // Import variables after reset; needed because of extendable 
+@import "variables/mixins"; 
+@import "variables/variables"; // Import variables after reset; needed because of extendable 
 @include establish-baseline($base-font-size);
 
 // Base styles are introduced in _core which is called into basic.scss to play it safe with older browsers
 
-@import "layout"; // Core Layout Classes
+@import "base/layout"; // Core Layout Classes
 
-@import "headerfooter"; // Header and Footer Styling
-@import "form"; // Non-Standard Form Styling
+@import "objects/headerfooter"; // Header and Footer Styling
+@import "objects/form"; // Non-Standard Form Styling
 
 //Additional Classed elements go here
 
-@import "responsive"; // Responsive
+@import "base/responsive"; // Responsive

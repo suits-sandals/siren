@@ -174,3 +174,6 @@ GRUNT PLUGGINS TO GET
 - Gonna seperate out the core
 - gotta remember now though that I can't extend base elements......
 - PUT A NOTE TO WATCH THIS CLOSELY
+
+### (3:40PM) Quickly adding in a new structure in the SCSS directory ###
+- 
