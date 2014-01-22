@@ -6,7 +6,7 @@ sassysiren
 ## by Zachary Brady ##
 www.zacharybrady.com
 
-Siren is the work horse scalfolding of Suits & Sandals, LLC. (www.sasbranding.com). It strives to provide simple building blocks in order to make coding quiker. 
+Siren is the work horse scaffolding of Suits & Sandals, LLC. It strives to provide simple building blocks in order to make coding quicker. 
 
 Siren uses SCSS with Compass, Grunt, the OOCSS philosophy, and uses PHP with HTML5 for markup. These are the standards of the SaS development team.
 
