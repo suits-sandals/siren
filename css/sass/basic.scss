@@ -1,0 +1,18 @@
+//Siren Framework v2.0
+//File Name: Base Styles
+//File Purpose: Is just the base styles
+/*File Notes: This file is to be called seperate to be safe for older browsers and devices
+
+*/
+
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+@import "modular-scale";
+
+@import "base/reset";
+ 
+@import "variables/mixins"; 
+@import "variables/variables"; 
+@include establish-baseline($base-font-size);
+
+@import "base/core";

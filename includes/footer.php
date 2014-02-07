@@ -9,13 +9,28 @@
 	<p class="page-footer_content">Legal Jargon</p>
 </footer>
 
-<script src="js/global.min.js"></script>
 
-
-<?php if($pagename == 'contact'){ ?>
-    <script src="js/contact.min.js"></script>
-<?php } ?>
-
+<?php 
+	//First Check if devices are mobile or not
+	//Then do a second check to see which scripts to load
+	if(isset($detect) && $detect->isMobile() && !$detect->isTablet()){
+		if($pagename == 'contact'){ //If contact page 
+	   		echo '<script src="js/contact-mobile.min.js"></script>';
+		}
+		else{ //If note specialized page
+	    	echo '<script src="js/global-mobile.min.js"></script>';
+		} 
+	}
+	//If Desktop or Tablet
+	else{
+		if($pagename == 'contact'){ //If contact page 
+	   		echo '<script src="js/contact.min.js"></script>';
+		}
+		else{ //If note specialized page
+	    	echo '<script src="js/global.min.js"></script>';
+		} 
+	}
+?>
 
 <!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>

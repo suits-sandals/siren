@@ -18,6 +18,10 @@
 		$formKey = new formKey();
     }
 
+    //For Mobile Detection
+    require_once 'scripts/Mobile_Detect.php';
+	$detect = new Mobile_Detect;
+
     require('scripts/functions.php');
 ?>
 
@@ -52,9 +56,6 @@
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<![endif]-->
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="only all" />
-
-	<!-- Print styles-->
-	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" /> 
 	
 	<!-- STYLES END -->
 

@@ -17,14 +17,21 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: ['sass/*.scss'],
+        files: ['css/sass/*.scss'],
        tasks: ['compass'],
         options: {
           spawn: false,
         }
       },
       images: {
-        files: ['images/*.{png,jpg,gif}', 'imagesStaging/*.{png,jpg,gif}'],
+        files: ['images/imagesSrc/*.{png,jpg,gif}'],
+        tasks: ['imagemin'],
+        options: {
+          spawn: false,
+        }
+      },
+      imagesRes: {
+        files: ['images/imagesResSrc/*.{png,jpg,gif}'],
         tasks: ['imagemin','responsive_images'],
         options: {
           spawn: false,
@@ -41,8 +48,16 @@ module.exports = function(grunt) {
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['jsSrc/polyfills/picturefill.js','jsSrc/functions.js', 'jsSrc/global.js'],
-          'js/contact.min.js' : ['jsSrc/plugins/validate.js', 'jsSrc/contact.js']
+          'js/global.min.js' : ['js/jsSrc/polyfills/picturefill.js','js/jsSrc/functions.js', 'js/jsSrc/global.js'],
+          'js/contact.min.js' : ['js/jsSrc/polyfills/picturefill.js','js/jsSrc/plugins/validate.js','js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
+          'js/polyfills/html5.js' : 'js/jsSrc/polyfills/html5.js'
+
+        }
+      },
+      mobile:{
+        files:{
+          'js/global-mobile.min.js' : [ 'jsSrc/functions.js', 'jsSrc/global-mobile.js'],
+          'js/contact-mobile.min.js' : ['jsSrc/plugins/validate.js', 'jsSrc/functions.js', 'jsSrc/global-mobile.js', 'jsSrc/contact.js']
         }
       }
     },
@@ -61,12 +76,20 @@ module.exports = function(grunt) {
 
     //Image Optimization
     imagemin: {  
-      dynamic: {                  
+      standard: {                  
         files: [{
           expand: true,    
-          src: ['**/*.{png,jpg,gif}'],  
-          cwd: 'imagesSrc/',
-          dest: 'imagesSrc/'   
+          src: ['**/*.{png,jpg,gif}'],
+          cwd: 'images/imagesSrc',
+          dest: 'images/'   
+        }]
+      },
+      responsive: {                  
+        files: [{
+          expand: true,    
+          src: ['imagesResSrc/*.{png,jpg,gif}'],
+          cwd: 'images/',
+          dest: 'images/'   
         }]
       }
     },
@@ -74,7 +97,7 @@ module.exports = function(grunt) {
     //Create Images for Responsive Images
     //Configure size feature per project
     responsive_images: {
-        dev: {
+      dev: {
         sizes: [{
           name: 'small',
           width: 320
@@ -88,7 +111,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['**/*.{png,jpg,gif}'],  
-          cwd: 'imagesSrc/',
+          cwd: 'images/imagesResSrc',
           dest: 'images/'
         }]
       }

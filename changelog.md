@@ -176,4 +176,45 @@ GRUNT PLUGGINS TO GET
 - PUT A NOTE TO WATCH THIS CLOSELY
 
 ### (3:40PM) Quickly adding in a new structure in the SCSS directory ###
-- 
+
+
+*****
+
+## 02/03/2014 - Making Some Changes Based on Needs From Use ##
+
+### (7:11PM) Move Source Folders Into Directories and Change Gruntfile Accordingly ###
+- Was gonna do this just for images but CSS and JS could use this too
+- Configure Compass for CSS and change Grunt watch
+- Change Grunt for images based on work done in the SAS project
+- For the javascript change to locate source files and change footer.php to use your fallback system
+- Perfecto
+
+### (7:21PM) Update Javascript Functions ###
+- easy and done
+
+### (7:30PM) Something About the Header ###
+- in order to reduce requests
+- removing the print stylesheet and adding to end of advanced styles
+- its in misc
+
+- Need to stop but the last thing I need to do is add Greensock
+
+
+*****
+
+## 02/03/2014 ##
+
+### (10:40PM) Added TweenMax lib and fit-text pluggin ###
+- TweenMax is a robust animation js library
+- fit-text is a simple jquery pluggin
+
+
+*******
+
+## 02/06/2014 ##
+
+### (8:30PM) Add Mobile Detection for a RESS solution ###
+- It gets called in the header
+- Right now just using it for calling special JS for Mobile
+- Also creating special special stuff in the Gruntfile for Mobile JS
+
