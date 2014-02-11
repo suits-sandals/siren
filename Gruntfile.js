@@ -56,8 +56,8 @@ module.exports = function(grunt) {
       },
       mobile:{
         files:{
-          'js/global-mobile.min.js' : [ 'jsSrc/functions.js', 'jsSrc/global-mobile.js'],
-          'js/contact-mobile.min.js' : ['jsSrc/plugins/validate.js', 'jsSrc/functions.js', 'jsSrc/global-mobile.js', 'jsSrc/contact.js']
+          'js/global-mobile.min.js' : [ 'js/jsSrc/functions.js', 'js/jsSrc/global-mobile.js'],
+          'js/contact-mobile.min.js' : ['js/jsSrc/plugins/validate.js', 'js/jsSrc/functions.js', 'js/jsSrc/global-mobile.js', 'js/jsSrc/contact.js']
         }
       }
     },
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
             version: '0',
             url: '',
             options: {
-                paths: ['js/'],
+                paths: ['jsSrc/'],
                 outdir: 'docs/docs-js/'
             }
         }

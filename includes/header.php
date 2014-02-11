@@ -40,9 +40,7 @@
 	<title>Suits &amp; Sandals Sample Framework</title>
 
 	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
-	<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png" />
+
 
 	<!-- STYLES -->
 
@@ -71,22 +69,22 @@
 <body class="page page-<?php echo $pagename; ?>"> 
 
 <!-- main-header -->
-<header class="main-header" role="banner">
+<header class="header-main" role="banner">
 
 	<!-- main-title -->
-	<div class="main-title">
-		<h1 class="main-title_logo">
+	<div class="title-main">
+		<h1 class="title-main_logo">
 			Demo
 		</h1>
 	</div>
 
-	<nav class="main-nav" role="nav">
-		<a href="#" class="main-nav_button">MENU</a>
-		<ul class="main-nav_list">
-			<li class="main-nav_item" ><a href="index">Home</a></li>
-			<li class="main-nav_item" ><a href="#">About</a></li>
-			<li class="main-nav_item" ><a href="#">Another Page</a></li>
-			<li class="main-nav_item" ><a href="contact">Contact</a></li>
+	<nav class="nav-main" role="nav">
+		<a href="#" class="nav-main_button" id="navBtn">MENU</a>
+		<ul class="nav-main_list">
+			<li class="nav-main_item" ><a href="index" class="nav-main_link">Home</a></li>
+			<li class="nav-main_item" ><a href="#" class="nav-main_link">About</a></li>
+			<li class="nav-main_item" ><a href="#" class="nav-main_link">Another Page</a></li>
+			<li class="nav-main_item" ><a href="contact" class="nav-main_link">Contact</a></li>
 		</ul>
 	</nav>
 

@@ -218,3 +218,12 @@ GRUNT PLUGGINS TO GET
 - Right now just using it for calling special JS for Mobile
 - Also creating special special stuff in the Gruntfile for Mobile JS
 
+*******
+
+## 02/11/2014 ##
+
+### (9:00AM) Fixing How I Use BEM Class Naming to Make Consistent ###
+- ex. instead of main-header it should be header-main
+- ex2. instead of main-title_logo it should be title-main_logo
+- For future reference check csswizardry.com's artivle MindBEMding - getting your head 'round 
+

@@ -5,8 +5,8 @@
 //File Notes: 
 ?>
 
-<footer class="page-footer">
-	<p class="page-footer_content">Legal Jargon</p>
+<footer class="footer-main">
+	<p class="footer-main_content">Legal Jargon</p>
 </footer>
 
 
