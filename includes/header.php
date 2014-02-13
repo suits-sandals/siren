@@ -78,7 +78,7 @@
 		</h1>
 	</div>
 
-	<nav class="nav-main" role="nav">
+	<nav class="nav-main" role="navigation">
 		<a href="#" class="nav-main_button" id="navBtn">MENU</a>
 		<ul class="nav-main_list">
 			<li class="nav-main_item" ><a href="index" class="nav-main_link">Home</a></li>

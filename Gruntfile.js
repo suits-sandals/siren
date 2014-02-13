@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: ['css/sass/*.scss'],
+        files: ['css/sass/*.scss','css/sass/*/*.scss'],
        tasks: ['compass'],
         options: {
           spawn: false,
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
       dist: { 
         options: {    
           config: 'config.rb',       
-          sassDir: 'sass',
+          sassDir: 'css/sass',
           cssDir: 'css',
           environment: 'development'
         }
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
             version: '0',
             url: '',
             options: {
-                paths: ['jsSrc/'],
+                paths: ['js/jsSrc/'],
                 outdir: 'docs/docs-js/'
             }
         }

@@ -1,4 +1,0 @@
-## THE SASS ##
-
-## Change Log ##
-

@@ -227,3 +227,6 @@ GRUNT PLUGGINS TO GET
 - ex2. instead of main-title_logo it should be title-main_logo
 - For future reference check csswizardry.com's artivle MindBEMding - getting your head 'round 
 
+### (9:40AM) Fixing the classes in the style_library ###
+- Done and done
+

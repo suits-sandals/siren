@@ -10,7 +10,7 @@ File Notes:
 
 /* Drop Down Submenu */
 /* Would go in _headerfooter.scss partial */
-.main-nav_item{ 
+.nav-main_item{ 
 	position: relative;
 	padding-bottom: 10px;
 	&:hover{
@@ -20,14 +20,14 @@ File Notes:
 	}
 }
 
-.main-nav_sub-list{
+.nav-main_sub-list{
 	display: none;
 	position: absolute;
 	top: 10px;
 	left: 0;
 }
 
-.main-nav_sub-item{
+.nav-main_sub-item{
 	display: block;
 }
 
@@ -38,20 +38,20 @@ File Notes:
 //Color and other styles may be added as needed
 	
 	//This is just a button to be styled and revealed
-	.main-nav_button{
+	.nav-main_button{
 		width: 100%;
 		padding: 10px 0;
 		display: block;
 	}
 
 	
-	.main-nav{
+	.nav-main{
 		text-align: center;
 		width: 100%;
 		margin-bottom: 10px;
 	}
 
-  	.main-nav_list{
+  	.nav-main{
   		font-size: 1em;
   		max-height: 0px;
   		padding: 0;
@@ -64,12 +64,12 @@ File Notes:
   		}
   	}
 
-  	.main-nav_item{
+  	.nav-main_item{
   		width: 100%;
   		display: block;
+  	}
 
-  		a{
-  			width: 100%;
-  			padding: 10px;
-  		}
+  	.nav-main_link{
+  		width: 100%;
+  		padding: 10px;
   	}
