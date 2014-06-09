@@ -14,20 +14,17 @@ a{
 	text-decoration: none; 
 	color: $color4;
 
-	&:hover {
+	&:hover, &:focus, &:active {
 		color: darken($color4,15%);
-	}
-
-	&:focus { 
-		outline: thin dotted; 
-	}
-
-	&:hover, &:active { 
-		outline: 0; 
+		outline: 0;
 	}
 
 	img{
 		border: none;
+	}
+
+	&:focus img { 
+		border: 1px $color4 solid;
 	}
 }
 

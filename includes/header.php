@@ -23,6 +23,19 @@
 	$detect = new Mobile_Detect;
 
     require('scripts/functions.php');
+
+
+    //SET UP META DATA
+    if($pagename == 'contact' || $pagename == 'result'){
+    	$title = 'Contact';
+    	$desc = "The contact page";
+    	$keywords = "contact";
+    }
+    else{
+    	$title = 'Welcome to this site.';
+    	$desc = "A bit about this site.";
+    	$keywords = "Stuff";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +50,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="For SEO">
 
-	<title>Suits &amp; Sandals Sample Framework</title>
+	<title><?php echo $title; ?>| Suits &amp; Sandals Sample Framework</title>
+	<meta name="description" content="<?php echo $desc; ?>"/>
+	<meta name="keywords" content="<?php echo $keywords; ?>">
 
 	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
+
+	
 
 
 	<!-- STYLES -->
@@ -56,6 +73,11 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="only all" />
 	
 	<!-- STYLES END -->
+
+	<!-- PICTURE FILL -->
+	<!-- FIRST LINE NEEDED ONLY IF USING THE PICTURE ELEMENT -->
+	<script>document.createElement( "picture" );</script>
+	<script src="js/polyfills/picturefill.js" async></script>
 
 	<!-- Styles for IE -->
 	<!--[if lte IE 8]>

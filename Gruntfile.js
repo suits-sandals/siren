@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         livereload: true,
       },
       scripts: {
-        files: ['jsSrc/*.js','jsSrc/build/*.js'],
+        files: ['js/jsSrc/*.js','js/jsSrc/*/*.js'],
         tasks: ['jshint', 'uglify', 'yuidoc'],
         options: {
           spawn: false
@@ -41,15 +41,15 @@ module.exports = function(grunt) {
 
      //JS Hinting
     jshint: {
-      all: ['Gruntfile.js', 'jsSrc/functions.js', 'jsSrc/global.js', 'jsSrc/plugins/validate.js', 'jsSrc/contact.js']
+      all: ['Gruntfile.js', 'js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/plugins/validate.js', 'js/jsSrc/contact.js']
     },
 
     //Uglify for JS
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['js/jsSrc/polyfills/picturefill.js','js/jsSrc/functions.js', 'js/jsSrc/global.js'],
-          'js/contact.min.js' : ['js/jsSrc/polyfills/picturefill.js','js/jsSrc/plugins/validate.js','js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
+          'js/global.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/functions.js', 'js/jsSrc/global.js'],
+          'js/contact.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/plugins/validate.js','js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
           'js/polyfills/html5.js' : 'js/jsSrc/polyfills/html5.js'
 
         }

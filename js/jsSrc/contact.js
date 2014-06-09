@@ -6,7 +6,7 @@
 
 /**
 Functionality checks for cross Browser
-@class browserTest
+@class form-browserSupport
 @static
 */
 

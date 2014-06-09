@@ -14,20 +14,20 @@
 	<form  action="result" method="post" enctype="multipart/form-data" name="contact" id="contact">
 		<input type="hidden" name="form_name" value="contact" />
         <?php $formKey->outputKey(); ?>  
-		<div>
+		<div class="field-container">
 			<label for="input_name">Name:</label>
 			<input type="text" id="form_name" name="input_name" required class="required" />
 
 		</div>	
-		<div>
+		<div class="field-container" >
 			<label for="input_company">Company:</label>
 			<input type="text" id="form_company" name="input_company" />
 		</div>
-		<div>
+		<div class="field-container" >
 			<label for="input_email">Email:</label>
 			<input type="email" id="form_email"  name="input_email" required class="required email" />
 		</div>
-		<div>
+		<div class="field-container" >
 			<label for="input_message">Message:</label>
 			<textarea name="input_message" ></textarea>
 		</div> 

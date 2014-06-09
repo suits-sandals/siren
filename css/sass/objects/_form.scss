@@ -8,13 +8,13 @@ File Notes:
 //Form Element and Creation of Rows
 form{
 	width: 100%;
-	
-	div{
-		width: 100%;
-		margin: 10px 0;
-		clear: both;
-		overflow: hidden;
-	}
+}
+
+.container-field{
+	width: 100%;
+	margin: 10px 0;
+	clear: both;
+	overflow: hidden;
 }
 
 //Inputs, Selects, and Textareas
@@ -51,7 +51,6 @@ label{
 	margin-top: 1em;
 	margin-bottom: 0;
 	float: left;
-	clear: none;
 	position: relative;
 	overflow: hidden;
 }
@@ -70,6 +69,16 @@ select {
 textarea{
 	height: 100px;
 	resize: none;
+}
+
+//Checkboxes and Radiobuttons
+.checkbox_label, .checkbox{
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	float: none;
+	display: inline;
 }
 
 //Submit Button

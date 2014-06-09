@@ -230,3 +230,22 @@ GRUNT PLUGGINS TO GET
 ### (9:40AM) Fixing the classes in the style_library ###
 - Done and done
 
+
+*******
+
+## 03/13/2014 ##
+
+### (3:46AM) Fixing the active state javascript and adding more functions ###
+- so the active state is being fixed to be more cross browser friendly
+- Added a bunch of functions 
+
+
+*********
+
+## 04/13/2014 ##
+
+### (8:50AM) Changing my function library to use element.classlist ###
+- this replaces a lot of things
+- easily updated
+- so, the active state function is ie8+ ... I'm perfectly fine with this.
+- going to go through everything else and perfect
