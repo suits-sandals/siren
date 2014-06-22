@@ -8,7 +8,7 @@
 - None
 
 ### CSS ###
-- Add flexbox mixins and other cool mixins
+- Flesh out the mixin library more
 
 ### PHP ###
 - Improve PHP form serverside vallidation.
@@ -20,6 +20,7 @@
 - Incorperate Picturefill2.0
 
 ### MISC ###
+- Update the readme
 - Check against awesome people
 - See if there's anything else that should be in core
 
