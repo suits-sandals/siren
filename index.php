@@ -54,18 +54,5 @@
 </section>
 <!-- End article/class section -->
 
-<!--Start Picture Fill Example -->
-<section>
-	<?php
-		$sizes = array(
-			'small' => '',
-			'medium' => '400px',
-			'large' => '700px'
-		);
-
-		pictureFill('images/test', 'png', 'A Test Image', $sizes);
-	?>
-</section>
-<!--End Picture Fill Example -->
 
 <?php require_once('includes/footer.php'); ?>

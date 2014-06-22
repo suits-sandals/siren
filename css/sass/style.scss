@@ -23,7 +23,7 @@ Responsive
 
 @import "variables/mixins"; 
 @import "variables/variables"; // Import variables after reset; needed because of extendable 
-@include establish-baseline($base-font-size);
+
 
 // Base styles are introduced in _core which is called into basic.scss to play it safe with older browsers
 

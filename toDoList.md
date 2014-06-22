@@ -8,7 +8,7 @@
 - None
 
 ### CSS ###
-- Flesh out the mixin library more
+- None
 
 ### PHP ###
 - Improve PHP form serverside vallidation.

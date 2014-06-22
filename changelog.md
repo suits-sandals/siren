@@ -254,4 +254,7 @@ GRUNT PLUGGINS TO GET
 **********
 
 ## 06/21/2014 ##
-
+- Added a bunch of Mixins
+- Removed any pixel based sizing to allow for font-size: 100%
+- Going also make the responsivness go through setting an EM on the body
+- Actually no, keep the pixel reference for responsive for now. We'll experiment with that
