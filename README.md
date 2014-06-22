@@ -46,7 +46,7 @@ KEY CONCEPTS
 - Have fun!
 
 
-## Headline Forment
+## Headline Format
 The required headline for the top of SCSS snippets and Markup sections
 
 Siren Framework v2.0
