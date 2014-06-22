@@ -36,7 +36,7 @@ function printImage($path, $alt, $containerClasses) {
 
 
 /*
-printImage
+printGallery
 Generates an image gallery. Origin: https://github.com/laras126/starter-kit
 Param {string} $dir
 Param {string} $galleryName
