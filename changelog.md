@@ -258,3 +258,4 @@ GRUNT PLUGGINS TO GET
 - Removed any pixel based sizing to allow for font-size: 100%
 - Going also make the responsivness go through setting an EM on the body
 - Actually no, keep the pixel reference for responsive for now. We'll experiment with that
+- Added php functions to quickly make images and image galleries
