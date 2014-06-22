@@ -43,14 +43,14 @@ Param {string} $galleryName
 Param {string} $galleryClasses
 Param {string} $containerClasses
 */
-function printGallery($dir, $galleryName, $galleryClasses, $containerClasses) {
-	echo '<div class="gallery">';
+function printGallery($dir, $galleryName, $galleryClasses, $imageClasses) {
+	echo '<div class="'. $galleryClasses .'">';
 		$fdir =  $dir . '/*';
 		foreach(glob($fdir) as $img_path) {  
 			$rT = explode( '.', end( explode ( '/', $img_path ) ) )[0]; //Make array out of path and get last part without file extension
 			$rT = ucfirst( preg_replace('/[^a-zA-Z0-9_ %\[\]\.\(\)%&-]/s', ' ', $rT) ); //Replace symbols with spaces and capitalize
 			$alt = "Image in " . $galleryName . ": " . $rT . ".";
-			printImage($img_path, $alt, $containerClasses );
+			printImage($img_path, $alt, $imageClasses );
 		}
 		echo '</div>';
 	}
