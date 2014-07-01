@@ -61,12 +61,10 @@
 
 	<!-- STYLES -->
 
-	<!-- Main Styles: 
-		Calls basic, element, styles 
-		Then use conditional statements to load the enhanced version the right way
-		TEST AND WATCH THIS, if it messes up work flow just move core back into style
-	-->
-	<link rel="stylesheet" href="css/basic.css" />
+	<!-- Main Styles-->
+	<style>
+        <?php require_once('css/basic.css'); ?>
+    </style>
 	<!--[if (gt IE 6) & (lte IE 8)]>
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 	<![endif]-->
@@ -74,14 +72,14 @@
 	
 	<!-- STYLES END -->
 
-	<!-- PICTURE FILL -->
-	<!-- FIRST LINE NEEDED ONLY IF USING THE PICTURE ELEMENT -->
-	<script>document.createElement( "picture" );</script>
-	<script src="js/polyfills/picturefill.js" async></script>
+	<!--[if lt IE 9]>
+        <script>
+            <?php require_once('js/polyfills/html5.js'); ?>
+        </script>
+    <![endif]-->
 
 	<!-- Styles for IE -->
 	<!--[if lte IE 8]>
-		<script type="text/javascript" src="js/polyfills/html5.js"></script>
 		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
 	<![endif]-->
 

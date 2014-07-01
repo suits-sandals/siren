@@ -259,3 +259,10 @@ GRUNT PLUGGINS TO GET
 - Going also make the responsivness go through setting an EM on the body
 - Actually no, keep the pixel reference for responsive for now. We'll experiment with that
 - Added php functions to quickly make images and image galleries
+
+
+**********
+
+## 07/01/2014 ##
+- added in caching into HTACCESS
+- inline css and javascript in header
