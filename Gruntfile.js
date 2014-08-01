@@ -49,7 +49,8 @@ module.exports = function(grunt) {
       dist:{
         files:{
           'js/global.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/functions.js', 'js/jsSrc/global.js'],
-          'js/contact.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/plugins/validate.js','js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js']
+          'js/contact.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/plugins/validate.js','js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
+          'js/enhance.js' : 'js/jsSrc/enhance.js'
 
         }
       },

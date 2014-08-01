@@ -10,14 +10,7 @@
 </footer>
 
 
-<?php 
-	if($pagename == 'contact'){
-	   	echo '<script src="js/contact.min.js"></script>';
-	}
-	else{ 
-	    echo '<script src="js/global.min.js"></script>';
-	} 
-?>
+
 
 <!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>

@@ -51,6 +51,18 @@
 	<meta name="keywords" content="<?php echo $keywords; ?>">
 
 	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
+	<?php 
+		if($pagename == 'contact'){
+		   	echo '<meta name="fulljs"  content="js/contact.min.js">';
+		}
+		else{ 
+		    echo '<meta name="fulljs"  content="js/global.min.js">';
+		} 
+	?>
+	<script>
+        <?php require_once('js/enhance.js'); ?>
+    </script>
+
 
 	<!--[if lt IE 9]>
 	    <script>
