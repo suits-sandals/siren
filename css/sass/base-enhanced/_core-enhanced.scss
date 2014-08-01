@@ -1,0 +1,96 @@
+/**
+Siren Framework v2.5
+File Name: Enhanced Core Styles
+File Purpose: Element styling on top of basic style sheet
+File Notes: 
+*/
+
+body{
+	margin: 0;
+	color: $color1;
+}
+
+/* Links */
+a{
+	text-decoration: none; 
+	color: $color4;
+
+	&:hover, &:focus, &:active {
+		color: darken($color4,15%);
+	}
+
+	&:focus{
+		outline: 0;
+	}
+
+
+	&:focus img { 
+		border: 1px $color4 solid;
+	}
+}
+
+/* Headers */
+h1  { 
+	@include adjust-font-size-to(modular-scale(6,$base-size,$ratio));
+}
+
+h2  { 
+	@include adjust-font-size-to(modular-scale(4,$base-size,$ratio));
+}
+
+h3   { 
+	@include adjust-font-size-to(modular-scale(2,$base-size,$ratio));
+	text-transform: none;
+}
+
+h4 {
+	@include adjust-font-size-to(modular-scale(1,$base-size,$ratio));
+}
+
+/* Content */
+section, article, header{
+	padding: 0 1em;
+}
+
+p {
+	@include adjust-font-size-to($primary_size);
+	max-width: 48em;
+	@include trailer;
+}
+
+/* Lists */
+ol, ul, li{	
+	@include adjust-font-size-to($primary_size);
+}
+
+
+/* Text-level semantics */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/*Grouping content*/
+
+pre {
+  overflow: auto;
+}
+
+
+

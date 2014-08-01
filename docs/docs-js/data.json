@@ -13,13 +13,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "js/jsSrc/polyfills/html5.js": {
-            "name": "js/jsSrc/polyfills/html5.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "js/jsSrc/contact.js": {
             "name": "js/jsSrc/contact.js",
             "modules": {
@@ -119,7 +112,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "js/jsSrc/functions.js",
-            "line": 132,
+            "line": 131,
             "description": "This file contains core functions used in the Siren Framework"
         },
         "Global-Mobile": {
@@ -245,7 +238,7 @@
             "module": "Siren-Core",
             "namespace": "",
             "file": "js/jsSrc/functions.js",
-            "line": 112,
+            "line": 111,
             "description": "Methods related to manipulating style manipulation",
             "static": 1
         },
@@ -260,7 +253,7 @@
             "module": "Siren-Core",
             "namespace": "",
             "file": "js/jsSrc/functions.js",
-            "line": 132,
+            "line": 131,
             "description": "Methods related to assyncronous calls",
             "static": 1
         }
@@ -998,247 +991,6 @@
             "class": "form-browserSupport"
         },
         {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 1,
-            "preserve": "HTML5 Shiv prev3.7.1 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed",
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 6,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 9,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 12,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 15,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 18,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 21,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 24,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 27,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 30,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 60,
-            "description": "Creates a style sheet with the given CSS text and adds it to the document.",
-            "access": "private",
-            "tagname": "",
-            "params": [
-                {
-                    "name": "ownerDocument",
-                    "description": "The document.",
-                    "type": "Document"
-                },
-                {
-                    "name": "cssText",
-                    "description": "The CSS text.",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "The style element.",
-                "type": "StyleSheet"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 75,
-            "description": "Returns the value of `html5.elements` as an array.",
-            "access": "private",
-            "tagname": "",
-            "return": {
-                "description": "An array of shived element node names.",
-                "type": "Array"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 85,
-            "description": "Returns the data associated to the given document",
-            "access": "private",
-            "tagname": "",
-            "params": [
-                {
-                    "name": "ownerDocument",
-                    "description": "The document.",
-                    "type": "Document"
-                }
-            ],
-            "return": {
-                "description": "An object of data.",
-                "type": "Object"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 102,
-            "description": "returns a shived element for the given nodeName and document",
-            "memberof": "html5",
-            "params": [
-                {
-                    "name": "nodeName",
-                    "description": "name of the element",
-                    "type": "String"
-                },
-                {
-                    "name": "ownerDocument",
-                    "description": "The context document.",
-                    "type": "Document"
-                }
-            ],
-            "return": {
-                "description": "The shived element.",
-                "type": "Object"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 139,
-            "description": "returns a shived DocumentFragment for the given document",
-            "memberof": "html5",
-            "params": [
-                {
-                    "name": "ownerDocument",
-                    "description": "The context document.",
-                    "type": "Document"
-                }
-            ],
-            "return": {
-                "description": "The shived DocumentFragment.",
-                "type": "Object"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 163,
-            "description": "Shivs the `createElement` and `createDocumentFragment` methods of the document.",
-            "access": "private",
-            "tagname": "",
-            "params": [
-                {
-                    "name": "ownerDocument",
-                    "description": "The document.",
-                    "type": "Document|DocumentFragment"
-                },
-                {
-                    "name": "data",
-                    "description": "of the document.",
-                    "type": "Object"
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 201,
-            "description": "Shivs the given document.",
-            "memberof": "html5",
-            "params": [
-                {
-                    "name": "ownerDocument",
-                    "description": "The document to shiv.",
-                    "type": "Document"
-                }
-            ],
-            "return": {
-                "description": "The shived document.",
-                "type": "Document"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 231,
-            "description": "The `html5` object is exposed so that more elements can be shived and\nexisting shiving can be detected on iframes.",
-            "type": "Object",
-            "example": [
-                "\n\n// options can be changed before the script is included\nhtml5 = { 'elements': 'mark section', 'shivCSS': false, 'shivMethods': false };"
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 242,
-            "description": "An array or space separated string of node names of the elements to shiv.",
-            "memberof": "html5",
-            "type": "Array|String",
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 249,
-            "description": "current version of html5shiv",
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 254,
-            "description": "A flag to indicate that the HTML5 style sheet should be inserted.",
-            "memberof": "html5",
-            "type": "Boolean",
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 261,
-            "description": "Is equal to true if a browser supports creating unknown/HTML5 elements",
-            "memberof": "html5",
-            "type": "boolean",
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 268,
-            "description": "A flag to indicate that the document's `createElement` and `createDocumentFragment`\nmethods should be overwritten.",
-            "memberof": "html5",
-            "type": "Boolean",
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/polyfills/html5.js",
-            "line": 276,
-            "description": "A string to describe the type of `html5` object (\"default\" or \"default print\").",
-            "memberof": "html5",
-            "type": "String",
-            "class": "form-browserSupport"
-        },
-        {
             "file": "js/jsSrc/contact.js",
             "line": 13,
             "description": "Checks if browser has HTML5 form validation",
@@ -1374,7 +1126,7 @@
         },
         {
             "file": "js/jsSrc/functions.js",
-            "line": 118,
+            "line": 117,
             "description": "Used to remove an inline propert",
             "itemtype": "method",
             "name": "removeStyle",
@@ -1395,7 +1147,7 @@
         },
         {
             "file": "js/jsSrc/functions.js",
-            "line": 138,
+            "line": 137,
             "description": "Used to assyncronously load a javascript file. Based on article by Chris Lu (https://chris.lu/article/read/506de698268c420f0d000004)",
             "itemtype": "method",
             "name": "loadScript",
@@ -1416,66 +1168,6 @@
         }
     ],
     "warnings": [
-        {
-            "message": "unknown tag: preserve",
-            "line": " js/jsSrc/polyfills/html5.js:1"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " js/jsSrc/polyfills/html5.js:60"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " js/jsSrc/polyfills/html5.js:75"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " js/jsSrc/polyfills/html5.js:85"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:102"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " js/jsSrc/polyfills/html5.js:102"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:139"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " js/jsSrc/polyfills/html5.js:139"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:201"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " js/jsSrc/polyfills/html5.js:201"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:242"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:254"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:261"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:268"
-        },
-        {
-            "message": "unknown tag: memberof",
-            "line": " js/jsSrc/polyfills/html5.js:276"
-        },
         {
             "message": "Missing item type",
             "line": " js/jsSrc/libs/TweenMax.js:2215"
@@ -1571,102 +1263,6 @@
         {
             "message": "Missing item type",
             "line": " js/jsSrc/libs/TweenMax.js:5049"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:1"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:6"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:9"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:12"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:15"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:18"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:21"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:24"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:27"
-        },
-        {
-            "message": "Missing item type",
-            "line": " js/jsSrc/polyfills/html5.js:30"
-        },
-        {
-            "message": "Missing item type\nCreates a style sheet with the given CSS text and adds it to the document.",
-            "line": " js/jsSrc/polyfills/html5.js:60"
-        },
-        {
-            "message": "Missing item type\nReturns the value of `html5.elements` as an array.",
-            "line": " js/jsSrc/polyfills/html5.js:75"
-        },
-        {
-            "message": "Missing item type\nReturns the data associated to the given document",
-            "line": " js/jsSrc/polyfills/html5.js:85"
-        },
-        {
-            "message": "Missing item type\nreturns a shived element for the given nodeName and document",
-            "line": " js/jsSrc/polyfills/html5.js:102"
-        },
-        {
-            "message": "Missing item type\nreturns a shived DocumentFragment for the given document",
-            "line": " js/jsSrc/polyfills/html5.js:139"
-        },
-        {
-            "message": "Missing item type\nShivs the `createElement` and `createDocumentFragment` methods of the document.",
-            "line": " js/jsSrc/polyfills/html5.js:163"
-        },
-        {
-            "message": "Missing item type\nShivs the given document.",
-            "line": " js/jsSrc/polyfills/html5.js:201"
-        },
-        {
-            "message": "Missing item type\nThe `html5` object is exposed so that more elements can be shived and\nexisting shiving can be detected on iframes.",
-            "line": " js/jsSrc/polyfills/html5.js:231"
-        },
-        {
-            "message": "Missing item type\nAn array or space separated string of node names of the elements to shiv.",
-            "line": " js/jsSrc/polyfills/html5.js:242"
-        },
-        {
-            "message": "Missing item type\ncurrent version of html5shiv",
-            "line": " js/jsSrc/polyfills/html5.js:249"
-        },
-        {
-            "message": "Missing item type\nA flag to indicate that the HTML5 style sheet should be inserted.",
-            "line": " js/jsSrc/polyfills/html5.js:254"
-        },
-        {
-            "message": "Missing item type\nIs equal to true if a browser supports creating unknown/HTML5 elements",
-            "line": " js/jsSrc/polyfills/html5.js:261"
-        },
-        {
-            "message": "Missing item type\nA flag to indicate that the document's `createElement` and `createDocumentFragment`\nmethods should be overwritten.",
-            "line": " js/jsSrc/polyfills/html5.js:268"
-        },
-        {
-            "message": "Missing item type\nA string to describe the type of `html5` object (\"default\" or \"default print\").",
-            "line": " js/jsSrc/polyfills/html5.js:276"
         }
     ]
 }

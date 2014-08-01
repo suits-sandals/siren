@@ -1,0 +1,17 @@
+/**
+Siren Framework v2.0
+File Name: Responsive
+File Purpose: Media query calls go here
+File Notes: 
+*/
+
+@media all and (max-width: 767px){
+	//Adjust font size for devices and browsers smaller than an vertical iPad 
+	$base-font-size : 14px;
+	$base-line-height : 21px;
+	@include establish-baseline($base-font-size);
+}
+
+@media all and (max-width: 500px){
+
+}

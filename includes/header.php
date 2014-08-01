@@ -56,32 +56,25 @@
 
 	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
 
-	
+	<!--[if lt IE 9]>
+	    <script>
+	        <?php require_once('js/polyfills/html5.js'); ?>
+	        <?php require_once('js/polyfills/respond.js'); ?>
+	    </script>
+    <![endif]-->
 
 
-	<!-- STYLES -->
-
-	<!-- Main Styles-->
 	<style>
         <?php require_once('css/basic.css'); ?>
     </style>
+
 	<!--[if (gt IE 6) & (lte IE 8)]>
-		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/enhanced.css" type="text/css" />
 	<![endif]-->
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="only all" />
+
+	<link rel="stylesheet" href="css/enhanced.css" type="text/css" media="only all" />
 	
-	<!-- STYLES END -->
 
-	<!--[if lt IE 9]>
-        <script>
-            <?php require_once('js/polyfills/html5.js'); ?>
-        </script>
-    <![endif]-->
-
-	<!-- Styles for IE -->
-	<!--[if lte IE 8]>
-		<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-	<![endif]-->
 
 </head>
 

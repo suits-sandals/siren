@@ -207,17 +207,16 @@ Used to add a class &quot;active&quot; to triggers and related targets. ie8+
 @method activeState
 @param trigger {string} The name of the trigger
 */
-function activeState(trigger1){
-  var trigger = trigger1;
-  var targetName = trigger.getAttribute(&quot;href&quot;).replace(&#x27;#&#x27;, &#x27;&#x27;);
+function activeState(trigger) {
+  var targetName = trigger.getAttribute(&#x27;href&#x27;).replace(&#x27;#&#x27;, &#x27;&#x27;);
   var target = document.getElementById(targetName);
-
-  trigger.classList.toggle(&quot;active&quot;);
-  target.classList.toggle(&quot;active&quot;);
   
-  target = trigger = null;
+  if (!target) {
+    return;
+  }
   
-  return false;
+  trigger.classList.toggle(&#x27;active&#x27;);
+  target.classList.toggle(&#x27;active&#x27;);
 }
 
 

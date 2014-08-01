@@ -114,6 +114,24 @@
 * This file contains the Global calls and custom functions of the project for mobile devices
 * @module Global-Mobile
 */
+
+window.onload=function(){
+
+	//Start Button
+	var trigger = document.getElementById(&quot;navButton&quot;);
+	if(trigger){
+		trigger.onclick = function(){
+			activeState(this);
+			if(hasClass(this, &#x27;active&#x27;)){
+				this.innerHTML = &quot;CLOSE&quot;;
+			}
+			else{
+				this.innerHTML = &quot;MENU&quot;;
+			}
+			return false;
+		};
+	}
+};
     </pre>
 </div>
 

@@ -1,23 +1,8 @@
 //Siren Framework v2.5
-//File Name: Variables 
-//File Purpose: 
+//File Name: Variables Needed for the Safe View
+//File Purpose: For the basic/safe styles
 /*File Notes: 
 */
-
-$hundred : 100%; //For Math
-
-//Vertical Rhythm and Modular Scale
-//Baseline
-$base-font-size : 16px;
-$base-line-height : 24px;
-
-//Modular Ratior
-$ratio : $golden;
-
-$primary-size : $base-font-size;
-$secondary-size : 10px;
-$base-size: $primary-size $secondary-size;
-
 
 //Colors
 $color1: #000; //Black
@@ -38,4 +23,3 @@ $color4: #afafaf;  //Gray
 	font-style: normal;
 	font-weight: 700;	
 }
-

@@ -266,3 +266,9 @@ GRUNT PLUGGINS TO GET
 ## 07/01/2014 ##
 - added in caching into HTACCESS
 - inline css and javascript in header
+
+**********
+
+## 08/01/2014 ##
+- Improving my Progressive Enhancement approach
+- Link to notes: https://www.evernote.com/shard/s415/sh/d32cd9ce-c116-4e8b-80a6-a9cceced3502/f484b0ac5e5e5bb39bdedddc508363de
