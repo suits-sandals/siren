@@ -1,0 +1,34 @@
+/**
+Siren Framework v2.0
+File Name: Layout
+File Purpose: Classes governing layout go in here
+File Notes: 
+Grid is brought in through media queries. These are the only media queries not allowed in the Responsive folder
+*/
+
+//Rows
+.row{
+	@extend %row;
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	overflow:hidden;
+}
+
+
+@media only screen and (min-width: 700px)  {
+	
+	//Columns
+	.col-half, .col-thrd{
+		padding: 0 0.5em;
+		float: left;
+	}
+
+	.col-half{
+		width: 50%;
+	}
+
+	.col-thrd{
+		width: $hundred/3;
+	}
+}

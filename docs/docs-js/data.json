@@ -25,18 +25,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "js/jsSrc/functions-jquery.js": {
-            "name": "js/jsSrc/functions-jquery.js",
-            "modules": {
-                "Function-JQuery": 1
-            },
-            "classes": {
-                "scrollingFunctions": 1,
-                "layoutFunctions": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "js/jsSrc/functions.js": {
             "name": "js/jsSrc/functions.js",
             "modules": {
@@ -51,21 +39,15 @@
             "fors": {},
             "namespaces": {}
         },
-        "js/jsSrc/global-mobile.js": {
-            "name": "js/jsSrc/global-mobile.js",
-            "modules": {
-                "Global-Mobile": 1
-            },
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "js/jsSrc/global.js": {
             "name": "js/jsSrc/global.js",
             "modules": {
                 "Global": 1
             },
-            "classes": {},
+            "classes": {
+                "navigationUI": 1,
+                "callFunctions": 1
+            },
             "fors": {},
             "namespaces": {}
         }
@@ -85,20 +67,6 @@
             "line": 24,
             "description": "This file contains core functions used in the Siren Framework"
         },
-        "Function-JQuery": {
-            "name": "Function-JQuery",
-            "submodules": {},
-            "classes": {
-                "scrollingFunctions": 1,
-                "layoutFunctions": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "js/jsSrc/functions-jquery.js",
-            "line": 25,
-            "description": "This file contains core functions used in the Siren Framework"
-        },
         "Siren-Core": {
             "name": "Siren-Core",
             "submodules": {},
@@ -115,26 +83,18 @@
             "line": 131,
             "description": "This file contains core functions used in the Siren Framework"
         },
-        "Global-Mobile": {
-            "name": "Global-Mobile",
-            "submodules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "js/jsSrc/global-mobile.js",
-            "line": 1,
-            "description": "This file contains the Global calls and custom functions of the project for mobile devices"
-        },
         "Global": {
             "name": "Global",
             "submodules": {},
-            "classes": {},
+            "classes": {
+                "navigationUI": 1,
+                "callFunctions": 1
+            },
             "fors": {},
             "namespaces": {},
             "tag": "module",
             "file": "js/jsSrc/global.js",
-            "line": 1,
+            "line": 38,
             "description": "This file contains the Global calls and custom functions of the project"
         }
     },
@@ -167,34 +127,6 @@
             "file": "js/jsSrc/contact.js",
             "line": 24,
             "description": "Methods related to manipulating classes in the HTML",
-            "static": 1
-        },
-        "scrollingFunctions": {
-            "name": "scrollingFunctions",
-            "shortname": "scrollingFunctions",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Function-JQuery",
-            "namespace": "",
-            "file": "js/jsSrc/functions-jquery.js",
-            "line": 6,
-            "static": 1
-        },
-        "layoutFunctions": {
-            "name": "layoutFunctions",
-            "shortname": "layoutFunctions",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Function-JQuery",
-            "namespace": "",
-            "file": "js/jsSrc/functions-jquery.js",
-            "line": 25,
             "static": 1
         },
         "browserSupport": {
@@ -255,6 +187,35 @@
             "file": "js/jsSrc/functions.js",
             "line": 131,
             "description": "Methods related to assyncronous calls",
+            "static": 1
+        },
+        "navigationUI": {
+            "name": "navigationUI",
+            "shortname": "navigationUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Global",
+            "namespace": "",
+            "file": "js/jsSrc/global.js",
+            "line": 6,
+            "description": "Related to navigation.",
+            "static": 1
+        },
+        "callFunctions": {
+            "name": "callFunctions",
+            "shortname": "callFunctions",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Global",
+            "namespace": "",
+            "file": "js/jsSrc/global.js",
+            "line": 38,
             "static": 1
         }
     },
@@ -1017,50 +978,6 @@
             "module": "Contact-Page"
         },
         {
-            "file": "js/jsSrc/functions-jquery.js",
-            "line": 11,
-            "description": "//Scroll to target",
-            "itemtype": "method",
-            "name": "scrollTon",
-            "params": [
-                {
-                    "name": "target",
-                    "description": "Id of target",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "false"
-            },
-            "class": "scrollingFunctions",
-            "module": "Function-JQuery"
-        },
-        {
-            "file": "js/jsSrc/functions-jquery.js",
-            "line": 30,
-            "description": "//Determine size of page hero",
-            "itemtype": "method",
-            "name": "fixTheHeight",
-            "class": "layoutFunctions",
-            "module": "Function-JQuery"
-        },
-        {
-            "file": "js/jsSrc/functions-jquery.js",
-            "line": 53,
-            "description": "//Determine size of page hero",
-            "itemtype": "method",
-            "name": "fixTheHeight",
-            "params": [
-                {
-                    "name": "parent",
-                    "description": "Id of parent wrapper",
-                    "type": "String"
-                }
-            ],
-            "class": "layoutFunctions",
-            "module": "Function-JQuery"
-        },
-        {
             "file": "js/jsSrc/functions.js",
             "line": 14,
             "description": "Test if a css selector can be used",
@@ -1165,6 +1082,50 @@
             ],
             "class": "assyncronous",
             "module": "Siren-Core"
+        },
+        {
+            "file": "js/jsSrc/global.js",
+            "line": 12,
+            "description": "Test if a css selector can be used",
+            "itemtype": "method",
+            "name": "mobileNav",
+            "params": [
+                {
+                    "name": "triggerID",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "widthLimit",
+                    "description": "",
+                    "type": "Int"
+                }
+            ],
+            "class": "navigationUI",
+            "module": "Global"
+        },
+        {
+            "file": "js/jsSrc/global.js",
+            "line": 43,
+            "itemtype": "method",
+            "name": "CallsOnLoad",
+            "class": "callFunctions",
+            "module": "Global"
+        },
+        {
+            "file": "js/jsSrc/global.js",
+            "line": 51,
+            "itemtype": "method",
+            "name": "CallsOnResize",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "callFunctions",
+            "module": "Global"
         }
     ],
     "warnings": [

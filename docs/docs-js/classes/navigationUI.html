@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>browserSupport - Siren Core</title>
+    <title>navigationUI - Siren Core</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -102,7 +102,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>browserSupport Class</h1>
+                        <h1>navigationUI Class</h1>
 <div class="box meta">
     
 
@@ -110,13 +110,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/js_jsSrc_functions.js.html#l7"><code>js&#x2F;jsSrc&#x2F;functions.js:7</code></a>
+            Defined in: <a href="../files/js_jsSrc_global.js.html#l6"><code>js&#x2F;jsSrc&#x2F;global.js:6</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/Siren-Core.html">Siren-Core</a>
+            Module: <a href="../modules/Global.html">Global</a>
         
     
 
@@ -126,7 +126,7 @@
 
 
 <div class="box intro">
-    <p>Methods related to testing and addition browser support</p>
+    <p>Related to navigation.</p>
 
 </div>
 
@@ -155,21 +155,7 @@
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_is_touch_device">is_touch_device</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_querySelectorAll">querySelectorAll</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_upportsSelector">upportsSelector</a>
+                                <a href="#method_mobileNav">mobileNav</a>
 
                                 
                                 
@@ -191,8 +177,8 @@
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_is_touch_device" class="method item">
-    <h3 class="name"><code>is_touch_device</code></h3>
+                    <div id="method_mobileNav" class="method item">
+    <h3 class="name"><code>mobileNav</code></h3>
 
     
         <div class="args">
@@ -200,7 +186,13 @@
             
                 <li class="arg">
                     
-                        <code>url</code>
+                        <code>triggerID</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>widthLimit</code>
                     
                 </li>
             
@@ -233,183 +225,7 @@
             
         
         
-        <a href="../files/js_jsSrc_functions.js.html#l55"><code>js&#x2F;jsSrc&#x2F;functions.js:55</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Checks if touch device</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">url</code>
-                        <span class="type">String</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_querySelectorAll" class="method item">
-    <h3 class="name"><code>querySelectorAll</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>seclector</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/js_jsSrc_functions.js.html#l65"><code>js&#x2F;jsSrc&#x2F;functions.js:65</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Polyfill for querySectorAll</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">seclector</code>
-                        <span class="type">Object</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_upportsSelector" class="method item">
-    <h3 class="name"><code>upportsSelector</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>selector</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/js_jsSrc_functions.js.html#l14"><code>js&#x2F;jsSrc&#x2F;functions.js:14</code></a>
+        <a href="../files/js_jsSrc_global.js.html#l12"><code>js&#x2F;jsSrc&#x2F;global.js:12</code></a>
         
         </p>
 
@@ -432,8 +248,23 @@
             
                 <li class="param">
                     
-                        <code class="param-name">selector</code>
+                        <code class="param-name">triggerID</code>
                         <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">widthLimit</code>
+                        <span class="type">Int</span>
                     
 
                     

@@ -3,18 +3,16 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "assyncronous",
         "browserSupport",
+        "callFunctions",
         "classManipulation",
         "form-browserSupport",
         "formValidation",
-        "layoutFunctions",
-        "scrollingFunctions",
+        "navigationUI",
         "styleManipulation"
     ],
     "modules": [
         "Contact-Page",
-        "Function-JQuery",
         "Global",
-        "Global-Mobile",
         "Siren-Core"
     ],
     "allModules": [
@@ -24,19 +22,9 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "This file contains core functions used in the Siren Framework"
         },
         {
-            "displayName": "Function-JQuery",
-            "name": "Function-JQuery",
-            "description": "This file contains core functions used in the Siren Framework"
-        },
-        {
             "displayName": "Global",
             "name": "Global",
             "description": "This file contains the Global calls and custom functions of the project"
-        },
-        {
-            "displayName": "Global-Mobile",
-            "name": "Global-Mobile",
-            "description": "This file contains the Global calls and custom functions of the project for mobile devices"
         },
         {
             "displayName": "Siren-Core",
