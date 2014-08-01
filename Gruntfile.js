@@ -53,12 +53,12 @@ module.exports = function(grunt) {
 
         }
       },
-      mobile:{
+      /*mobile:{
         files:{
           'js/global-mobile.min.js' : [ 'js/jsSrc/functions.js', 'js/jsSrc/global-mobile.js'],
           'js/contact-mobile.min.js' : ['js/jsSrc/plugins/validate.js', 'js/jsSrc/functions.js', 'js/jsSrc/global-mobile.js', 'js/jsSrc/contact.js']
         }
-      }
+      }*/
     },
 
     //Compass for SCSS

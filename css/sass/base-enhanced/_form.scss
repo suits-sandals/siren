@@ -10,9 +10,9 @@ form{
 	width: 100%;
 }
 
-.container-field{
+.field-container{
 	width: 100%;
-	margin: 10px 0;
+	margin: 1em 0;
 	clear: both;
 	overflow: hidden;
 }
@@ -22,11 +22,9 @@ input, textarea{
 	font-size : 1em;
 	border: 1px $color1 solid;
 	outline: 0;
-	width: 60%;
-	margin-top: 1em;
-	padding: 5px;
-	float: left;
 	-webkit-appearance: none;
+	width: 100%;
+	padding: 5px;
 }
 
 input, select{
@@ -37,21 +35,12 @@ input:focus{
 	color: $color4;
 }
 
-label{
-	width: 40%;
-	padding-top: 1em;
-	float: left;
-}
-
 //For Special Arrow Styling
 .select {
 	background: url(../images/small_arrow.png) no-repeat right $color2;
 	border: 1px $color1 solid;
-	width: 60%;
+	width: 100%;
 	height: 35px;
-	margin-top: 1em;
-	margin-bottom: 0;
-	float: left;
 	position: relative;
 	overflow: hidden;
 }

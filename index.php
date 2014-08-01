@@ -9,17 +9,17 @@
 
 <!-- Examples of classes and how to set up section and article correctly -->
 
-<header class="header-page">
+<header class="header-page row">
 	<h1 class="title-page">Page Title</h1>
 </header>
 
-<article class="blurb-page">
+<article class="blurb-page row">
 	<p class="blurb-page_p">Occupy flexitarian incididunt, ad typewriter laborum whatever. Organic mollit chillwave helvetica do lomo, skateboard gluten-free williamsburg nulla. Wolf jean shorts id qui. Sapiente godard master cleanse, fap locavore hella enim proident wolf next level.</p>
 </article>
 
 <!-- An article/content class structure -->
-<section class="section-page section-articles">
-	<article class="article">	
+<section class="section-page section-articles row">
+	<article class="article col-half">	
 		<header class="article_header">
 			<h2 class="article_title">Article Title</h2>
 		</header>
@@ -35,7 +35,7 @@
 
 	</article>
 
-	<article class="article">	
+	<article class="article col-half">	
 		<header class="article_header">
 			<h2 class="article_title">Article Title</h2>
 		</header>

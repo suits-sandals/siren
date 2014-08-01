@@ -18,10 +18,6 @@
 		$formKey = new formKey();
     }
 
-    //For Mobile Detection
-    require_once 'scripts/Mobile_Detect.php';
-	$detect = new Mobile_Detect;
-
     require('scripts/functions.php');
 
 
@@ -92,8 +88,8 @@
 	</div>
 
 	<nav class="nav-main" role="navigation">
-		<a href="#" class="nav-main_button" id="navBtn">MENU</a>
-		<ul class="nav-main_list">
+		<a href="#navList" class="nav-main_button" id="navBtn">MENU</a>
+		<ul class="nav-main_list" id="navList">
 			<li class="nav-main_item" ><a href="index" class="nav-main_link">Home</a></li>
 			<li class="nav-main_item" ><a href="#" class="nav-main_link">About</a></li>
 			<li class="nav-main_item" ><a href="#" class="nav-main_link">Another Page</a></li>

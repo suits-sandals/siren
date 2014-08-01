@@ -11,25 +11,12 @@
 
 
 <?php 
-	//First Check if devices are mobile or not
-	//Then do a second check to see which scripts to load
-	if(isset($detect) && $detect->isMobile() && !$detect->isTablet()){
-		if($pagename == 'contact'){ //If contact page 
-	   		echo '<script src="js/contact-mobile.min.js"></script>';
-		}
-		else{ //If note specialized page
-	    	echo '<script src="js/global-mobile.min.js"></script>';
-		} 
+	if($pagename == 'contact'){
+	   	echo '<script src="js/contact.min.js"></script>';
 	}
-	//If Desktop or Tablet
-	else{
-		if($pagename == 'contact'){ //If contact page 
-	   		echo '<script src="js/contact.min.js"></script>';
-		}
-		else{ //If note specialized page
-	    	echo '<script src="js/global.min.js"></script>';
-		} 
-	}
+	else{ 
+	    echo '<script src="js/global.min.js"></script>';
+	} 
 ?>
 
 <!--[if lt IE 7 ]>

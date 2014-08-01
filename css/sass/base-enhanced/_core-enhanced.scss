@@ -5,6 +5,18 @@ File Purpose: Element styling on top of basic style sheet
 File Notes: 
 */
 
+html{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; *behavior: url(../js/polyfills/boxsizing.htc);
+}
+
+*, *:before, *:after {
+  	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit; *behavior: url(../js/polyfills/boxsizing.htc);
+}
+
 body{
 	margin: 0;
 	color: $color1;
@@ -48,7 +60,7 @@ h4 {
 }
 
 /* Content */
-section, article, header{
+section, article, header, footer{
 	padding: 0 1em;
 }
 

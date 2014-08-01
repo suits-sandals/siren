@@ -3,16 +3,8 @@ Siren Them v3.0
 File Name: Collect Styles
 File Purpose: Collect the advanced styles
 File Notes: 
-
-Style order should be as follows
-
-Base: reset then unclassed styles (not including forms); these can be issolated as a suitable fall back (called in basic)
-Layout: Grid system or custom layout
-Classed Elements and Components: Header/Footer, form, then classed objects
-Style Trumps: Special classes like error messages
-Responsive
-
-- There will be a default directory setup but this can change. For instance, if we need two layout partials then we create a folder
+- This is built from mobile Up
+- All the initial style are for mobile views and everything else is brought in through media-queries
 */
 
 
@@ -28,14 +20,10 @@ Responsive
 @import "base-enhanced/core-enhanced"; // Non-Standard Form Styling
 @import "base-enhanced/form"; // Non-Standard Form Styling
 
+@import "objects/headerfooter"; // Header and Footer Styling
 
-//@import "layout/layout"; // Core Layout Classes
-
-//@import "objects/headerfooter"; // Header and Footer Styling
-
-
-//Additional Classed elements go here
-
+//Styles brought in through media queries
+@import "layout/grid"; // Core Layout Classes
 //@import "responsive/responsive"; // Responsive
 
 @import "misc/print"; //Print Styles

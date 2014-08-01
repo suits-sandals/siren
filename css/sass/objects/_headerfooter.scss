@@ -7,6 +7,7 @@ File Notes:
 
 //Main Header
 .header-main{
+	text-align: center;
 	background: $color1;
 	color: $color2;
 	@include trailer;
@@ -15,29 +16,31 @@ File Notes:
 }
 
 //Site Title
-.title-main{
-	float: left;
+.title-main_logo{
+	margin: 0;
 }
 
 //Nav Start
-.nav-main{
-	text-align: right;
-}
-
 .nav-main_list{
-	font-size: .85em;
-	margin-top: 1em; 
-	text-align:right;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	//max-height: 0px;
+  	overflow: hidden;
+	@include transition(.5s);
+
+  	&.active{
+  		max-height: 999px;
+  	}
 }
 
-.nav-main_item{ 
-	@include simple-inline-block(); 
+.nav-main_item{
+	padding: 0.5em 0;
 }
 
 .nav-main_link{ 
 	color: $color2;
-	@include simple-inline-block(); 
-	padding: 0 15px;
+	padding: 1em 0;
 
 	&:hover{
 		color: $color3;
@@ -45,7 +48,12 @@ File Notes:
 }
 
 .nav-main_button{
-	display: none;
+	color: $color1;
+	background: $color2;
+	width: 100%;
+	margin: 10px 0 0;
+	padding: 10px 0;
+	display: block;
 }
 
 //Nav End
@@ -54,6 +62,7 @@ File Notes:
 
 //Footer
 .footer-main{
+	text-align: center;
 	background: $color1;
 	color: $color2;
 	@include leader;
@@ -61,7 +70,7 @@ File Notes:
 }
 
 .footer-main_content{
-	text-align: center;
+	max-width: 100%;
 	margin: 0;
 }
 
