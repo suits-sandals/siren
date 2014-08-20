@@ -1,5 +1,5 @@
 /**
-Siren Framework v2.0
+Siren Framework v3.2
 File Name: Mixins
 File Purpose: This file contains mixins
 File Notes: 
@@ -50,4 +50,14 @@ Yeah yeah, I know. I took a lot of these from Chris Coyier
 //Function to return a semi transparent white rgba color
 @function white($opacity) {
   @return rgba(white, $opacity)
+}
+
+//Flexbox
+@mixin flex-box(){
+  @include simple-inline-block();
+  display: -webkit-box; 
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex; 
+  display: flex; 
 }

@@ -1,0 +1,30 @@
+/*
+Siren Them v3.2
+File Name: Enhanced Styles for Internet Explorer
+File Purpose: For IE8 and IE7 Fallback
+File Notes: 
+- Does not include Media-Queries pertaining to browser size
+- All mediaqueries provided by Respond.js and so that is a dependency for this file
+*/
+
+
+//Imports, variables, and baseline. All also established in basic.scss
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+@import "modular-scale";
+
+@import "mixins/mixins"; 
+@import "variables/variables"; // Import variables after reset; needed because of extendable 
+
+//Base Styling Applied to Elements and Simple Classes
+@import "base-enhanced/core-enhanced"; // Non-Standard Form Styling
+@import "base-enhanced/wordpress-enhanced"; // Wordpress Class
+@import "base-enhanced/form"; // Non-Standard Form Styling
+
+@import "objects/headerfooter"; // Header and Footer Styling
+
+//Styles brought in through media queries
+@import "layout/grid"; // Core Layout Classes
+
+
+@import "misc/print"; //Print Styles

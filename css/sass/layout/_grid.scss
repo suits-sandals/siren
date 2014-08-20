@@ -1,5 +1,5 @@
 /**
-Siren Framework v2.0
+Siren Framework v3.0
 File Name: Layout
 File Purpose: Classes governing layout go in here
 File Notes: 
@@ -8,7 +8,6 @@ Grid is brought in through media queries. These are the only media queries not a
 
 //Rows
 .row{
-	@extend %row;
 	width: 100%;
 	max-width: 1140px;
 	margin: 0 auto;

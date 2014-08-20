@@ -1,5 +1,5 @@
 <?php
-//Siren Framework v2.0
+//Siren Framework v3.0
 //File Name: Sample Page
 //File Purpose: To show developer class and element structure
 //File Notes: Just an example

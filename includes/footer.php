@@ -1,5 +1,5 @@
 <?php
-//Siren Framework v2.0
+//Siren Framework v3.0
 //File Name: Global Footer
 //File Purpose: Ends each page, includes styled footer, includes Javascript
 //File Notes: 

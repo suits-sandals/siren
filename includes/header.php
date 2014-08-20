@@ -1,5 +1,5 @@
 <?php
-//Siren Framework v2.0
+//Siren Framework v3.2
 //File Name: Global Header
 //File Purpose: Starts page, include <head> element, includes styled header of page
 //File Notes: 
@@ -63,13 +63,15 @@
         <?php require_once('js/enhance.js'); ?>
     </script>
 
-
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 	    <script>
-	        <?php require_once('js/polyfills/html5.js'); ?>
-	        <?php require_once('js/polyfills/respond.js'); ?>
-	    </script>
-    <![endif]-->
+	        <?php require_once(  'js/polyfills/html5.js'); ?>
+	<![endif]-->
+
+
+	<!--[if (gt IE 6) & (lte IE 8)]>
+		<link rel="stylesheet" href="css/enhanced-ie.css" type="text/css" />
+	<![endif]-->
 
 
 	<style>
@@ -77,8 +79,10 @@
     </style>
 
 	<!--[if (gt IE 6) & (lte IE 8)]>
-		<link rel="stylesheet" href="css/enhanced.css" type="text/css" />
-	<![endif]-->
+	    <script>
+	        <?php require_once( 'js/polyfills/respond.js'); ?>
+	    </script>
+    <![endif]-->
 
 	<link rel="stylesheet" href="css/enhanced.css" type="text/css" media="only all" />
 	

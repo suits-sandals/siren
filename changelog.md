@@ -273,3 +273,9 @@ GRUNT PLUGGINS TO GET
 - Improving my Progressive Enhancement approach
 - Link to notes: https://www.evernote.com/shard/s415/sh/d32cd9ce-c116-4e8b-80a6-a9cceced3502/f484b0ac5e5e5bb39bdedddc508363de
 - BIG NOTE: removed mobile detect
+
+
+************
+## 08/19/2014 ##
+- Changes related to issues with Progressive implementation found in trial run of Framework in wordpress
+- Link to notes: (Can't get right now but its all in my Evernote)
