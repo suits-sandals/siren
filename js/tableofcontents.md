@@ -7,7 +7,7 @@
 	- TOC Included
 2. POLYFILLS
 	- Contains minified polyfills necessary for Markup concerns
-	- Contents: html5.js (HTML5SHIV), 
+	- Contents: html5.js (HTML5SHIV (Printing version)), 
 
 ### FILES ###
 1. global.min.js
