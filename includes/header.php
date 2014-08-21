@@ -63,10 +63,10 @@
         <?php require_once('js/enhance.js'); ?>
     </script>
 
-    <!--[if lt IE 9]>
+
 	    <script>
 	        <?php require_once(  'js/polyfills/html5.js'); ?>
-	<![endif]-->
+	    </script>
 
 
 	<!--[if (gt IE 6) & (lte IE 8)]>
