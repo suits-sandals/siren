@@ -2,7 +2,7 @@ sassysiren
 ==========
 
 # Siren Framework # 
-##Version 3.2##
+## Version 3.2 ##
 by Zachary Brady
 www.zacharybrady.com
 www.suits-sandals.com
@@ -31,7 +31,7 @@ The following list are the dependencies built into Siren.
 
 
 ## Table of Contents ##
-This index is for files and directories in the top level directory. Sub-directories have their own indexes where noted.
+This index is for files and directories in the top level directory. Sub-directories have their own indexes where noted. Update this list and related lists throughout a project.
 
 ### Directories ###
 1. CSS
@@ -114,10 +114,10 @@ The Siren Framework is free to use in projects as allowed in its MIT license. Fe
 You can reach Zachary at zachary@sasbranding.com for questions regarding the framework, for inqueries about services offered by Suits & Sandals, LLC. , or for job opportunities.
 
 
-### Headline Format ###
+## Headline Format ##
 The required headline for the top of SCSS snippets and Markup sections
 
-Siren Framework v3.2
-File Name: {file name}
-File Purpose: {file purpose}
-File Notes: {notes for file}
+- Siren Framework v3.2
+- File Name: {file name}
+- File Purpose: {file purpose}
+- File Notes: {notes for file}
