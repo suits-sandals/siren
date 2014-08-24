@@ -134,18 +134,32 @@ module.exports = function(grunt) {
     //Performance Budget Test
     //The Options are only an example and should be changed depending on the project and performance budget
     //Waiting for API key
-   /* perfbudget: {
-      default: {
+   perfbudget: {
+      desktop: {
         options: {
-          url: 'http://google.com',
-          key: 'API_KEY_HERE'
+          url: 'http://suits-sandals.com/work',
+          key: '871a57d18e0e43f8b3c56aa2ed272d27',
+          location : 'Dulles:Chrome',
           budget: {
-            visualComplete: '4000',
-            SpeedIndex: '1000'
+            visualComplete: '2000',
+            SpeedIndex: '1500',
+            bytesIn: 320000
+          }
+        }
+      },
+      mobile: {
+        options: {
+          url: 'http://suits-sandals.com/work',
+          key: '871a57d18e0e43f8b3c56aa2ed272d27',
+          location : 'Dulles_MotoG:Motorola G - Chrome',
+          budget: {
+            visualComplete: '9000',
+            SpeedIndex: '8000',
+            bytesIn: 384000
           }
         }
       }
-    }*/
+    }
 
     
   });
@@ -158,7 +172,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
   grunt.loadNpmTasks('grunt-responsive-images'); //Responsive Image Creator; imageMagick should be installed on computer as well through homebrew
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
-  //grunt.loadNpmTasks('grunt-perfbudget'); //Performance Budget Test
+  grunt.loadNpmTasks('grunt-perfbudget'); //Performance Budget Test
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin', 'responsive_images', 'yuidoc']);

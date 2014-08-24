@@ -57,10 +57,11 @@ This index is for files and directories in the top level directory. Sub-director
 	- TOC included
 8. NODE_MODULES
 	- Contains the Node Modules for Grunt and its plugins
-9. SCRIPTS
-	- Contain PHP scripts for Bussiness logic.
+9. LIBRARIES
+	- Contains PHP libraries
+	- Contains Composer for dependency management and autoloading
 	- TOC included
-	- May be changed to LIBRARIES in the near future to abide by better standards.
+	- Composer may be moved to root directory at some point
 
 ### Files ###
 1. index.php

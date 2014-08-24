@@ -279,3 +279,7 @@ GRUNT PLUGGINS TO GET
 ## 08/19/2014 ##
 - Changes related to issues with Progressive implementation found in trial run of Framework in wordpress
 - Link to notes: (Can't get right now but its all in my Evernote)
+
+
+## 08/23/2014 ##
+https://www.evernote.com/shard/s415/sh/3c30376e-5554-45b9-8f59-09a9bc0478dc/06d5a0636b3073af01814674543b225c

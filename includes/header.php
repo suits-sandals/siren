@@ -8,16 +8,6 @@
 	$file = basename($_SERVER['PHP_SELF']);
     $pagename = str_replace(".php","",$file); 
 
-    //Form Token Vallidation To Make Sure Its Not A Random Request/Hack
-    if($pagename == 'contact' || $pagename == 'result'){
-    	//Start the session
-		session_start();
-		//Require the class
-		require('scripts/form_key.php');
-		//Start the class
-		$formKey = new formKey();
-    }
-
     require('scripts/functions.php');
 
 

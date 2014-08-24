@@ -1,83 +1,74 @@
 <?php
-
-//Siren Framework v2.0
-//File Name: Contact Page
-//File Purpose: Handles and Displays Font Results
-/*File Notes: 
- - Can be edited to handle additional forms
- - cleans text and uses a token key for validation
-
- */
-
-//Default Email to Send To
-$sendto = 'zachary@sasbranding.com';
-
-// Make sure our token was supplied
-if(isset($_POST['form_key']) || $formKey->validate())
-{
-    // Require the necessary class
-    require_once 'scripts/format-class.php';
-
-    // Create a new instance of the class
-    $format_obj = new Format_Email();
-
-    // Sanitize the action
-    $action = htmlentities($_POST['form_name'], ENT_QUOTES);
-    $form_name = str_replace("_", "",ucfirst(htmlentities($_POST['form_name'], ENT_QUOTES)));
-
-
-    //Get the right body information
-    $body_array = array(
-        'contact' => 'standard_form_body'
-    );
-
-    // Make sure the array key exists
-    if( array_key_exists($action, $body_array) )
-    {
-        // Call the right data
-        $headers = $format_obj->form_headers();
-        $subject = $format_obj->form_subject();
-        $body = $format_obj->$body_array[$action]();
-
-        if (mail($sendto, $subject, $body, $headers)) {
-            //Create results
-            $result_header = '<h1>Successful Submission</h1>';
-            $result_message ="<p>The " . $form_name . " form has been submitted successfully. You should recieve a confirmation email shortly. Thank you. </p>" . $body;
-
-            //Mail reciepts
-            mail($format_obj->get_email(), 'Reciept of Submission to the Form: ' . $form_name, "Your Message: \n" . $body, 'From: ' . $sendto);
-        } 
-        else {
-            //Create results
-            $result_header = '<h1>Submission Failed</h1>';
-            $result_message ="<p>Sorry, your submission for the " . $form_name . " failed. Please try again. </p>"
-                ."<a href=".$action." class='button'>Go Back</a>";
-        }
-
-        
-
-    }
-    else
-    {
-        //Create results
-        $result_header = '<h1>Form Submission Was Invalid</h1>';
-        $result_message ="<p>Your submission for the " . $form_name . " form has been deemed invalid. </p>"
-                        ."<a href=".$action." class='button'>Go Back</a>";
-
-    }
-
-}
-else
-{
-    //Create results
-    $result_header = '<h1>Form Submission Was Invalid</h1>';
-    $result_message ="<p>Your submission for the " . $form_name . " form has been deemed invalid. </p>"
-                    ."<a href=".$action." class='button'>Go Back</a>";
-}
-
-//Display Result
-echo $result_header;
-echo $result_message;
-
-
+session_start();
+ini_set('display_errors', 1); 
+//Siren Framework v3.3
+//File Name: Form Results
+//File Purpose: The contact form handling
+//File Notes:
 ?>
+
+<?php 
+	//Load Libraries
+	require('libraries/vendor/autoload.php');
+
+	require_once('includes/header.php'); 
+?>
+
+<?php
+
+	//Get captcha information and check it
+	$captcha_code = $_SESSION['phrase'];
+	$captcha_input = $_POST['input_captcha'];
+
+	if($captcha_code == $captcha_input){
+
+		//Set upvallidation for submitted form
+		$v = new Valitron\Validator($_POST);
+		$v->rule('required', ["input_name", "input_email", "input_message"]);
+		$v->rule('email', "input_email");
+
+		if($v->validate()) {
+			//Assign email recipient
+			$sendto = "zachary@sasbranding.com";
+
+			//Create headers
+			$headers = "From: " .  $_POST['input_email'];
+
+			$subject = "Email from" . $_POST['input_name'];
+
+			//Create Email Message
+	        $body = "Name: " . $_POST['input_name'] . "\n"
+				. "Email: " . $_POST['input_email'] . "\n"
+				. "Company: " . $_POST['input_company'] . "\n"
+				. "Message: " . $_POST['input_message'] . "\n";
+
+			//Deliver Message
+			mail($sendto, $subject, $body, $headers);
+
+			//Mail reciepts
+			mail($_POST['input_email'], 'Reciept of Submission', "Your Message: \n" . $body, 'From: ' . $sendto);
+
+			//Display Results
+			echo '<h2>Submission Successful</h2>';
+			//Print body and change newline characters to line break
+			echo '<div>Reciept of message:';
+				echo ' <p>' .  str_replace("\n", "</br>",$body) . '</p>';
+			echo '</div>';
+
+
+		} else {
+		    echo '<h1>Submission Failed</h1>';
+		    echo '<p> Errors are listed below. Please return to the form and try again</p>';
+		    echo '<ul>';
+			   	foreach($v->errors() as $error){
+			   		echo '<li>' . $error[0] . '</li>';
+			   	}
+		   	echo '</ul>';
+		}
+	} else {
+		 echo '<h1>Submission Failed</h1>';
+		    echo '<p>Your input for the Captcha was incorrect. Please return to the form and try again.</p>';
+	}
+?>
+
+<?php require_once('includes/footer.php'); ?>
