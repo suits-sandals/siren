@@ -1,18 +1,20 @@
 <?php
+	//Siren Framework v3.3
+	//File Name: Contact Page
+	//File Purpose: The Main Contact Page
+	//File Notes:
+
+	session_start();
+	ini_set('display_errors', 1); 
 	//Load Libraries
-	require('libraries/vendor/autoload.php');
+	require_once('libraries/Doctrine/SplClassLoader.php');
 
 	//Create Captcha
+	$loadCaptcha = new SplClassLoader('Gregwar', 'libraries/');
+	$loadCaptcha->register();
 	$builder = new Gregwar\Captcha\CaptchaBuilder;
 	$builder->build();
-	session_start();
 	$_SESSION['phrase'] = $builder->getPhrase();
-
-
-//Siren Framework v3.3
-//File Name: Contact Page
-//File Purpose: The Main Contact Page
-//File Notes:
 ?>
 
 <?php 

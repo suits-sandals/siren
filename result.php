@@ -1,16 +1,18 @@
 <?php
-session_start();
-ini_set('display_errors', 1); 
-//Siren Framework v3.3
-//File Name: Form Results
-//File Purpose: The contact form handling
-//File Notes:
+	//Siren Framework v3.3
+	//File Name: Form Results
+	//File Purpose: The contact form handling
+	//File Notes:
+
+	session_start();
+	ini_set('display_errors', 1); 
+	//Load Libraries
+	require_once('libraries/Doctrine/SplClassLoader.php');
+	$loadValitron = new SplClassLoader('Valitron', 'libraries/');
+	$loadValitron->register();
 ?>
 
 <?php 
-	//Load Libraries
-	require('libraries/vendor/autoload.php');
-
 	require_once('includes/header.php'); 
 ?>
 
