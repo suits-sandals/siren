@@ -1,6 +1,0 @@
-{
-    "require": {
-        "vlucas/valitron": "1.1.7",
-        "gregwar/captcha": "dev-master"
-    }
-}
