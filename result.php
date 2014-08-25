@@ -5,14 +5,19 @@
 	//File Notes:
 
 	session_start();
-	ini_set('display_errors', 1); 
 	//Load Libraries
 	require_once('libraries/Doctrine/SplClassLoader.php');
 	$loadValitron = new SplClassLoader('Valitron', 'libraries/');
 	$loadValitron->register();
-?>
 
-<?php 
+	//Page Data Variables
+	$pagename = 'results';
+
+    $meta_title = 'Results';
+    $meta_desc = "Contact Form Result Page";
+    $meta_keywords = "stuff";
+
+	//Header 
 	require_once('includes/header.php'); 
 ?>
 

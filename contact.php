@@ -5,7 +5,6 @@
 	//File Notes:
 
 	session_start();
-	ini_set('display_errors', 1); 
 	//Load Libraries
 	require_once('libraries/Doctrine/SplClassLoader.php');
 
@@ -15,9 +14,15 @@
 	$builder = new Gregwar\Captcha\CaptchaBuilder;
 	$builder->build();
 	$_SESSION['phrase'] = $builder->getPhrase();
-?>
 
-<?php 
+	//Page Data Variables
+	$pagename = 'contact';
+
+    $meta_title = 'Contact';
+    $meta_desc = "Contact Form";
+    $meta_keywords = "stuff";
+
+	//Header
 	require_once('includes/header.php'); 
 ?>
 

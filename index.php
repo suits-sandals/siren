@@ -1,11 +1,20 @@
 <?php
-//Siren Framework v3.0
-//File Name: Sample Page
-//File Purpose: To show developer class and element structure
-//File Notes: Just an example
-?>
+	//Siren Framework v3.0
+	//File Name: Sample Page
+	//File Purpose: To show developer class and element structure
+	//File Notes: Just an example
 
-<?php require_once('includes/header.php'); ?>
+	//Page Data Variables
+	$pagename = 'index';
+
+    $meta_title = 'Homepage';
+    $meta_desc = "Welcome to the site";
+    $meta_keywords = "stuff";
+
+
+	//Header
+	require_once('includes/header.php'); 
+?>
 
 <!-- Examples of classes and how to set up section and article correctly -->
 

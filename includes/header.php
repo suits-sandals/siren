@@ -4,24 +4,6 @@
 //File Purpose: Starts page, include <head> element, includes styled header of page
 //File Notes: 
 
-	//Get Page Name
-	$file = basename($_SERVER['PHP_SELF']);
-    $pagename = str_replace(".php","",$file); 
-
-    require('scripts/functions.php');
-
-
-    //SET UP META DATA
-    if($pagename == 'contact' || $pagename == 'result'){
-    	$title = 'Contact';
-    	$desc = "The contact page";
-    	$keywords = "contact";
-    }
-    else{
-    	$title = 'Welcome to this site.';
-    	$desc = "A bit about this site.";
-    	$keywords = "Stuff";
-    }
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +18,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="For SEO">
 
-	<title><?php echo $title; ?>| Suits &amp; Sandals Sample Framework</title>
-	<meta name="description" content="<?php echo $desc; ?>"/>
-	<meta name="keywords" content="<?php echo $keywords; ?>">
+	<title><?php echo $meta_title; ?>| Suits &amp; Sandals Sample Framework</title>
+	<meta name="description" content="<?php echo $meta_desc; ?>"/>
+	<meta name="keywords" content="<?php echo $meta_keywords; ?>">
 
 	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
 	<?php 

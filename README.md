@@ -62,6 +62,8 @@ This index is for files and directories in the top level directory. Sub-director
 	- Contains Composer for dependency management and autoloading
 	- TOC included
 	- Composer may be moved to root directory at some point
+10. LANG
+	- Contains files for Valitron language selection
 
 ### Files ###
 1. index.php
