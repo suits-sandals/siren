@@ -1,18 +1,35 @@
-//Siren Framework v3.0
-//File Name: Variables 
-//File Purpose: 
-/*File Notes: 
-*/
+/********
+
+Siren Framework v3.3
+
+File Name: Variables
+
+File Purpose:
+
+File Notes: 
+	- Do not change the base font size
+
+
+*********/
+
+/*-------------------------*\
+  #Global-Variables
+\*-------------------------*/
 
 $hundred : 100%; //For Math
 
-//Vertical Rhythm and Modular Scale
-//Baseline
-//Do not change any of this font stuff!
+
+
+
+/*-------------------------*\
+  #Vetical-Rhythm-And-Modular-Scale
+\*-------------------------*/
+
+
 $base-font-size : 16px; 
 $base-line-height : 24px;
 
-//Modular Ratior
+//Modular Ratio
 $ratio : $golden;
 
 $primary-size : $base-font-size;
@@ -20,14 +37,27 @@ $secondary-size : 10px;
 $base-size: $primary-size $secondary-size;
 
 
-//Colors
+
+
+
+/*-------------------------*\
+  #Colors
+\*-------------------------*/
+
 $color1: #000; //Black
 $color2: #fff;  //White
 $color3: #745050;  //Pale Red
 $color4: #afafaf;  //Gray
 
 
-//Fonts
+
+
+
+
+/*-------------------------*\
+  #Fonts
+\*-------------------------*/
+
 %primaryFont{
 	font-family: "proxima-nova", "Arial", sans-serif;
 	font-style: normal;

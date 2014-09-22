@@ -1,14 +1,23 @@
-/**
-Siren Framework v3.0
-File Name: Header and Footer
-File Purpose: Classes for the header and footer elements
-File Notes: 
-- The header is designed to be a hamburger menu for the mobile view
-- The footer is kept simple by default
-*/
+/********
 
-//Main Header
-.header-main{
+Siren Framework v3.3
+
+File Name: Header and Footer
+
+File Purpose: Classes for the header and footer elements
+
+File Notes: 
+  - The header is designed to be a hamburger menu for the mobile view
+	- The footer is kept simple by default
+
+*********/
+
+
+/*-------------------------*\
+  #Header
+\*-------------------------*/
+
+.header{
 	text-align: center;
 	background: $color1;
 	color: $color2;
@@ -18,12 +27,19 @@ File Notes:
 }
 
 //Site Title
-.title-main_logo{
+.siteTitle_logo{
 	margin: 0;
 }
 
-//Nav Start
-.nav-main_list{
+
+
+
+
+/*-------------------------*\
+  #Navigation
+\*-------------------------*/
+
+.siteNav_list{
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -36,11 +52,11 @@ File Notes:
   	}
 }
 
-.nav-main_item{
+.siteNav_item{
 	padding: 0.5em 0;
 }
 
-.nav-main_link{ 
+.siteNav_link{ 
 	color: $color2;
 	padding: 1em 0;
 
@@ -49,7 +65,7 @@ File Notes:
 	}
 }
 
-.nav-main_button{
+.siteNav_button{
 	color: $color1;
 	background: $color2;
 	width: 100%;
@@ -58,12 +74,16 @@ File Notes:
 	display: block;
 }
 
-//Nav End
 
 
 
-//Footer
-.footer-main{
+
+
+/*-------------------------*\
+  #Footer
+\*-------------------------*/
+
+.footer{
 	text-align: center;
 	background: $color1;
 	color: $color2;
@@ -71,8 +91,7 @@ File Notes:
 	padding: 1em;
 }
 
-.footer-main_content{
+.footer_content{
 	max-width: 100%;
 	margin: 0;
 }
-

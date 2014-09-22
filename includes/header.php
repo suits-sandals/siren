@@ -66,22 +66,22 @@
 <body class="page page-<?php echo $pagename; ?>"> 
 
 <!-- main-header -->
-<header class="header-main" role="banner">
+<header class="header" role="banner">
 
 	<!-- main-title -->
-	<div class="title-main">
-		<h1 class="title-main_logo">
+	<div class="siteTitle">
+		<h1 class="siteTitle_logo">
 			Demo
 		</h1>
 	</div>
 
-	<nav class="nav-main" role="navigation">
-		<a href="#navList" class="nav-main_button" id="navBtn">MENU</a>
-		<ul class="nav-main_list" id="navList">
-			<li class="nav-main_item" ><a href="index" class="nav-main_link">Home</a></li>
-			<li class="nav-main_item" ><a href="#" class="nav-main_link">About</a></li>
-			<li class="nav-main_item" ><a href="#" class="nav-main_link">Another Page</a></li>
-			<li class="nav-main_item" ><a href="contact" class="nav-main_link">Contact</a></li>
+	<nav class="siteNav" role="navigation">
+		<a href="#navList" class="siteNav_button" id="navBtn">MENU</a>
+		<ul class="siteNav_list" id="navList">
+			<li class="siteNav_item" ><a href="index" class="nav-main_link">Home</a></li>
+			<li class="siteNav_item" ><a href="#" class="nav-main_link">About</a></li>
+			<li class="siteNav_item" ><a href="#" class="nav-main_link">Another Page</a></li>
+			<li class="siteNav_item" ><a href="contact" class="nav-main_link">Contact</a></li>
 		</ul>
 	</nav>
 

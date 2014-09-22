@@ -1,12 +1,21 @@
-/**
-Siren Framework v3.0
-File Name: Layout
-File Purpose: Classes governing layout go in here
-File Notes: 
-Grid is brought in through media queries. These are the only media queries not allowed in the Responsive folder
-*/
+/********
 
-//Rows
+Siren Framework v3.3
+
+File Name: Layout
+
+File Purpose: Element styling on top of basic style sheet (basic/_core.scss)
+
+File Notes: 
+	- Grid is brought in through media queries. 
+	- Media queries should be brought into _responsive.scss for production
+
+*********/
+
+
+/*-------------------------*\
+  #Rows
+\*-------------------------*/
 .row{
 	width: 100%;
 	max-width: 1140px;
@@ -15,9 +24,15 @@ Grid is brought in through media queries. These are the only media queries not a
 }
 
 
+
+
+
 @media only screen and (min-width: 700px)  {
 	
-	//Columns
+	/*-------------------------*\
+	  #Layout-Columns
+	\*-------------------------*/
+
 	.col-half, .col-thrd{
 		padding: 0 0.5em;
 		float: left;

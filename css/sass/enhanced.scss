@@ -1,30 +1,77 @@
-/*
-Siren Them v3.0
-File Name: Collect Styles
+/********
+
+Siren Framework v3.3
+
+File Name: Enhanced Styles
+
 File Purpose: Collect the advanced styles
+
 File Notes: 
-- This is built from mobile Up
-- All the initial style are for mobile views and everything else is brought in through media-queries
-*/
+	- This is built from mobile Up
+	- All the initial style are for mobile views and everything else is brought in through media-queries
 
 
-//Imports, variables, and baseline. All also established in basic.scss
+*********/
+
+
+/*-------------------------*\
+  #Mixins-Variables
+\*-------------------------*/
+
 @import "compass/typography/vertical_rhythm";
 @import "compass/css3";
 @import "modular-scale";
-
 @import "mixins/mixins"; 
-@import "variables/variables"; // Import variables after reset; needed because of extendable 
+@import "variables/variables"; 
 
-//Base Styling Applied to Elements and Simple Classes
-@import "base-enhanced/core-enhanced"; // Non-Standard Form Styling
-@import "base-enhanced/form"; // Non-Standard Form Styling
+
+
+
+
+/*-------------------------*\
+  #Core
+\*-------------------------*/
+
+@import "base-enhanced/core-enhanced"; 
+@import "base-enhanced/form";
+
+
+
+
+
+/*-------------------------*\
+  #Objects
+\*-------------------------*/
 
 @import "objects/headerfooter"; // Header and Footer Styling
 
-//Styles brought in through media queries
-@import "layout/grid"; // Core Layout Classes
-@import "responsive/header"; // Core Layout Classes
-@import "responsive/responsive"; // Responsive
+
+
+
+
+/*-------------------------*\
+  #Layout
+\*-------------------------*/
+
+@import "layout/grid";
+
+
+
+
+
+/*-------------------------*\
+  #Responsive
+\*-------------------------*/
+
+@import "responsive/header";
+@import "responsive/responsive";
+
+
+
+
+
+/*-------------------------*\
+  #Misc
+\*-------------------------*/
 
 @import "misc/print"; //Print Styles

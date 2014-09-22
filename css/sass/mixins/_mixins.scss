@@ -1,16 +1,45 @@
-/**
-Siren Framework v3.2
+/********
+
+Siren Framework v3.3
+
 File Name: Mixins
+
 File Purpose: This file contains mixins
+
 File Notes: 
-Yeah yeah, I know. I took a lot of these from Chris Coyier
-*/
+  - Yeah yeah, I know. I took a lot of these from Chris Coyier
+
+*********/
+
+/*-------------------------*\
+  #Cross-Browser
+\*-------------------------*/
 
 //Make an element an inline-block with a simple fallback
 @mixin simple-inline-block(){
 	display: inline;
 	display: inline-block;
 }
+
+
+//Flexbox
+@mixin flex-box(){
+  @include simple-inline-block();
+  display: -webkit-box; 
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex; 
+  display: flex; 
+}
+
+
+
+
+
+
+/*-------------------------*\
+  #Layout
+\*-------------------------*/
 
 //Quick and easy coverall by Chris "The Man" Coyier
 @mixin coverer {
@@ -29,6 +58,14 @@ Yeah yeah, I know. I took a lot of these from Chris Coyier
   transform: translate(-50%, -50%);
 }
 
+
+
+
+
+/*-------------------------*\
+  #Typographic
+\*-------------------------*/
+
 @mixin word-wrap() {
   word-break:     break-word;
   -webkit-hyphens: auto;
@@ -42,6 +79,14 @@ Yeah yeah, I know. I took a lot of these from Chris Coyier
   text-overflow: ellipsis;
 }
 
+
+
+
+
+/*-------------------------*\
+  #Skin
+\*-------------------------*/
+
 //Function to return a semi transparent black rgba color
 @function black($opacity) {
   @return rgba(black, $opacity)
@@ -50,14 +95,4 @@ Yeah yeah, I know. I took a lot of these from Chris Coyier
 //Function to return a semi transparent white rgba color
 @function white($opacity) {
   @return rgba(white, $opacity)
-}
-
-//Flexbox
-@mixin flex-box(){
-  @include simple-inline-block();
-  display: -webkit-box; 
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex; 
-  display: flex; 
 }

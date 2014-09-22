@@ -1,10 +1,20 @@
-/**
-Siren Framework v3.0
-File Name: Core Styles
-File Purpose: Basic styling served to all browsers
-File Notes: Based on: normalize.css v3.0.1 | MIT License | git.io/normalize
-*/
+/********
 
+Siren Framework v3.3
+
+File Name: Core Styles
+
+File Purpose: Basic styling served to all browsers
+
+File Notes: 
+  - Based on: normalize.css v3.0.1 | MIT License | git.io/normalize
+
+*********/
+
+
+/*-------------------------*\
+  #Document-Level
+\*-------------------------*/
 
 html {
   @extend %primaryFont;
@@ -12,31 +22,48 @@ html {
   -webkit-text-size-adjust: 100%; 
 }
 
+
 body {
   margin: 1em;
 }
 
-/*Give HTML5 Elements the right display value*/
+
+
+
+
+/*-------------------------*\
+  #HTML5
+\*-------------------------*/
+
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
   display: block;
 }
+
 
 audio, canvas, progress, video {
   display: inline-block; 
   vertical-align: baseline; 
 }
 
+
 audio:not([controls]) {
   display: none;
   height: 0;
 }
+
 
 [hidden], template {
   display: none;
 }
 
 
-/* Links */
+
+
+
+/*-------------------------*\
+  #Links
+\*-------------------------*/
+
 a {
   background: transparent;
 
@@ -50,7 +77,10 @@ a {
 }
 
 
-/* Headline Elements */
+/*-------------------------*\
+  #Headers
+\*-------------------------*/
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -62,7 +92,13 @@ h1,h2,h3, h4{
 }
 
 
-/* Text-level semantics */
+
+
+
+/*-------------------------*\
+  #Inline-Content
+\*-------------------------*/
+
 b, strong {
   font-weight: bold;
 }
@@ -87,7 +123,12 @@ small {
   font-size: 80%;
 }
 
-/*Grouping content*/
+
+
+
+/*-------------------------*\
+  #Grouping-Content
+\*-------------------------*/
 
 figure {
   margin: 1em 40px;
@@ -122,7 +163,14 @@ q:before, q:after, blockquote:before, blockquote:after {
   content: none;
 }
 
-/* Forms */
+
+
+
+
+/*-------------------------*\
+  #Forms
+\*-------------------------*/
+
 button, input, optgroup, select, textarea {
   color: inherit; 
   font: inherit; 
@@ -183,7 +231,13 @@ optgroup {
   font-weight: bold;
 }
 
-/* Tables */
+
+
+
+
+/*-------------------------*\
+  #Tables
+\*-------------------------*/
 
 table {
   border-collapse: collapse;
