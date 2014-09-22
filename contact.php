@@ -32,20 +32,20 @@
 
 	<form  action="result" method="post" enctype="multipart/form-data" name="contact" id="contact">
 		<input type="hidden" name="form_name" value="contact" />
-        <fieldset class="field-container">
+        <fieldset>
 			<label for="input_name">Name:</label>
 			<input type="text" id="form_name" name="input_name" required class="required" />
 
 		</fieldset>	
-		<fieldset class="field-container" >
+		<fieldset
 			<label for="input_company">Company:</label>
 			<input type="text" id="form_company" name="input_company" />
 		</fieldset>
-		<fieldset class="field-container" >
+		<fieldset>
 			<label for="input_email">Email:</label>
 			<input type="email" id="form_email"  name="input_email" required class="required email" />
 		</fieldset>
-		<fieldset class="field-container" >
+		<fieldset>
 			<label for="input_message">Message:</label>
 			<textarea name="input_message" ></textarea>
 		</fieldset> 

@@ -2,7 +2,7 @@ sassysiren
 ==========
 
 # Siren Framework # 
-## Version 3.2 ##
+## Version 3.3 ##
 by Zachary Brady
 www.zacharybrady.com
 www.suits-sandals.com

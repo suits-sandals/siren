@@ -1,23 +1,39 @@
-/**
-Siren Framework v3.0
-File Name: Forms
-File Purpose: The standard stylings for forms
-File Notes: 
-*/
+/********
 
-//Form Element and Creation of Rows
+Siren Framework v3.3
+
+File Name: Forms
+
+File Purpose: The standard echanced stylings for form elements.
+
+File Notes: 
+
+*********/
+
+
+/*-------------------------*\
+	#Form-Containers
+\*-------------------------*/
+
 form{
 	width: 100%;
 }
 
-.field-container{
+
+fieldset{
 	width: 100%;
 	margin: 1em 0;
 	clear: both;
 	overflow: hidden;
 }
 
-//Inputs, Selects, and Textareas
+
+
+
+
+/*-------------------------*\
+	#Inputs-Selects-Textarea
+\*-------------------------*/
 input, textarea{
 	font-size : 1em;
 	border: 1px $color1 solid;
@@ -31,11 +47,26 @@ input, select{
 	height: 35px;
 }
 
+
+
+
+
+/*-------------------------*\
+	#Inputs
+\*-------------------------*/
+
 input:focus{
 	color: $color4;
 }
 
-//For Special Arrow Styling
+
+
+
+
+/*-------------------------*\
+	#Selects
+\*-------------------------*/
+
 .select {
 	background: url(../images/small_arrow.png) no-repeat right $color2;
 	border: 1px $color1 solid;
@@ -56,13 +87,27 @@ select {
 	padding: 2px;
 }
 
+
+
+
+
+/*-------------------------*\
+	#Textarea
+\*-------------------------*/
+
 textarea{
 	height: 100px;
 	resize: none;
 	overflow: auto;
 }
 
-//Checkboxes and Radiobuttons
+
+
+
+/*-------------------------*\
+	#Checkboxes-Radiobuttons
+\*-------------------------*/
+
 .checkbox_label, .checkbox{
 	width: auto;
 	height: auto;
@@ -72,7 +117,14 @@ textarea{
 	display: inline;
 }
 
-//Submit Button
+
+
+
+
+/*-------------------------*\
+	#Submit-Buttons
+\*-------------------------*/
+
 input[type='submit']{
 	text-align: center;
 	background: $color2;
@@ -85,6 +137,7 @@ input[type='submit']{
 		color: $color4;
 	}
 }
+
 
 button {
   overflow: visible;
