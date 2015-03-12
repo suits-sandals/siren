@@ -23,13 +23,13 @@
         var ref = window.document.getElementsByTagName( "script" )[ 0 ];
         var script = window.document.createElement( "script" );
         script.src = src;
+        script.async = true;
         ref.parentNode.insertBefore( script, ref );
         return script;
     }
 
     // expose it
     enhance.loadJS = loadJS;
-
 
     // getMeta function: get a meta tag by name
     // NOTE: meta tag must be in the HTML source before this script is included in order to guarantee it'll be found
@@ -79,15 +79,6 @@
     // expose it
     enhance.cookie = cookie;
 
-    /* Enhancements for qualified browsers - “Cutting the Mustard”
-        Add your qualifications for major browser experience divisions here.
-        For example, you might choose to only enhance browsers that support document.querySelector (IE8+, etc).
-        Use case will vary.
-        */
-    if( !( "querySelector" in doc ) ){
-        // basic browsers: last stop here!
-        return;
-    }
 
     // From here on we're dealing with qualified browsers.
 
@@ -102,6 +93,5 @@
     if( fullJS ){
         loadJS( fullJS.content );
     }
-
 
 }( this ));

@@ -120,7 +120,7 @@ You can reach Zachary at zachary@sasbranding.com for questions regarding the fra
 ## Headline Format ##
 The required headline for the top of SCSS snippets and Markup sections
 
-- Siren Framework v3.2
+- Siren Framework v3.3
 - File Name: {file name}
 - File Purpose: {file purpose}
 - File Notes: {notes for file}
