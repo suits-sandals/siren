@@ -1,18 +1,13 @@
 # Table of Contents for the JS/JSSRC Directory #
-## As of Siren 3.2 ##
+## As of Siren 3.4 ##
 This Table of Contents goes through top level files first and then the files in the different subdirectories grouped by subdirectory.
 
 ### FILES ###
-1. functions.js
-	- Custom function library used in many projects
-	- Provided Vanilla JS alternitives to jQuery
-	- Should be edited based on project needs
-2. global.js
+1. global.js
 	- Development file for global javascript calls
-3. contact.js
+2. contact.js
 	- Development file for contact form vallidation
-4. enhance.js
-	- Development file for the testing framework
+
 
 
 ### DIRECTORIES ###
@@ -22,7 +17,9 @@ The directories in the JS/JSSRC folder and notes.
 	- Javascript Libraries that may or may not be included in the project
 2. PLUGINS
 	- Javascript and jQuery plugins that may or may not be included in the project
-3. POLYFILLS
+3. LOADING
+	- Contains scripts for handling asyncronous loading of assets
+4. POLYFILLS
 	- Polyfills for Javascript APIs etc
 
 
@@ -36,14 +33,15 @@ The directories in the JS/JSSRC folder and notes.
 	- part of the the Greensock Library
 	- If Javascript animations are needed use this library
 
-#### PLUGINS ####
-1. fit-text.js
-	- jQuery plugin for Fitting text fluidly by Dave Rupert
-2. fit-vid.js
-	- jQuery plugin for Fitting Videios fluidly by Chris Coyier
-3. validate.js
-	- A simple vallidation library for forms by Rick Harrison
+#### LOADING ####
+1. cookie.js
+	- For cookie handling. By Filament group.
+2. loadcss.js
+	- For asyncronously loading CSS stylesheets. By Filament group.
+3. loadjs.js
+	- For asyncronously loading JS files. By Filament group. 
+
 
 #### POLYFILLS ####
-1. classlist.js
-	- For polyfilling the classlist API
+1. respimage.js
+	- Polyfill for responsive images

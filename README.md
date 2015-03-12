@@ -2,7 +2,7 @@ sassysiren
 ==========
 
 # Siren Framework # 
-## Version 3.3 ##
+## Version 3.4 ##
 by Zachary Brady
 www.zacharybrady.com
 www.suits-sandals.com
@@ -20,12 +20,10 @@ The following list are the dependencies built into Siren.
 	- Default plugins listed in TOC
 - SCSS 3.3+ (Soon to settle on 3.4+)
 - Compass 
-	- Sassy-math
-	- Modular-scale 2.0
 - HTML5SHIV
 - Respond.js
 - Boxsizing Polyfill
-- Enhance.js
+- loadJS.js, loadCSS.js, and cookies.js by Filament Group ( https://github.com/filamentgroup )
 - Git
 	- Not so much a dependency as highly recomended
 
@@ -40,29 +38,25 @@ This index is for files and directories in the top level directory. Sub-director
 2. DOCS
 	- Contains the Javascript documentation in YUI format.
 	- View in browser for best experience
-3. FONTS
-	- Place custom fonts in here and reference with @font-face for enhanced experience
-4. ICONS
-	- Favicons ect. go in here
-5. IMAGES
+3. IMAGES
 	- Contains the images for the project and two sub-directories for storing the raw image files prior to Optimization and/or Responsive Image creation
 	- IMAGESRESSRC : For images that will be used as a base for responsive image sets
 	- IMAGESRC : For images that need to be optimized
-6. INCLUDES
+4. INCLUDES
 	- For PHP files containing markup snippets such as the header.php and footer.php files
 	- TOC included
-7. JS
+5. JS
 	- Contains the project Javascript files. 
 	- Seperated into Production and Development files.
 	- TOC included
-8. NODE_MODULES
+6. NODE_MODULES
 	- Contains the Node Modules for Grunt and its plugins
-9. LIBRARIES
+7. LIBRARIES
 	- Contains PHP libraries
 	- Contains Composer for dependency management and autoloading
 	- TOC included
 	- Composer may be moved to root directory at some point
-10. LANG
+8. LANG
 	- Contains files for Valitron language selection
 
 ### Files ###
@@ -77,12 +71,15 @@ This index is for files and directories in the top level directory. Sub-director
 5. Gruntfile.js
 	- The projects Gruntfile. By default the Gruntfile includes the plugins:
 		- grunt-contrib-watch : For automating Grunt tasks during file changes.
-		- grunt-contrib-uglify : For Uglifiing Javascript and concatenating files
-		- grunt-contrib-compass : For running compass tasks and processing the SCSS
-		- grunt-contrib-jshint : For checking for javascript errors
-		- grunt-contrib-imagemin : For optimizing images
-		- grunt-responsive-images : Used to auto generate different image sizes given an origin image.
-		- grunt-contrib-yuidoc : For autogenerating Javascript documentation as formated in the comments
+        - grunt-contrib-uglify : For Uglifiing Javascript and concatenating files
+        - grunt-contrib-compass : For running compass tasks and processing the SCSS
+        - grunt-contrib-jshint : For checking for javascript errors
+        - grunt-contrib-imagemin : For optimizing images
+        - grunt-combine-mq : Used to combine like mediaqueries in the production style sheet.
+        - grunt-contrib-cssmin : Used to minify the Critical CSS stylesheets
+        - grunt-criticalcss : Determines the critical CSS for different templates and delivers style sheets with just the critical CSS to be inlined
+        - grunt-contrib-yuidoc : For autogenerating Javascript documentation as formated in the comments
+		- grunt-perfbudget : For running automated performance budget tests
 6. config.rb 
 	- The Compass configuration file.
 	- Processed CSS is compressed by default but can be processed normally for debugging.
@@ -99,6 +96,7 @@ This index is for files and directories in the top level directory. Sub-director
 	- The JSON file handling Node packages for Grunt
 12. yuidoc.json
 	- The JSON file configuring the YUI Javascript Documentation
+13. favicon.ico
 
 
 ## Philosophy ##
@@ -120,7 +118,7 @@ You can reach Zachary at zachary@sasbranding.com for questions regarding the fra
 ## Headline Format ##
 The required headline for the top of SCSS snippets and Markup sections
 
-- Siren Framework v3.3
+- Siren Framework v3.4
 - File Name: {file name}
 - File Purpose: {file purpose}
 - File Notes: {notes for file}

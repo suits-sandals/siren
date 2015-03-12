@@ -16,43 +16,18 @@ Test if a css selector can be used
 @param widthLimit {int} 
 */
 
-var mobileNav = function(triggerID, widthLimit){
-	
-	if(window.innerWidth < widthLimit){
-		var trigger = document.getElementById(triggerID);
-		if(trigger){
-			trigger.onclick = function(){
-				activeState(this);
-				if(this.classList.contains('active')){
-					this.innerHTML = "CLOSE";
-				}
-				else{
-					this.innerHTML = "MENU";
-				}
-				return false;
-			};
-		}
+$('.siteNav_button').click(function(){
+
+	if($(this).hasClass('active')){
+
+		$(this).removeClass('active');
+		$('.siteNav_list').removeClass('active');
+
 	}
-};
+	else {
 
-/**
-@class callFunctions
-@static
-*/
+		$(this).addClass('active');
+		$('.siteNav_list').addClass('active');
 
-/**
-@method CallsOnLoad
-*/
-
-window.onload=function(){
-	mobileNav("navBtn", 600);
-};
-
-/**
-@method CallsOnResize
-@param selector {string} 
-*/
-
-window.onresize=function(){
-	mobileNav("navBtn", 600);
-};
+	}
+});

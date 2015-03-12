@@ -41,21 +41,11 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/assyncronous.html">assyncronous</a></li>
-            
-                <li><a href="../classes/browserSupport.html">browserSupport</a></li>
-            
-                <li><a href="../classes/callFunctions.html">callFunctions</a></li>
-            
-                <li><a href="../classes/classManipulation.html">classManipulation</a></li>
-            
                 <li><a href="../classes/form-browserSupport.html">form-browserSupport</a></li>
             
                 <li><a href="../classes/formValidation.html">formValidation</a></li>
             
                 <li><a href="../classes/navigationUI.html">navigationUI</a></li>
-            
-                <li><a href="../classes/styleManipulation.html">styleManipulation</a></li>
             
             </ul>
 
@@ -64,8 +54,6 @@
                 <li><a href="../modules/Contact-Page.html">Contact-Page</a></li>
             
                 <li><a href="../modules/Global.html">Global</a></li>
-            
-                <li><a href="../modules/Siren-Core.html">Siren-Core</a></li>
             
             </ul>
         </div>
@@ -124,46 +112,21 @@ Test if a css selector can be used
 @param widthLimit {int} 
 */
 
-var mobileNav = function(triggerID, widthLimit){
-	
-	if(window.innerWidth &lt; widthLimit){
-		var trigger = document.getElementById(triggerID);
-		if(trigger){
-			trigger.onclick = function(){
-				activeState(this);
-				if(this.classList.contains(&#x27;active&#x27;)){
-					this.innerHTML = &quot;CLOSE&quot;;
-				}
-				else{
-					this.innerHTML = &quot;MENU&quot;;
-				}
-				return false;
-			};
-		}
+$(&#x27;.siteNav_button&#x27;).click(function(){
+
+	if($(this).hasClass(&#x27;active&#x27;)){
+
+		$(this).removeClass(&#x27;active&#x27;);
+		$(&#x27;.siteNav_list&#x27;).removeClass(&#x27;active&#x27;);
+
 	}
-};
+	else {
 
-/**
-@class callFunctions
-@static
-*/
+		$(this).addClass(&#x27;active&#x27;);
+		$(&#x27;.siteNav_list&#x27;).addClass(&#x27;active&#x27;);
 
-/**
-@method CallsOnLoad
-*/
-
-window.onload=function(){
-	mobileNav(&quot;navBtn&quot;, 600);
-};
-
-/**
-@method CallsOnResize
-@param selector {string} 
-*/
-
-window.onresize=function(){
-	mobileNav(&quot;navBtn&quot;, 600);
-};
+	}
+});
 
     </pre>
 </div>

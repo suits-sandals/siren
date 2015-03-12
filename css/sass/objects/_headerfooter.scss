@@ -21,7 +21,7 @@ File Notes:
 	text-align: center;
 	background: $color1;
 	color: $color2;
-	@include trailer;
+	margin-bottom: $baseline;
 	padding: 1em;
 	overflow: hidden;
 }
@@ -45,7 +45,7 @@ File Notes:
 	margin: 0;
 	max-height: 0px;
   	overflow: hidden;
-	@include transition(.5s);
+	@include transition(.5s all);
 
   	&.active{
   		max-height: 999px;
@@ -86,7 +86,7 @@ File Notes:
 	text-align: center;
 	background: $color1;
 	color: $color2;
-	@include leader;
+	margin-top: $baseline;
 	padding: 1em;
 }
 

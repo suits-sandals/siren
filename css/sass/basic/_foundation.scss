@@ -1,0 +1,221 @@
+/********
+
+Siren Framework v3.4
+
+File Name: Core Styles
+
+File Purpose: Basic styling served to all browsers
+
+File Notes: 
+  - Based on: normalize.css v3.0.1 | MIT License | git.io/normalize
+
+*********/
+
+
+/*-------------------------*\
+  #Document-Level
+\*-------------------------*/
+
+html {
+  @extend %primaryFont;
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%; 
+}
+
+
+body {
+  font-size: $mobile;
+  color: $color1;
+  margin: 1em;
+}
+
+
+
+
+
+/*-------------------------*\
+  #HTML5
+\*-------------------------*/
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+  display: block;
+}
+
+
+audio, canvas, progress, video {
+  display: inline-block; 
+  vertical-align: baseline; 
+}
+
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+
+[hidden], template {
+  display: none;
+}
+
+
+
+
+
+/*-------------------------*\
+  #Links
+\*-------------------------*/
+
+a{
+  text-decoration: none; 
+  color: $color4;
+
+  &:hover, &:focus, &:active {
+    color: darken($color4,15%);
+  }
+
+  &:focus{
+    outline: 0;
+  }
+
+  &:focus img { 
+    border: 1px $color4 solid;
+  }
+}
+
+
+/*-------------------------*\
+  #Headers
+\*-------------------------*/
+
+h1,h2,h3, h4{
+  @extend %displayFont;
+  text-transform: uppercase;
+  line-height: $line-height;
+}
+
+h1  { 
+  font-size: $xLarge;
+}
+
+h2  { 
+  font-size: $large;
+}
+
+h3   { 
+  font-size: $medium;
+  text-transform: none;
+}
+
+h4 {
+  font-size: $halfstep;
+}
+
+h5 {
+  font-size: $body;
+}
+
+
+
+
+
+/*-------------------------*\
+  #Block-Level-Content
+\*-------------------------*/
+
+p, ol, ul, li{ 
+  font-size: $body;
+}
+
+p {
+  margin-bottom: $baseline;
+}
+
+
+
+/*-------------------------*\
+  #Inline-Content
+\*-------------------------*/
+
+b, strong {
+  font-weight: bold;
+}
+
+//Abbreviation
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+//Definition term
+dfn, i {
+  font-style: italic;
+}
+
+//Marked text
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+
+
+
+/*-------------------------*\
+  #Grouping-Content
+\*-------------------------*/
+
+figure {
+  margin: 1em 40px;
+}
+
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100%;
+  height: 2px;
+  background: $color1;
+  border: none;
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+q, blockquote {
+  quotes: none;
+}
+
+blockquote{
+  font-style:italic;
+  margin: 1em 2em;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+
+
+
+
+/*-------------------------*\
+  #Tables
+\*-------------------------*/
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+

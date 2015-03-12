@@ -1,0 +1,32 @@
+/********
+
+Siren Framework v3.4
+
+File Name: Responsive Layout
+
+File Purpose: Responsive Layout
+
+File Notes: 
+
+*********/	
+
+@media only screen and (min-width: 700px)  {
+
+	/*-------------------------*\
+		#Layout-Columns
+	\*-------------------------*/
+
+	.col-half, .col-thrd{
+		padding: 0 0.5em;
+		float: left;
+	}
+
+	.col-half{
+		width: 50%;
+	}
+
+	.col-thrd{
+		width: $hundred/3;
+	}
+
+}

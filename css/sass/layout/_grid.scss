@@ -1,6 +1,6 @@
 /********
 
-Siren Framework v3.3
+Siren Framework v3.4
 
 File Name: Layout
 
@@ -8,7 +8,7 @@ File Purpose: Element styling on top of basic style sheet (basic/_core.scss)
 
 File Notes: 
 	- Grid is brought in through media queries. 
-	- Media queries should be brought into _responsive.scss for production
+	- Columns are brought in through media queries
 
 *********/
 
@@ -27,22 +27,3 @@ File Notes:
 
 
 
-@media only screen and (min-width: 700px)  {
-	
-	/*-------------------------*\
-	  #Layout-Columns
-	\*-------------------------*/
-
-	.col-half, .col-thrd{
-		padding: 0 0.5em;
-		float: left;
-	}
-
-	.col-half{
-		width: 50%;
-	}
-
-	.col-thrd{
-		width: $hundred/3;
-	}
-}

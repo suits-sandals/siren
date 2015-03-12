@@ -1,0 +1,54 @@
+/********
+
+Siren Framework v3.4
+
+File Name: Responsive for the Header and Footer
+
+File Purpose: Media query calls go here for the header and footer
+
+File Notes: 
+
+
+*********/
+
+
+@media only screen and (min-width: 600px)  {
+	
+	/*-------------------------*\
+	  #Header
+	\*-------------------------*/
+
+	.siteTitle{
+		float: left;
+	}
+
+	
+
+
+
+	/*-------------------------*\
+	  #Navigation
+	\*-------------------------*/
+
+	.siteNav{
+		margin-top: 3px;
+		text-align: right;
+	}
+
+	.siteNav_list{
+		max-height: 100%;
+	}
+
+	.siteNav_item{
+		@include simple-inline-block;	
+	}
+
+	.siteNav_link{ 
+		padding: 0 1em;
+	}
+
+	.siteNav_button{
+		display: none;
+	}
+
+}

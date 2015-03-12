@@ -1,0 +1,106 @@
+/********
+
+Siren Framework v3.4
+
+File Name: Enhanced Core Styles
+
+File Purpose: Element styling on top of basic style sheet (basic/_core.scss)
+
+File Notes: 
+	- All elements are set to border-box model
+	- Font-sizes dictated through the Modular Scale Compass plugin
+	- Line-height and padding done through the Compass Vertical Rhythm system
+	- section, article, header, footer by default have side padding. This can be removed.
+
+*********/
+
+
+/*-------------------------*\
+	#Document-Level
+\*-------------------------*/
+
+html{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; *behavior: url(../js/polyfills/boxsizing.htc);
+}
+
+
+*, *:before, *:after {
+  	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit; *behavior: url(../js/polyfills/boxsizing.htc);
+}
+
+
+body{
+	margin: 0;
+}
+
+
+
+
+
+
+/*-------------------------*\
+	#Block-Level-Content
+\*-------------------------*/
+p {
+	max-width: 48em;
+}
+
+
+img{
+	max-width: 100%;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Inline-Content
+\*-------------------------*/
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+
+
+
+
+
+/*-------------------------*\
+	#Embeded-Content
+\*-------------------------*/
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Grouping-Content
+\*-------------------------*/
+
+pre {
+  overflow: auto;
+}
+
+
+

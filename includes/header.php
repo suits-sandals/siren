@@ -1,5 +1,5 @@
 <?php
-//Siren Framework v3.2
+//Siren Framework v3.4
 //File Name: Global Header
 //File Purpose: Starts page, include <head> element, includes styled header of page
 //File Notes: 
@@ -16,47 +16,77 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="For SEO">
 
 	<title><?php echo $meta_title; ?>| Suits &amp; Sandals Sample Framework</title>
 	<meta name="description" content="<?php echo $meta_desc; ?>"/>
 	<meta name="keywords" content="<?php echo $meta_keywords; ?>">
 
 	<link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
-	<?php 
-		if($pagename == 'contact'){
-		   	echo '<meta name="fulljs"  content="js/contact.min.js">';
-		}
-		else{ 
-		    echo '<meta name="fulljs"  content="js/global.min.js">';
-		} 
-	?>
-	<script>
-        <?php require_once('js/enhance.js'); ?>
-    </script>
 
-
+	<!--[if lt IE 9]>
 	    <script>
 	        <?php require_once(  'js/polyfills/html5.js'); ?>
-	    </script>
-
-
-	<!--[if (gt IE 6) & (lte IE 8)]>
-		<link rel="stylesheet" href="css/enhanced-ie.css" type="text/css" />
-	<![endif]-->
-
-
-	<style>
-        <?php require_once('css/basic.css'); ?>
-    </style>
-
-	<!--[if (gt IE 6) & (lte IE 8)]>
-	    <script>
-	        <?php require_once( 'js/polyfills/respond.js'); ?>
+			document.createElement( "picture" );
 	    </script>
     <![endif]-->
 
-	<link rel="stylesheet" href="css/enhanced.css" type="text/css" media="only all" />
+<?php if(isset($_COOKIE['fullCSS'])) { //If cookie is set load stylesheet normally ?>
+	
+	<link rel="stylesheet" href="css/style.css" type="text/css" data-test />
+
+<?php } else{
+
+	//Else servce critical CSS and use loadCSS
+	echo '<script>';
+		//Asyncronous Load CSS
+		require_once('js/loadcss.js');
+	echo '</script>';
+
+	//Critical CSS is Served based on major template groupings
+	echo '<style>';
+
+	if(is_front_page() ) { //Home page
+		require_once(  'css/critical/critical-generic.css');
+	}
+
+	echo '</style>';
+
+?>
+
+	<script>
+		//Async CSS
+	    loadCSS( "<?php bloginfo( 'template_url' ); ?>/style.css" );
+	    //Set Cookie
+	    cookie( 'fullCSS', "true", 7 );
+	</script>
+	
+<?php } ?>
+
+	<script>
+		// JS Enhancment and Async Loading
+		<?php require_once('js/loadjs.js'); ?>
+		//Test only supports browsers that are IE8 and newer
+
+
+		if(typeof(document.querySelectorAll) != 'undefined'){
+			<?php 
+				if($pagename == 'contact'){
+				   	echo 'loadJS( "js/contact.min.js" );';
+				}
+				else{ 
+				    echo 'loadJS( "js/global.min.js" );';
+				} 
+			?>
+	    	loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js" );
+	    }
+
+    </script>
+
+
+    <!--[if IE 8]>
+	    <script src="js/polyfills/respond.js" async ></script>
+	    <link rel="stylesheet" href="css/ie8.css" type="text/css" />    
+    <![endif]-->
 	
 
 

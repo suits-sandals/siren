@@ -16,9 +16,9 @@ module.exports = function(grunt) {
           spawn: false
         }
       },
-      css: {
+      scss: {
         files: ['css/sass/*.scss','css/sass/*/*.scss'],
-       tasks: ['compass'],
+       tasks: ['compass', 'combine_mq', 'criticalcss', 'cssmin'],
         options: {
           spawn: false,
         }
@@ -29,37 +29,26 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
         }
-      },
-      imagesRes: {
-        files: ['images/imagesResSrc/*.{png,jpg,gif}'],
-        tasks: ['imagemin','responsive_images'],
-        options: {
-          spawn: false,
-        }
       }
+
     },
 
      //JS Hinting
     jshint: {
-      all: ['Gruntfile.js', 'js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/plugins/validate.js', 'js/jsSrc/contact.js']
+      all: ['Gruntfile.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js']
     },
 
     //Uglify for JS
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/functions.js', 'js/jsSrc/global.js'],
-          'js/contact.min.js' : ['js/jsSrc/polyfills/classlist.js','js/jsSrc/plugins/validate.js','js/jsSrc/functions.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
-          'js/enhance.js' : 'js/jsSrc/enhance.js'
+          'js/global.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js'],
+          'js/contact.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
+          'js/loadcss.js' : ['js/jsSrc/loading/cookie.js', 'js/jsSrc/loading/loadcss.js'],
+          'js/loadjs.js' : 'js/jsSrc/loading/loadjs.js'
 
         }
-      },
-      /*mobile:{
-        files:{
-          'js/global-mobile.min.js' : [ 'js/jsSrc/functions.js', 'js/jsSrc/global-mobile.js'],
-          'js/contact-mobile.min.js' : ['js/jsSrc/plugins/validate.js', 'js/jsSrc/functions.js', 'js/jsSrc/global-mobile.js', 'js/jsSrc/contact.js']
-        }
-      }*/
+      }
     },
 
     //Compass for SCSS
@@ -74,6 +63,45 @@ module.exports = function(grunt) {
       }
     },
 
+    //Critical CSS
+    criticalcss: {
+
+      //Set up a critical CSS file for each major template type
+
+      //Generic
+      generic: {
+        options: {
+          url: "http://localhost:8888/siren/",
+          outputfile: "css/critical/raw/critical-generic.css",
+          filename: "css/style.css"
+        }
+      }
+
+    },
+
+    //CSS Min
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'css/critical/raw',
+          src: ['*.css'],
+          dest: 'css/critical'
+        }]
+      }
+    },
+
+    //Combine Media Queries
+    combine_mq: {
+      options: {
+        beautify: false
+      },
+      main: {
+        src: 'css/style.css',
+        dest: 'css/style.css'
+      }
+    },
+
     //Image Optimization
     imagemin: {  
       standard: {                  
@@ -82,37 +110,6 @@ module.exports = function(grunt) {
           src: ['**/*.{png,jpg,gif}'],
           cwd: 'images/imagesSrc',
           dest: 'images/'   
-        }]
-      },
-      responsive: {                  
-        files: [{
-          expand: true,    
-          src: ['imagesResSrc/*.{png,jpg,gif}'],
-          cwd: 'images/',
-          dest: 'images/'   
-        }]
-      }
-    },
-
-    //Create Images for Responsive Images
-    //Configure size feature per project
-    responsive_images: {
-      dev: {
-        sizes: [{
-          name: 'small',
-          width: 320
-        },{
-          name: 'medium',
-          width: 640
-        },{
-          name: "large",
-          width: 1024
-        }],
-        files: [{
-          expand: true,
-          src: ['**/*.{png,jpg,gif}'],  
-          cwd: 'images/imagesResSrc',
-          dest: 'images/'
         }]
       }
     },
@@ -170,11 +167,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass'); //Compress Compass
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
-  grunt.loadNpmTasks('grunt-responsive-images'); //Responsive Image Creator; imageMagick should be installed on computer as well through homebrew
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
   grunt.loadNpmTasks('grunt-perfbudget'); //Performance Budget Test
+  grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
+  grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
+  grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'jshint','imagemin', 'responsive_images', 'yuidoc']);
+  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
 
 };
