@@ -1,6 +1,6 @@
 /********
 
-Siren Framework v3.4
+Siren Framework v3.5
 
 File Name: Responsive for the Header and Footer
 
@@ -12,18 +12,18 @@ File Notes:
 *********/
 
 
-@media only screen and (min-width: 600px)  {
+@media only screen and (min-width: 700px)  {
 	
+
 	/*-------------------------*\
 	  #Header
 	\*-------------------------*/
 
-	.siteTitle{
+	.header_title{
 		float: left;
 	}
 
 	
-
 
 
 	/*-------------------------*\
@@ -39,11 +39,12 @@ File Notes:
 		max-height: 100%;
 	}
 
-	.siteNav_item{
+	.siteNav_item, .siteNav_link{
 		@include simple-inline-block;	
 	}
 
 	.siteNav_link{ 
+		margin-top: 0.5em;
 		padding: 0 1em;
 	}
 

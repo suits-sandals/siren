@@ -30,4 +30,5 @@ $('.siteNav_button').click(function(){
 		$('.siteNav_list').addClass('active');
 
 	}
+	return false;
 });

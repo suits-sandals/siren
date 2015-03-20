@@ -1,9 +1,8 @@
 <?php
-//Siren Framework v3.4
+//Siren Framework v3.5
 //File Name: Global Header
 //File Purpose: Starts page, include <head> element, includes styled header of page
 //File Notes: 
-
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +16,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title><?php echo $meta_title; ?>| Suits &amp; Sandals Sample Framework</title>
+	<title><?php echo $meta_title; ?> | Suits &amp; Sandals Sample Framework</title>
 	<meta name="description" content="<?php echo $meta_desc; ?>"/>
 	<meta name="keywords" content="<?php echo $meta_keywords; ?>">
 
@@ -25,7 +24,7 @@
 
 	<!--[if lt IE 9]>
 	    <script>
-	        <?php require_once(  'js/polyfills/html5.js'); ?>
+	        <?php require_once( 'js/polyfills/html5.js'); ?>
 			document.createElement( "picture" );
 	    </script>
     <![endif]-->
@@ -45,9 +44,7 @@
 	//Critical CSS is Served based on major template groupings
 	echo '<style>';
 
-	if(is_front_page() ) { //Home page
 		require_once(  'css/critical/critical-generic.css');
-	}
 
 	echo '</style>';
 
@@ -55,7 +52,7 @@
 
 	<script>
 		//Async CSS
-	    loadCSS( "<?php bloginfo( 'template_url' ); ?>/style.css" );
+	    loadCSS( "css/style.css" );
 	    //Set Cookie
 	    cookie( 'fullCSS', "true", 7 );
 	</script>
@@ -69,15 +66,18 @@
 
 
 		if(typeof(document.querySelectorAll) != 'undefined'){
-			<?php 
+<?php 
 				if($pagename == 'contact'){
-				   	echo 'loadJS( "js/contact.min.js" );';
+?>					
+				   	loadJS( "js/contact.min.js" );
+<?php			
 				}
 				else{ 
-				    echo 'loadJS( "js/global.min.js" );';
+?>					
+				    loadJS( "js/global.min.js" );
+<?php
 				} 
-			?>
-	    	loadJS( "<?php echo get_bloginfo('template_directory'); ?>/js/global.min.js" );
+?>
 	    }
 
 	    //Fix for Windows 8
@@ -111,19 +111,19 @@
 <header class="header" role="banner">
 
 	<!-- main-title -->
-	<div class="siteTitle">
-		<h1 class="siteTitle_logo">
+	<div class="header_title">
+		<h1 class="header_logo">
 			Demo
 		</h1>
 	</div>
 
-	<nav class="siteNav" role="navigation">
+	<nav class="siteNav">
 		<a href="#navList" class="siteNav_button" id="navBtn">MENU</a>
 		<ul class="siteNav_list" id="navList">
-			<li class="siteNav_item" ><a href="index" class="nav-main_link">Home</a></li>
-			<li class="siteNav_item" ><a href="#" class="nav-main_link">About</a></li>
-			<li class="siteNav_item" ><a href="#" class="nav-main_link">Another Page</a></li>
-			<li class="siteNav_item" ><a href="contact" class="nav-main_link">Contact</a></li>
+			<li class="siteNav_item" ><a href="index" class="siteNav_link">Home</a></li>
+			<li class="siteNav_item" ><a href="#" class="siteNav_link">About</a></li>
+			<li class="siteNav_item" ><a href="#" class="siteNav_link">Another Page</a></li>
+			<li class="siteNav_item" ><a href="contact" class="siteNav_link">Contact</a></li>
 		</ul>
 	</nav>
 

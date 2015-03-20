@@ -17,8 +17,8 @@ File Notes:
 
 //Make an element an inline-block with a simple fallback
 @mixin simple-inline-block(){
-	display: inline;
-	display: inline-block;
+  display: inline;
+  display: inline-block;
 }
 
 

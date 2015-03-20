@@ -1,8 +1,8 @@
 /********
 
-Siren Framework v3.3
+Siren Framework v3.5
 
-File Name: Header and Footer
+File Name: Header and Footer Enhanced
 
 File Purpose: Classes for the header and footer elements
 
@@ -18,19 +18,10 @@ File Notes:
 \*-------------------------*/
 
 .header{
-	text-align: center;
 	background: $color1;
 	color: $color2;
-	margin-bottom: $baseline;
-	padding: 1em;
 	overflow: hidden;
 }
-
-//Site Title
-.siteTitle_logo{
-	margin: 0;
-}
-
 
 
 
@@ -40,9 +31,6 @@ File Notes:
 \*-------------------------*/
 
 .siteNav_list{
-	list-style: none;
-	padding: 0;
-	margin: 0;
 	max-height: 0px;
   	overflow: hidden;
 	@include transition(.5s all);
@@ -52,13 +40,8 @@ File Notes:
   	}
 }
 
-.siteNav_item{
-	padding: 0.5em 0;
-}
-
 .siteNav_link{ 
 	color: $color2;
-	padding: 1em 0;
 
 	&:hover{
 		color: $color3;
@@ -83,14 +66,11 @@ File Notes:
 \*-------------------------*/
 
 .footer{
-	text-align: center;
 	background: $color1;
 	color: $color2;
-	margin-top: $baseline;
-	padding: 1em;
 }
 
 .footer_content{
 	max-width: 100%;
-	margin: 0;
 }
+

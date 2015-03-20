@@ -1,17 +1,3 @@
-/*!
-Theme Name: Siren 2014
-Theme URI: http://suits-sandals.com
-Description: The work horse framework for Suits & Sandals
-Author: suits&sandals
-Author URI: http://suits-sandals.com
-Version: 3.6
-Tags: Boilerplate
-
-License:
-License URI:
-
-*/
-
 @-webkit-viewport {
 	width: device-width;
 }
@@ -293,8 +279,42 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
-.nav-main_button {
-	display: none;
+.header {
+	text-align: center;
+	margin-bottom: 1.5em;
+	padding: 1em;
+}
+
+.header_logo {
+	margin: 0;
+}
+
+.siteNav_list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.siteNav_item {
+	padding: 0.5em 0;
+}
+
+.siteNav_link {
+	padding: 1em 0;
+}
+
+.footer {
+	text-align: center;
+	margin-top: 1.5em;
+	padding: 1em;
+}
+
+.footer_content {
+	margin: 0;
+}
+
+.h-center {
+	text-align: center;
 }
 
 @media only all {
@@ -409,22 +429,12 @@ input[type="submit"]:hover {
 }
 
 .header {
-	text-align: center;
 	background: #000;
 	color: #fff;
-	margin-bottom: 1.5em;
-	padding: 1em;
 	overflow: hidden;
 }
 
-.siteTitle_logo {
-	margin: 0;
-}
-
 .siteNav_list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
 	max-height: 0px;
 	overflow: hidden;
 	-webkit-transition: 0.5s all;
@@ -437,13 +447,8 @@ input[type="submit"]:hover {
 	max-height: 999px;
 }
 
-.siteNav_item {
-	padding: 0.5em 0;
-}
-
 .siteNav_link {
 	color: #fff;
-	padding: 1em 0;
 }
 
 .siteNav_link:hover {
@@ -460,53 +465,19 @@ input[type="submit"]:hover {
 }
 
 .footer {
-	text-align: center;
 	background: #000;
 	color: #fff;
-	margin-top: 1.5em;
-	padding: 1em;
 }
 
 .footer_content {
 	max-width: 100%;
-	margin: 0;
 }
 
-.row {
+.l-row {
 	width: 100%;
 	max-width: 1140px;
 	margin: 0 auto;
 	overflow: hidden;
-}
-
-}
-
-@media only screen and (min-width: 600px) {
-
-.siteTitle {
-	float: left;
-}
-
-.siteNav {
-	margin-top: 3px;
-	text-align: right;
-}
-
-.siteNav_list {
-	max-height: 100%;
-}
-
-.siteNav_item {
-	display: inline;
-	display: inline-block;
-}
-
-.siteNav_link {
-	padding: 0 1em;
-}
-
-.siteNav_button {
-	display: none;
 }
 
 }
@@ -529,6 +500,34 @@ body {
 
 .col-thrd {
 	width: 33.33333%;
+}
+
+.header_title {
+	float: left;
+}
+
+.siteNav {
+	margin-top: 3px;
+	text-align: right;
+}
+
+.siteNav_list {
+	max-height: 100%;
+}
+
+.siteNav_item,
+.siteNav_link {
+	display: inline;
+	display: inline-block;
+}
+
+.siteNav_link {
+	margin-top: 0.5em;
+	padding: 0 1em;
+}
+
+.siteNav_button {
+	display: none;
 }
 
 }

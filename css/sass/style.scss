@@ -1,18 +1,10 @@
-/*!
-Theme Name: Siren 2014
-Theme URI: http://suits-sandals.com
-Description: The work horse framework for Suits & Sandals
-Author: suits&sandals
-Author URI: http://suits-sandals.com
-Version: 3.6
-Tags: Boilerplate
-
-License:
-License URI:
-
-*/
-
 /********
+
+Siren Framework v3.5
+
+File Name: Global Styles
+
+File Purpose: Collects all the snippets
 
 File Notes: 
 	- This is built from mobile Up
@@ -39,11 +31,30 @@ File Notes:
 
 
 /*-------------------------*\
-  #Basic
+  #Base-Basic
 \*-------------------------*/
-@import "basic/foundation";
-@import "basic/forms";
-@import "basic/safe-custom";
+@import "base-basic/foundation";
+@import "base-basic/forms";
+
+
+
+
+
+/*-------------------------*\
+  #Objects-Basic
+\*-------------------------*/
+@import "objects-basic/headerfooter";
+
+
+
+
+/*-------------------------*\
+  #Layout-Basic
+\*-------------------------*/
+@import "layout-basic/spacing";
+
+
+
 
 
 
@@ -55,7 +66,6 @@ File Notes:
 	/*-------------------------*\
 	  #Core-Enhanced
 	\*-------------------------*/
-
 	@import "base-enhanced/foundation"; 
 	@import "base-enhanced/forms";
 
@@ -66,8 +76,7 @@ File Notes:
 	/*-------------------------*\
 	  #Objects-Enhanced
 	\*-------------------------*/
-
-	@import "objects/headerfooter"; // Header and Footer Styling
+	@import "objects-enhanced/headerfooter"; 
 
 
 
@@ -76,22 +85,44 @@ File Notes:
 	/*-------------------------*\
 	  #Layout-Enhanced
 	\*-------------------------*/
+	@import "layout-enhanced/grid";
+	@import "layout-enhanced/spacing";
+	@import "layout-enhanced/positioning";
 
-	@import "layout/grid";
-	@import "layout/helpers";
 
 }
+
+
+/*-------------------------*\
+  #Helpers
+\*-------------------------*/
+@import "helpers/typographic";
+
+
+
+
+/*-------------------------*\
+  #States
+\*-------------------------*/
+@import "states/states";
+
+
+
+
+/*-------------------------*\
+  #Responsive-Core
+\*-------------------------*/
+@import "responsive-core/foundation";
+@import "responsive-core/layout";
 
 
 
 
 
 /*-------------------------*\
-  #Responsive
+  #Responsive-Objects
 \*-------------------------*/
-@import "responsive/foundation";
-@import "responsive/layout";
-@import "responsive/headerfooter";
+@import "responsive-objects/headerfooter";
 
 
 

@@ -2,14 +2,14 @@ sassysiren
 ==========
 
 # Siren Framework # 
-## Version 3.4 ##
+## Version 3.5 ##
 by Zachary Brady
 www.zacharybrady.com
 www.suits-sandals.com
 
 
 ## About ##
-Siren is the work horse quick start website framework for Suits & Sandals, LLC. It strives to provide simple building blocks in order to make starting a project quicker while maintaining best practices. Siren is design to handle a variety of use cases and should be edited to perfectly fit the project at hand. Lastly, this is a living framework that is constantly updated as lessons are learned and discoveries are made.
+Siren is the work horse quick start website framework for Suits & Sandals, LLC. It strives to provide simple building blocks in order to make starting a project quicker while maintaining best practices. Siren is designed to handle a variety of use cases and should be edited to perfectly fit the project at hand. Lastly, this is a living framework that is constantly updated as lessons are learned and discoveries are made.
 
 
 ## Dependencies ##
