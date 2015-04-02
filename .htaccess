@@ -16,3 +16,6 @@ ExpiresByType text/javascript "access 1 month"
 ExpiresDefault "access 1 day"
 </IfModule>
 ## EXPIRES CACHING ##
+
+
+AddType text/cache-manifest .Apache

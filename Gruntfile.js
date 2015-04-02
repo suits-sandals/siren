@@ -128,6 +128,32 @@ module.exports = function(grunt) {
         }
     },
 
+    //Generates a Cache Manifest
+    manifest: {
+      generate: {
+        options: {
+          basePath: '',
+          //cache: ['js/*', 'css/style.css', 'images/*'],
+          //network: ['http://*', 'https://*'],
+          //exclude: ['js/polyfills/*', 'js/jsSrc/*'],
+          //preferOnline: true,
+          verbose: true,
+          timestamp: false,
+          hash: true
+          //master: ['index.html']
+          /*process: function(path) {
+            return path.substring('build/'.length);
+          }*/
+        },
+        src: [
+          'js/*.min.js',
+            'css/style.css',
+            'images/*.{png,jpg,gif}'
+        ],
+        dest: 'manifest.appcache'
+      }
+    },
+
     //Performance Budget Test
     //The Options are only an example and should be changed depending on the project and performance budget
     //Waiting for API key
@@ -172,8 +198,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
   grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
   grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
+  grunt.loadNpmTasks('grunt-manifest'); //Cache Manifest 
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
+  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss', 'manifest']);
 
 };
