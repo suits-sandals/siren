@@ -80,6 +80,7 @@ This index is for files and directories in the top level directory. Sub-director
         - grunt-criticalcss : Determines the critical CSS for different templates and delivers style sheets with just the critical CSS to be inlined
         - grunt-contrib-yuidoc : For autogenerating Javascript documentation as formated in the comments
 		- grunt-perfbudget : For running automated performance budget tests
+		- grunt-manifest : For autocreating the .appcache manifest
 6. config.rb 
 	- The Compass configuration file.
 	- Processed CSS is compressed by default but can be processed normally for debugging.

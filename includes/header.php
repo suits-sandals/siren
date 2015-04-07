@@ -35,18 +35,17 @@
 
 <?php } else{
 
-	//Else servce critical CSS and use loadCSS
-	echo '<script>';
-		//Asyncronous Load CSS
-		require_once('js/loadcss.js');
-	echo '</script>';
-
 	//Critical CSS is Served based on major template groupings
 	echo '<style>';
 
 		require_once(  'css/critical/critical-generic.css');
 
 	echo '</style>';
+
+	echo '<script>';
+		//Asyncronous Load CSS
+		require_once('js/loadcss.js');
+	echo '</script>';
 
 ?>
 

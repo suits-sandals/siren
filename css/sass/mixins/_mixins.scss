@@ -86,6 +86,17 @@ File Notes:
 /*-------------------------*\
   #Skin
 \*-------------------------*/
+@mixin inset-shadow($x, $y, $b, $c){
+  -moz-box-shadow : inset $x, $y, $b, $c;
+  -webkit-box-shadow : inset $x, $y, $b, $c;
+  box-shadow : inset $x, $y, $b, $c;
+}
+
+
+
+/*-------------------------*\
+  #Skin-Functions
+\*-------------------------*/
 
 //Function to return a semi transparent black rgba color
 @function black($opacity) {
@@ -96,3 +107,4 @@ File Notes:
 @function white($opacity) {
   @return rgba(white, $opacity)
 }
+
