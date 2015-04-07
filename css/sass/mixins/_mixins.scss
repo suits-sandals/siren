@@ -93,18 +93,3 @@ File Notes:
 }
 
 
-
-/*-------------------------*\
-  #Skin-Functions
-\*-------------------------*/
-
-//Function to return a semi transparent black rgba color
-@function black($opacity) {
-  @return rgba(black, $opacity)
-}
-
-//Function to return a semi transparent white rgba color
-@function white($opacity) {
-  @return rgba(white, $opacity)
-}
-
