@@ -65,6 +65,7 @@
 
 
 		if(typeof(document.querySelectorAll) != 'undefined'){
+			window.onload = function(){
 <?php 
 				if($pagename == 'contact'){
 ?>					
@@ -76,6 +77,7 @@
 				    loadJS( "js/global.min.js" );
 <?php
 				} 
+			};
 ?>
 	    }
 
