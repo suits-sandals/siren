@@ -76,9 +76,9 @@
 ?>					
 				    loadJS( "js/global.min.js" );
 <?php
-				} 
-			};
+				} 			
 ?>
+			};
 	    }
 
 	    //Fix for Windows 8
