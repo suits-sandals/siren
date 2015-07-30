@@ -2,7 +2,7 @@ sassysiren
 ==========
 
 # Siren Framework # 
-## Version 3.5 ##
+## Version 3.6 ##
 by Zachary Brady
 www.zacharybrady.com
 www.suits-sandals.com
@@ -51,13 +51,7 @@ This index is for files and directories in the top level directory. Sub-director
 	- TOC included
 6. NODE_MODULES
 	- Contains the Node Modules for Grunt and its plugins
-7. LIBRARIES
-	- Contains PHP libraries
-	- Contains Composer for dependency management and autoloading
-	- TOC included
-	- Composer may be moved to root directory at some point
-8. LANG
-	- Contains files for Valitron language selection
+
 
 ### Files ###
 1. index.php

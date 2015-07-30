@@ -34,17 +34,14 @@ module.exports = function(grunt) {
 
      //JS Hinting
     jshint: {
-      all: ['Gruntfile.js', 'js/jsSrc/functions.js', 'js/jsSrc/global.js']
+      all: ['Gruntfile.js', 'js/jsSrc/global.js']
     },
 
     //Uglify for JS
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js'],
-          'js/loadcss.js' : ['js/jsSrc/loading/cookie.js', 'js/jsSrc/loading/loadcss.js'],
-          'js/loadjs.js' : 'js/jsSrc/loading/loadjs.js'
-
+          'js/global.min.js' : ['js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js']
         }
       }
     },

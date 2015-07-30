@@ -41,18 +41,13 @@
 		require_once(  'css/critical/critical-generic.css');
 
 	echo '</style>';
-
-	echo '<script>';
-		//Asyncronous Load CSS
-		require_once('js/loadcss.js');
-	echo '</script>';
-
 ?>
 
+
 	<script>
-		//Async CSS
+		<?php require_once('js/loading/loadcss.js'); ?>
 	    loadCSS( "css/style.css" );
-	    //Set Cookie
+		<?php require_once('js/loading/cookie.js'); ?>
 	    cookie( 'fullCSS', "true", 7 );
 	</script>
 	
@@ -60,25 +55,14 @@
 
 	<script>
 		// JS Enhancment and Async Loading
-		<?php require_once('js/loadjs.js'); ?>
+		<?php require_once('js/loading/loadjs.js'); ?>
 		//Test only supports browsers that are IE8 and newer
 
 
 		if(typeof(document.querySelectorAll) != 'undefined'){
-			window.onload = function(){
-<?php 
-				if($pagename == 'contact'){
-?>					
-				   	loadJS( "js/contact.min.js" );
-<?php			
-				}
-				else{ 
-?>					
-				    loadJS( "js/global.min.js" );
-<?php
-				} 			
-?>
-			};
+			document.addEventListener("DOMContentLoaded", function() {
+				loadJS( "js/global.min.js" );
+			});
 	    }
 
 	    //Fix for Windows 8

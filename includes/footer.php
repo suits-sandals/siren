@@ -9,13 +9,25 @@
 	<p class="footer-main_content">Legal Jargon</p>
 </footer>
 
+<!-- FONT LOADING -->
+<?php if(isset($_COOKIE['fontloaded'])) { ?>
+	<script>
+<?php 	
+		if(isset($_COOKIE['fullCSS'])) { 
+			require_once('js/loading/cookie.js');
+		} 
 
-
-
-<!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-<![endif]-->
+		require_once('js/loading/fonts.js');
+?>
+		var observer = new FontFaceObserver("Avenir Next LT W01 Bold", {
+		  weight: 300
+		});
+		observer.check().then(function () {
+			document.getElementsByTagName('body')[0].className += " font-loaded";
+		  	cookie( 'fontloaded', "true", 7 );
+		});		
+	</script>
+<?php } ?>
 
 
 </body>
