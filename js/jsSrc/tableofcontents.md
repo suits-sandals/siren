@@ -22,8 +22,7 @@ The directories in the JS/JSSRC folder and notes.
 ### FILES BY SUBDIRECTORIES ###
 
 #### LIBS ####
-1. jquery-1.11.3.js
-2. jquery-2.1.4.js
+1. shoestring.js (Development)
 
 
 #### POLYFILLS ####
