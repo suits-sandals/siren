@@ -30,12 +30,11 @@ module.exports = function(grunt) {
           spawn: false,
         }
       }
-
     },
 
      //JS Hinting
     jshint: {
-      all: ['Gruntfile.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js']
+      all: ['Gruntfile.js', 'js/jsSrc/functions.js', 'js/jsSrc/global.js']
     },
 
     //Uglify for JS
@@ -43,7 +42,6 @@ module.exports = function(grunt) {
       dist:{
         files:{
           'js/global.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js'],
-          'js/contact.min.js' : ['js/jsSrc/libs/jquery.js', 'js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/global.js', 'js/jsSrc/contact.js'],
           'js/loadcss.js' : ['js/jsSrc/loading/cookie.js', 'js/jsSrc/loading/loadcss.js'],
           'js/loadjs.js' : 'js/jsSrc/loading/loadjs.js'
 
@@ -68,12 +66,39 @@ module.exports = function(grunt) {
 
       //Set up a critical CSS file for each major template type
 
-      //Generic
-      generic: {
+      //Home
+      homePage: {
         options: {
-          url: "http://localhost:8888/siren/",
-          outputfile: "css/critical/raw/critical-generic.css",
-          filename: "css/style.css"
+          url: "http://localhost:8888/siren-wordpress/",
+          outputfile: "css/critical/raw/critical-home.css",
+          filename: "style.css"
+        }
+      },
+
+      //Archives - index, taxonomies, archives, etc.
+      archives: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/news/",
+          outputfile: "css/critical/raw/critical-archives.css",
+          filename: "style.css"
+        }
+      },
+
+      //Post
+      post: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/news/",
+          outputfile: "css/critical/raw/critical-post.css",
+          filename: "style.css"
+        }
+      },
+
+      //Page
+      page: {
+        options: {
+          url: "http://localhost:8888/siren-wordpress/store/",
+          outputfile: "css/critical/raw/critical-page.css",
+          filename: "style.css"
         }
       }
 
@@ -97,8 +122,8 @@ module.exports = function(grunt) {
         beautify: false
       },
       main: {
-        src: 'css/style.css',
-        dest: 'css/style.css'
+        src: 'style.css',
+        dest: 'style.css'
       }
     },
 
@@ -114,6 +139,19 @@ module.exports = function(grunt) {
       }
     },
 
+    //Browser Syncing
+    browserSync: {
+      dev: {
+          bsFiles: {
+              src : 'style.css'
+          },
+          options: {
+              watchTask: true,
+             proxy: "localhost:8888"
+          }
+      }
+  },
+
     //Javascript documentation
     yuidoc: {
         all: {
@@ -126,62 +164,6 @@ module.exports = function(grunt) {
                 outdir: 'docs/docs-js/'
             }
         }
-    },
-
-    //Generates a Cache Manifest
-    manifest: {
-      generate: {
-        options: {
-          basePath: '',
-          //cache: ['js/*', 'css/style.css', 'images/*'],
-          //network: ['http://*', 'https://*'],
-          //exclude: ['js/polyfills/*', 'js/jsSrc/*'],
-          //preferOnline: true,
-          verbose: true,
-          timestamp: false,
-          hash: true
-          //master: ['index.html']
-          /*process: function(path) {
-            return path.substring('build/'.length);
-          }*/
-        },
-        src: [
-          'js/*.min.js',
-            'css/style.css',
-            'images/*.{png,jpg,gif}'
-        ],
-        dest: 'manifest.appcache'
-      }
-    },
-
-    //Performance Budget Test
-    //The Options are only an example and should be changed depending on the project and performance budget
-    //Waiting for API key
-   perfbudget: {
-      desktop: {
-        options: {
-          url: 'http://suits-sandals.com/work',
-          key: '871a57d18e0e43f8b3c56aa2ed272d27',
-          location : 'Dulles:Chrome',
-          budget: {
-            visualComplete: '2000',
-            SpeedIndex: '1500',
-            bytesIn: 320000
-          }
-        }
-      },
-      mobile: {
-        options: {
-          url: 'http://suits-sandals.com/work',
-          key: '871a57d18e0e43f8b3c56aa2ed272d27',
-          location : 'Dulles_MotoG:Motorola G - Chrome',
-          budget: {
-            visualComplete: '9000',
-            SpeedIndex: '8000',
-            bytesIn: 384000
-          }
-        }
-      }
     }
 
     
@@ -194,13 +176,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
-  grunt.loadNpmTasks('grunt-perfbudget'); //Performance Budget Test
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
   grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
   grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
-  grunt.loadNpmTasks('grunt-manifest'); //Cache Manifest 
+  grunt.loadNpmTasks('grunt-browser-sync'); //Browser syncing
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss', 'manifest']);
+  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
 
 };
