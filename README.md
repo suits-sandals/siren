@@ -24,6 +24,7 @@ The following list are the dependencies built into Siren.
 - Respond.js
 - Boxsizing Polyfill
 - loadJS.js, loadCSS.js, and cookies.js by Filament Group ( https://github.com/filamentgroup )
+- Lazysizes and related plugins by A. Farkas
 - Git
 	- Not so much a dependency as highly recomended
 
