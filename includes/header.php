@@ -24,7 +24,7 @@
 
 	<!--[if lt IE 9]>
 	    <script>
-	        <?php require_once( 'js/polyfills/html5.js'); ?>
+	        <script src="js/polyfills/html5.js" async ></script>
 			document.createElement( "picture" );
 	    </script>
     <![endif]-->
