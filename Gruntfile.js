@@ -165,6 +165,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'compass', 'combine_mq', 'jshint','imagemin', 'yuidoc', 'criticalcss']);
+  grunt.registerTask('default', ['watch']);
 
 };
