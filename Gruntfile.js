@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       },
       scss: {
         files: ['css/sass/*.scss','css/sass/*/*.scss'],
-       tasks: ['compass', 'combine_mq', 'criticalcss', 'cssmin'],
+       tasks: ['compass', 'postcss', 'criticalcss', 'cssmin'],
         options: {
           spawn: false,
         }
@@ -114,13 +114,27 @@ module.exports = function(grunt) {
     },
 
     //Combine Media Queries
-    combine_mq: {
+    /*combine_mq: {
       options: {
         beautify: false
       },
       main: {
         src: 'style.css',
         dest: 'style.css'
+      }
+    },*/
+
+    postcss: {
+      options: {
+        map: true, // inline sourcemaps
+
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'}),
+          require('css-mqpacker')()
+        ]
+      },
+      dist: {
+        src: 'css/*.css'
       }
     },
 
@@ -162,7 +176,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
   grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
-  grunt.loadNpmTasks('grunt-combine-mq'); //Combine Media Queries
+  grunt.loadNpmTasks('grunt-postcss'); //Post CSS
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
