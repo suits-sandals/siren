@@ -1,5 +1,5 @@
 <?php
-//Siren Framework v3.5
+//Siren Framework v3.6
 //File Name: Global Header
 //File Purpose: Starts page, include <head> element, includes styled header of page
 //File Notes: 
@@ -29,7 +29,7 @@
 	    </script>
     <![endif]-->
 
-<?php if(isset($_COOKIE['fullCSS'])) { //If cookie is set load stylesheet normally ?>
+<?php if(isset($_COOKIE['fullCSS-project'])) { //If cookie is set load stylesheet normally ?>
 	
 	<link rel="stylesheet" href="css/style.css" type="text/css" data-test />
 
@@ -90,7 +90,11 @@
 </head>
 
 <!-- Page class and page specific class -->
+<?php if(isset($_COOKIE['fontloaded-project'])) { ?>
+<body class="page page-<?php echo $pagename; ?> font-loaded"> 
+<?php } else{ ?>
 <body class="page page-<?php echo $pagename; ?>"> 
+<?php } ?>
 
 <!-- main-header -->
 <header class="header" role="banner">
@@ -102,13 +106,13 @@
 		</h1>
 	</div>
 
-	<nav class="siteNav">
-		<a href="#navList" class="siteNav_button" id="navBtn">MENU</a>
-		<ul class="siteNav_list" id="navList">
-			<li class="siteNav_item" ><a href="index" class="siteNav_link">Home</a></li>
-			<li class="siteNav_item" ><a href="#" class="siteNav_link">About</a></li>
-			<li class="siteNav_item" ><a href="#" class="siteNav_link">Another Page</a></li>
-			<li class="siteNav_item" ><a href="contact" class="siteNav_link">Contact</a></li>
+	<nav class="nav">
+		<a href="#navList" class="nav_button" id="navBtn">MENU</a>
+		<ul class="nav_list" id="navList">
+			<li class="nav_item" ><a href="index" class="nav_link">Home</a></li>
+			<li class="nav_item" ><a href="#" class="nav_link">About</a></li>
+			<li class="nav_item" ><a href="#" class="nav_link">Another Page</a></li>
+			<li class="nav_item" ><a href="contact" class="nav_link">Contact</a></li>
 		</ul>
 	</nav>
 

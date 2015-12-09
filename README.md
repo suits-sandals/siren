@@ -2,7 +2,7 @@ sassysiren
 ==========
 
 # Siren Framework # 
-## Version 3.6 ##
+## Version 3.7 ##
 by Zachary Brady
 www.zacharybrady.com
 www.suits-sandals.com
@@ -114,7 +114,7 @@ You can reach Zachary at zachary@sasbranding.com for questions regarding the fra
 ## Headline Format ##
 The required headline for the top of SCSS snippets and Markup sections
 
-- Siren Framework v3.5
+- Siren Framework v3.6
 - File Name: {file name}
 - File Purpose: {file purpose}
 - File Notes: {notes for file}

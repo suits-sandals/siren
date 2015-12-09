@@ -75,11 +75,10 @@ $color4: #afafaf;  //Gray
 	font-family: "proxima-nova", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: 400;
+
+	.font-loaded &, &.font-loaded {
+		font-family: "proxima-nova", "Arial", sans-serif;
+	}
 }
 
-%displayFont{
-	font-family: "proxima-nova", "Arial", sans-serif;
-	font-style: normal;
-	font-weight: 700;	
-}
 

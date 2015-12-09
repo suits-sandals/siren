@@ -19,8 +19,10 @@ File Notes:
 	  #Header
 	\*-------------------------*/
 
-	.header_title{
-		float: left;
+	.header {
+		&_title{
+			float: left;
+		}
 	}
 
 	
@@ -30,26 +32,26 @@ File Notes:
 	  #Navigation
 	\*-------------------------*/
 
-	.siteNav{
+	.nav{
 		margin-top: 3px;
 		text-align: right;
-	}
 
-	.siteNav_list{
-		max-height: 100%;
-	}
+		&_list{
+			max-height: 100%;
+		}
 
-	.siteNav_item, .siteNav_link{
-		@include simple-inline-block;	
-	}
+		&_item, &_link{
+			@include simple-inline-block;	
+		}
 
-	.siteNav_link{ 
-		margin-top: 0.5em;
-		padding: 0 1em;
-	}
+		&_link{ 
+			margin-top: 0.5em;
+			padding: 0 1em;
+		}
 
-	.siteNav_button{
-		display: none;
+		&_button{
+			display: none;
+		}
 	}
 
 }

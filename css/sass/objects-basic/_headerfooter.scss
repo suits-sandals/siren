@@ -21,11 +21,10 @@ File Notes:
 	text-align: center;
 	margin-bottom: $baseline;
 	padding: 1em;
-}
 
-//Site Title
-.header_logo{
-	margin: 0;
+	&_logo{
+		margin: 0;
+	}
 }
 
 
@@ -34,20 +33,22 @@ File Notes:
 /*-------------------------*\
   #Navigation
 \*-------------------------*/
+.nav {
+	&_list{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
-.siteNav_list{
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	&_item{
+		padding: 0.5em 0;
+	}
+
+	&_link{ 
+		padding: 1em 0;
+	}
 }
 
-.siteNav_item{
-	padding: 0.5em 0;
-}
-
-.siteNav_link{ 
-	padding: 1em 0;
-}
 
 
 
@@ -60,9 +61,10 @@ File Notes:
 	text-align: center;
 	margin-top: $baseline;
 	padding: 1em;
+
+	&_content{
+		margin: 0;
+	}
 }
 
-.footer_content{
-	margin: 0;
-}
 

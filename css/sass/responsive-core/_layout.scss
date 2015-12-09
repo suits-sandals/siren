@@ -16,16 +16,16 @@ File Notes:
 		#Layout-Columns
 	\*-------------------------*/
 
-	.col-half, .col-thrd{
+	.l-col_hlf, .l-col_thrd{
 		padding: 0 0.5em;
 		float: left;
 	}
 
-	.col-half{
+	.l-col_hlf{
 		width: 50%;
 	}
 
-	.col-thrd{
+	.l-col_thrd{
 		width: $hundred/3;
 	}
 

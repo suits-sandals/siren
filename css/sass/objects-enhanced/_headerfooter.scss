@@ -30,7 +30,7 @@ File Notes:
   #Navigation
 \*-------------------------*/
 
-.siteNav_list{
+.nav_list{
 	max-height: 0px;
   	overflow: hidden;
 	@include transition(.5s all);
@@ -38,24 +38,26 @@ File Notes:
   	&.active{
   		max-height: 999px;
   	}
-}
 
-.siteNav_link{ 
-	color: $color2;
+	&_link{ 
+		color: $color2;
 
-	&:hover{
-		color: $color3;
+		&:hover{
+			color: $color3;
+		}
 	}
+
+	&_button{
+		color: $color1;
+		background: $color2;
+		width: 100%;
+		margin: 10px 0 0;
+		padding: 10px 0;
+		display: block;
+	}
+
 }
 
-.siteNav_button{
-	color: $color1;
-	background: $color2;
-	width: 100%;
-	margin: 10px 0 0;
-	padding: 10px 0;
-	display: block;
-}
 
 
 
@@ -68,9 +70,9 @@ File Notes:
 .footer{
 	background: $color1;
 	color: $color2;
-}
 
-.footer_content{
-	max-width: 100%;
+	&_content{
+		max-width: 100%;
+	}
 }
 
