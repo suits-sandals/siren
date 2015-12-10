@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     uglify: {
       dist:{
         files:{
-          'js/global.min.js' : ['js/jsSrc/polyfills/respimage.js', 'js/jsSrc/async/lazysizes.js', 'js/async/global.js']
+          'js/global.min.js' : ['js/jsSrc/polyfills/respimage.js', 'js/jsSrc/plugins/lazysizes.js', 'js/jsSrc/libs/shoestring.js', 'js/jsSrc/global.js']
         }
       }
     },

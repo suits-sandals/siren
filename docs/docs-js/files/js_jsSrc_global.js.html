@@ -38,13 +38,10 @@
                 
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
-                                <li><a href="../classes/form-browserSupport.html">form-browserSupport</a></li>
-                                <li><a href="../classes/formValidation.html">formValidation</a></li>
-                                <li><a href="../classes/navigationUI.html">navigationUI</a></li>
+                                <li><a href="../classes/setUp.html">setUp</a></li>
                             </ul>
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Contact-Page.html">Contact-Page</a></li>
                                 <li><a href="../modules/Global.html">Global</a></li>
                             </ul>
                         </div>
@@ -89,35 +86,53 @@
 */
 
 /**
-Related to navigation.
-@class navigationUI
+Creates the neccessary additional markup
+@class setUp
 @static
 */
 
+
 /**
-Test if a css selector can be used
-@method mobileNav
-@param triggerID {string} 
-@param widthLimit {int} 
+@method navPrimarySetup
 */
 
-$(&#x27;.siteNav_button&#x27;).click(function(){
+$(&#x27;html&#x27;).addClass(&#x27;navigation-enabled&#x27;);
 
-	if($(this).hasClass(&#x27;active&#x27;)){
+var pInit = false;
+var navPrimarySetup = function() {
+	$(&#x27;.nav&#x27;).before(&#x27;&lt;button class=&quot;nav_btn&quot;&gt;Menu&lt;/button&gt;&#x27;);
 
-		$(this).removeClass(&#x27;active&#x27;);
-		$(&#x27;.siteNav_list&#x27;).removeClass(&#x27;active&#x27;);
+	//Click event
+	$(&#x27;.nav_btn&#x27;).bind(&quot;click&quot;, function(){
+		
+		if($(this).is(&#x27;.s-active&#x27;)) {
 
+			$(this).removeClass(&#x27;s-active&#x27;);
+
+			$(&#x27;.nav&#x27;).removeClass(&#x27;s-active&#x27;);
+
+		}
+		else {
+			$(this).addClass(&#x27;s-active&#x27;);
+			$(&#x27;.nav&#x27;).addClass(&#x27;s-active&#x27;);
+		}
+
+	});
+};
+
+if(window.innerWidth &lt; 650) {
+	navPrimarySetup();
+
+	pInit = true;
+}
+
+window.onresize = function() {
+	if(window.innerWidth &lt; 650 &amp;&amp; !pInit) {
+		navPrimarySetup();
+
+		pInit = true;
 	}
-	else {
-
-		$(this).addClass(&#x27;active&#x27;);
-		$(&#x27;.siteNav_list&#x27;).addClass(&#x27;active&#x27;);
-
-	}
-	return false;
-});
-
+};
     </pre>
 </div>
                     </div>

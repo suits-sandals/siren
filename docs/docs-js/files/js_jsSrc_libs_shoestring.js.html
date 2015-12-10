@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>js/jsSrc/libs/shoestring.js - Siren Core</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="Siren Core" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/setUp.html">setUp</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Global.html">Global</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: js/jsSrc/libs/shoestring.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*! Shoestring - v1.0.3 - 2015-09-22
+* http://github.com/filamentgroup/shoestring/
+* Copyright (c) 2015 Scott Jehl, Filament Group, Inc; Licensed MIT &amp; GPLv2 */ 
+(function( w, undefined ){
+	/**
+	 * The shoestring object constructor.
+	 *
+	 * @param {string,object} prim The selector to find or element to wrap.
+	 * @param {object} sec The context in which to match the &#x60;prim&#x60; selector.
+	 * @returns shoestring
+	 * @this window
+	 */
+	function shoestring( prim, sec ){
+		var pType = typeof( prim ),
+				ret = [],
+				sel;
+
+		// return an empty shoestring object
+		if( !prim ){
+			return new Shoestring( ret );
+		}
+
+		// ready calls
+		if( prim.call ){
+			return shoestring.ready( prim );
+		}
+
+		// handle re-wrapping shoestring objects
+		if( prim.constructor === Shoestring &amp;&amp; !sec ){
+			return prim;
+		}
+
+		// if string starting with &lt;, make html
+		if( pType === &quot;string&quot; &amp;&amp; prim.indexOf( &quot;&lt;&quot; ) === 0 ){
+			var dfrag = document.createElement( &quot;div&quot; );
+
+			dfrag.innerHTML = prim;
+
+			// TODO depends on children (circular)
+			return shoestring( dfrag ).children().each(function(){
+				dfrag.removeChild( this );
+			});
+		}
+
+		// if string, it&#x27;s a selector, use qsa
+		if( pType === &quot;string&quot; ){
+			if( sec ){
+				return shoestring( sec ).find( prim );
+			}
+
+				sel = document.querySelectorAll( prim );
+
+			return new Shoestring( sel, prim );
+		}
+
+		// array like objects or node lists
+		if( Object.prototype.toString.call( pType ) === &#x27;[object Array]&#x27; ||
+				(window.NodeList &amp;&amp; prim instanceof window.NodeList) ){
+
+			return new Shoestring( prim, prim );
+		}
+
+		// if it&#x27;s an array, use all the elements
+		if( prim.constructor === Array ){
+			return new Shoestring( prim, prim );
+		}
+
+		// otherwise assume it&#x27;s an object the we want at an index
+		return new Shoestring( [prim], prim );
+	}
+
+	var Shoestring = function( ret, prim ) {
+		this.length = 0;
+		this.selector = prim;
+		shoestring.merge(this, ret);
+	};
+
+	// TODO only required for tests
+	Shoestring.prototype.reverse = [].reverse;
+
+	// For adding element set methods
+	shoestring.fn = Shoestring.prototype;
+
+	// expose for testing purposes only
+	shoestring.Shoestring = Shoestring;
+
+	// For extending objects
+	// TODO move to separate module when we use prototypes
+	shoestring.extend = function( first, second ){
+		for( var i in second ){
+			if( second.hasOwnProperty( i ) ){
+				first[ i ] = second[ i ];
+			}
+		}
+
+		return first;
+	};
+
+	// taken directly from jQuery
+	shoestring.merge = function( first, second ) {
+		var len, j, i;
+
+		len = +second.length,
+		j = 0,
+		i = first.length;
+
+		for ( ; j &lt; len; j++ ) {
+			first[ i++ ] = second[ j ];
+		}
+
+		first.length = i;
+
+		return first;
+	};
+
+	// expose
+	window.shoestring = shoestring;
+
+
+
+	var xmlHttp = function() {
+		try {
+			return new XMLHttpRequest();
+		}
+		catch( e ){
+			return new ActiveXObject( &quot;Microsoft.XMLHTTP&quot; );
+		}
+	};
+
+	/**
+	 * Make an HTTP request to a url.
+	 *
+	 * **NOTE** the following options are supported:
+	 *
+	 * - *method* - The HTTP method used with the request. Default: &#x60;GET&#x60;.
+	 * - *data* - Raw object with keys and values to pass with request as query params. Default &#x60;null&#x60;.
+	 * - *headers* - Set of request headers to add. Default &#x60;{}&#x60;.
+	 * - *async* - Whether the opened request is asynchronouse. Default &#x60;true&#x60;.
+	 * - *success* - Callback for successful request and response. Passed the response data.
+	 * - *error* - Callback for failed request and response.
+	 * - *cancel* - Callback for cancelled request and response.
+	 *
+	 * @param {string} url The url to request.
+	 * @param {object} options The options object, see Notes.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+
+	shoestring.ajax = function( url, options ) {
+		var params = &quot;&quot;, req = xmlHttp(), settings, key;
+
+		settings = shoestring.extend( {}, shoestring.ajax.settings );
+
+		if( options ){
+			shoestring.extend( settings, options );
+		}
+
+		if( !url ){
+			url = settings.url;
+		}
+
+		if( !req || !url ){
+			return;
+		}
+
+		// create parameter string from data object
+		if( settings.data ){
+			for( key in settings.data ){
+				if( settings.data.hasOwnProperty( key ) ){
+					if( params !== &quot;&quot; ){
+						params += &quot;&amp;&quot;;
+					}
+					params += encodeURIComponent( key ) + &quot;=&quot; +
+						encodeURIComponent( settings.data[key] );
+				}
+			}
+		}
+
+		// append params to url for GET requests
+		if( settings.method === &quot;GET&quot; &amp;&amp; params ){
+			
+			url += &quot;?&quot; + params;
+		}
+
+		req.open( settings.method, url, settings.async );
+
+		if( req.setRequestHeader ){
+			req.setRequestHeader( &quot;X-Requested-With&quot;, &quot;XMLHttpRequest&quot; );
+
+			// Set &#x27;Content-type&#x27; header for POST requests
+			if( settings.method === &quot;POST&quot; &amp;&amp; params ){
+				req.setRequestHeader( &quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot; );
+			}
+
+			for( key in settings.headers ){
+				if( settings.headers.hasOwnProperty( key ) ){
+					req.setRequestHeader(key, settings.headers[ key ]);
+				}
+			}
+		}
+
+		req.onreadystatechange = function () {
+			if( req.readyState === 4 ){
+				// Trim the whitespace so shoestring(&#x27;&lt;div&gt;&#x27;) works
+				var res = (req.responseText || &#x27;&#x27;).replace(/^\s+|\s+$/g, &#x27;&#x27;);
+				if( req.status.toString().indexOf( &quot;0&quot; ) === 0 ){
+					return settings.cancel( res, req.status, req );
+				}
+				else if ( req.status.toString().match( /^(4|5)/ ) &amp;&amp; RegExp.$1 ){
+					return settings.error( res, req.status, req );
+				}
+				else if (settings.success) {
+					return settings.success( res, req.status, req );
+				}
+			}
+		};
+
+		if( req.readyState === 4 ){
+			return req;
+		}
+
+		// Send request
+		if( settings.method === &quot;POST&quot; &amp;&amp; params ){
+			req.send( params );
+		} else {
+			req.send();
+		}
+
+		return req;
+	};
+
+	shoestring.ajax.settings = {
+		success: function(){},
+		error: function(){},
+		cancel: function(){},
+		method: &quot;GET&quot;,
+		async: true,
+		data: null,
+		headers: {}
+	};
+
+
+
+	/**
+	 * Helper function wrapping a call to [ajax](ajax.js.html) using the &#x60;GET&#x60; method.
+	 *
+	 * @param {string} url The url to GET from.
+	 * @param {function} callback Callback to invoke on success.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.get = function( url, callback ){
+		return shoestring.ajax( url, { success: callback } );
+	};
+
+
+
+  /**
+	 * Load the HTML response from &#x60;url&#x60; into the current set of elements.
+	 *
+	 * @param {string} url The url to GET from.
+	 * @param {function} callback Callback to invoke after HTML is inserted.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.load = function( url, callback ){
+		var self = this,
+			args = arguments,
+			intCB = function( data ){
+				self.each(function(){
+					shoestring( this ).html( data );
+				});
+
+				if( callback ){
+					callback.apply( self, args );
+				}
+		  };
+
+		shoestring.ajax( url, { success: intCB } );
+		return this;
+	};
+
+
+
+	/**
+	 * Helper function wrapping a call to [ajax](ajax.js.html) using the &#x60;POST&#x60; method.
+	 *
+	 * @param {string} url The url to POST to.
+	 * @param {object} data The data to send.
+	 * @param {function} callback Callback to invoke on success.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.post = function( url, data, callback ){
+		return shoestring.ajax( url, { data: data, method: &quot;POST&quot;, success: callback } );
+	};
+
+
+
+	/**
+	 * Iterates over &#x60;shoestring&#x60; collections.
+	 *
+	 * @param {function} callback The callback to be invoked on each element and index
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.each = function( callback ){
+		return shoestring.each( this, callback );
+	};
+
+	shoestring.each = function( collection, callback ) {
+		var val;
+		for( var i = 0, il = collection.length; i &lt; il; i++ ){
+			val = callback.call( collection[i], i, collection[i] );
+			if( val === false ){
+				break;
+			}
+		}
+
+		return collection;
+	};
+
+
+
+  /**
+	 * Check for array membership.
+	 *
+	 * @param {object} needle The thing to find.
+	 * @param {object} haystack The thing to find the needle in.
+	 * @return {boolean}
+	 * @this window
+	 */
+	shoestring.inArray = function( needle, haystack ){
+		var isin = -1;
+		for( var i = 0, il = haystack.length; i &lt; il; i++ ){
+			if( haystack.hasOwnProperty( i ) &amp;&amp; haystack[ i ] === needle ){
+				isin = i;
+			}
+		}
+		return isin;
+	};
+
+
+
+  /**
+	 * Bind callbacks to be run when the DOM is &quot;ready&quot;.
+	 *
+	 * @param {function} fn The callback to be run
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.ready = function( fn ){
+		if( ready &amp;&amp; fn ){
+			fn.call( document );
+		}
+		else if( fn ){
+			readyQueue.push( fn );
+		}
+		else {
+			runReady();
+		}
+
+		return [document];
+	};
+
+	// TODO necessary?
+	shoestring.fn.ready = function( fn ){
+		shoestring.ready( fn );
+		return this;
+	};
+
+	// Empty and exec the ready queue
+	var ready = false,
+		readyQueue = [],
+		runReady = function(){
+			if( !ready ){
+				while( readyQueue.length ){
+					readyQueue.shift().call( document );
+				}
+				ready = true;
+			}
+		};
+
+	// Quick IE8 shiv
+	if( !window.addEventListener ){
+		window.addEventListener = function( evt, cb ){
+			return window.attachEvent( &quot;on&quot; + evt, cb );
+		};
+	}
+
+	// If DOM is already ready at exec time, depends on the browser.
+	// From: https://github.com/mobify/mobifyjs/blob/526841be5509e28fc949038021799e4223479f8d/src/capture.js#L128
+	if (document.attachEvent ? document.readyState === &quot;complete&quot; : document.readyState !== &quot;loading&quot;) {
+		runReady();
+	}	else {
+		if( !document.addEventListener ){
+			document.attachEvent( &quot;DOMContentLoaded&quot;, runReady );
+			document.attachEvent( &quot;onreadystatechange&quot;, runReady );
+		} else {
+			document.addEventListener( &quot;DOMContentLoaded&quot;, runReady, false );
+			document.addEventListener( &quot;readystatechange&quot;, runReady, false );
+		}
+		window.addEventListener( &quot;load&quot;, runReady, false );
+	}
+
+
+
+  /**
+	 * Checks the current set of elements against the selector, if one matches return &#x60;true&#x60;.
+	 *
+	 * @param {string} selector The selector to check.
+	 * @return {boolean}
+	 * @this {shoestring}
+	 */
+	shoestring.fn.is = function( selector ){
+		var ret = false, self = this, parents, check;
+
+		// assume a dom element
+		if( typeof selector !== &quot;string&quot; ){
+			// array-like, ie shoestring objects or element arrays
+			if( selector.length &amp;&amp; selector[0] ){
+				check = selector;
+			} else {
+				check = [selector];
+			}
+
+			return _checkElements(this, check);
+		}
+
+		parents = this.parent();
+
+		if( !parents.length ){
+			parents = shoestring( document );
+		}
+
+		parents.each(function( i, e ) {
+			var children;
+
+					children = e.querySelectorAll( selector );
+
+			ret = _checkElements( self, children );
+		});
+
+		return ret;
+	};
+
+	function _checkElements(needles, haystack){
+		var ret = false;
+
+		needles.each(function() {
+			var j = 0;
+
+			while( j &lt; haystack.length ){
+				if( this === haystack[j] ){
+					ret = true;
+				}
+
+				j++;
+			}
+		});
+
+		return ret;
+	}
+
+
+
+	/**
+	 * Get data attached to the first element or set data values on all elements in the current set.
+	 *
+	 * @param {string} name The data attribute name.
+	 * @param {any} value The value assigned to the data attribute.
+	 * @return {any|shoestring}
+	 * @this shoestring
+	 */
+	shoestring.fn.data = function( name, value ){
+		if( name !== undefined ){
+			if( value !== undefined ){
+				return this.each(function(){
+					if( !this.shoestringData ){
+						this.shoestringData = {};
+					}
+
+					this.shoestringData[ name ] = value;
+				});
+			}
+			else {
+				if( this[ 0 ] ) {
+					if( this[ 0 ].shoestringData ) {
+						return this[ 0 ].shoestringData[ name ];
+					}
+				}
+			}
+		}
+		else {
+			return this[ 0 ] ? this[ 0 ].shoestringData || {} : undefined;
+		}
+	};
+
+
+	/**
+	 * Remove data associated with &#x60;name&#x60; or all the data, for each element in the current set.
+	 *
+	 * @param {string} name The data attribute name.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.removeData = function( name ){
+		return this.each(function(){
+			if( name !== undefined &amp;&amp; this.shoestringData ){
+				this.shoestringData[ name ] = undefined;
+				delete this.shoestringData[ name ];
+			}	else {
+				this[ 0 ].shoestringData = {};
+			}
+		});
+	};
+
+
+
+	/**
+	 * An alias for the &#x60;shoestring&#x60; constructor.
+	 */
+	window.$ = shoestring;
+
+
+
+	/**
+	 * Add a class to each DOM element in the set of elements.
+	 *
+	 * @param {string} className The name of the class to be added.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.addClass = function( className ){
+		var classes = className.replace(/^\s+|\s+$/g, &#x27;&#x27;).split( &quot; &quot; );
+
+		return this.each(function(){
+			for( var i = 0, il = classes.length; i &lt; il; i++ ){
+				if( this.className !== undefined &amp;&amp;
+						(this.className === &quot;&quot; ||
+						!this.className.match( new RegExp( &quot;(^|\\s)&quot; + classes[ i ] + &quot;($|\\s)&quot;))) ){
+					this.className += &quot; &quot; + classes[ i ];
+				}
+			}
+		});
+	};
+
+
+
+  /**
+	 * Add elements matching the selector to the current set.
+	 *
+	 * @param {string} selector The selector for the elements to add from the DOM
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.add = function( selector ){
+		var ret = [];
+		this.each(function(){
+			ret.push( this );
+		});
+
+		shoestring( selector ).each(function(){
+			ret.push( this );
+		});
+
+		return shoestring( ret );
+	};
+
+
+
+	/**
+	 * Insert an element or HTML string after each element in the current set.
+	 *
+	 * @param {string|HTMLElement} fragment The HTML or HTMLElement to insert.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.after = function( fragment ){
+		if( typeof( fragment ) === &quot;string&quot; || fragment.nodeType !== undefined ){
+			fragment = shoestring( fragment );
+		}
+
+		if( fragment.length &gt; 1 ){
+			fragment = fragment.reverse();
+		}
+		return this.each(function( i ){
+			for( var j = 0, jl = fragment.length; j &lt; jl; j++ ){
+				var insertEl = i &gt; 0 ? fragment[ j ].cloneNode( true ) : fragment[ j ];
+				this.parentNode.insertBefore( insertEl, this.nextSibling );
+			}
+		});
+	};
+
+
+
+	/**
+	 * Insert an element or HTML string as the last child of each element in the set.
+	 *
+	 * @param {string|HTMLElement} fragment The HTML or HTMLElement to insert.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.append = function( fragment ){
+		if( typeof( fragment ) === &quot;string&quot; || fragment.nodeType !== undefined ){
+			fragment = shoestring( fragment );
+		}
+
+		return this.each(function( i ){
+			for( var j = 0, jl = fragment.length; j &lt; jl; j++ ){
+				this.appendChild( i &gt; 0 ? fragment[ j ].cloneNode( true ) : fragment[ j ] );
+			}
+		});
+	};
+
+
+
+	/**
+	 * Insert the current set as the last child of the elements matching the selector.
+	 *
+	 * @param {string} selector The selector after which to append the current set.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.appendTo = function( selector ){
+		return this.each(function(){
+			shoestring( selector ).append( this );
+		});
+	};
+
+
+
+  /**
+	 * Get the value of the first element of the set or set the value of all the elements in the set.
+	 *
+	 * @param {string} name The attribute name.
+	 * @param {string} value The new value for the attribute.
+	 * @return {shoestring|string|undefined}
+	 * @this {shoestring}
+	 */
+	shoestring.fn.attr = function( name, value ){
+		var nameStr = typeof( name ) === &quot;string&quot;;
+
+		if( value !== undefined || !nameStr ){
+			return this.each(function(){
+				if( nameStr ){
+					this.setAttribute( name, value );
+				}	else {
+					for( var i in name ){
+						if( name.hasOwnProperty( i ) ){
+							this.setAttribute( i, name[ i ] );
+						}
+					}
+				}
+			});
+		} else {
+			return this[ 0 ] ? this[ 0 ].getAttribute( name ) : undefined;
+		}
+	};
+
+
+
+	/**
+	 * Insert an element or HTML string before each element in the current set.
+	 *
+	 * @param {string|HTMLElement} fragment The HTML or HTMLElement to insert.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.before = function( fragment ){
+		if( typeof( fragment ) === &quot;string&quot; || fragment.nodeType !== undefined ){
+			fragment = shoestring( fragment );
+		}
+
+		return this.each(function( i ){
+			for( var j = 0, jl = fragment.length; j &lt; jl; j++ ){
+				this.parentNode.insertBefore( i &gt; 0 ? fragment[ j ].cloneNode( true ) : fragment[ j ], this );
+			}
+		});
+	};
+
+
+
+	/**
+	 * Get the children of the current collection.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.children = function(){
+		var ret = [],
+			childs,
+			j;
+		this.each(function(){
+			childs = this.children;
+			j = -1;
+
+			while( j++ &lt; childs.length-1 ){
+				if( shoestring.inArray(  childs[ j ], ret ) === -1 ){
+					ret.push( childs[ j ] );
+				}
+			}
+		});
+		return shoestring(ret);
+	};
+
+
+
+	/**
+	 * Clone and return the current set of nodes into a new &#x60;shoestring&#x60; object.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.clone = function() {
+		var ret = [];
+
+		this.each(function() {
+			ret.push( this.cloneNode( true ) );
+		});
+
+		return shoestring( ret );
+	};
+
+
+
+	/**
+	 * Find an element matching the selector in the set of the current element and its parents.
+	 *
+	 * @param {string} selector The selector used to identify the target element.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.closest = function( selector ){
+		var ret = [];
+
+		if( !selector ){
+			return shoestring( ret );
+		}
+
+		this.each(function(){
+			var element, $self = shoestring( element = this );
+
+			if( $self.is(selector) ){
+				ret.push( this );
+				return;
+			}
+
+			while( element.parentElement ) {
+				if( shoestring(element.parentElement).is(selector) ){
+					ret.push( element.parentElement );
+					break;
+				}
+
+				element = element.parentElement;
+			}
+		});
+
+		return shoestring( ret );
+	};
+
+
+
+  shoestring.cssExceptions = {
+		&#x27;float&#x27;: [ &#x27;cssFloat&#x27;, &#x27;styleFloat&#x27; ] // styleFloat is IE8
+	};
+
+
+
+	/**
+	 * A polyfill to support computed styles in IE &lt; 9
+	 *
+	 * NOTE this is taken directly from https://github.com/jonathantneal/polyfill
+	 */
+	(function () {
+		function getComputedStylePixel(element, property, fontSize) {
+			element.document; // Internet Explorer sometimes struggles to read currentStyle until the element&#x27;s document is accessed.
+
+			var
+			value = element.currentStyle[property].match(/([\d\.]+)(%|cm|em|in|mm|pc|pt|)/) || [0, 0, &#x27;&#x27;],
+			size = value[1],
+			suffix = value[2],
+			rootSize;
+
+			fontSize = !fontSize ? fontSize : /%|em/.test(suffix) &amp;&amp; element.parentElement ? getComputedStylePixel(element.parentElement, &#x27;fontSize&#x27;, null) : 16;
+			rootSize = property === &#x27;fontSize&#x27; ? fontSize : /width/i.test(property) ? element.clientWidth : element.clientHeight;
+
+			return suffix === &#x27;%&#x27; ? size / 100 * rootSize :
+				suffix === &#x27;cm&#x27; ? size * 0.3937 * 96 :
+				suffix === &#x27;em&#x27; ? size * fontSize :
+				suffix === &#x27;in&#x27; ? size * 96 :
+				suffix === &#x27;mm&#x27; ? size * 0.3937 * 96 / 10 :
+				suffix === &#x27;pc&#x27; ? size * 12 * 96 / 72 :
+				suffix === &#x27;pt&#x27; ? size * 96 / 72 :
+				size;
+		}
+
+		function setShortStyleProperty(style, property) {
+			var
+			borderSuffix = property === &#x27;border&#x27; ? &#x27;Width&#x27; : &#x27;&#x27;,
+			t = property + &#x27;Top&#x27; + borderSuffix,
+			r = property + &#x27;Right&#x27; + borderSuffix,
+			b = property + &#x27;Bottom&#x27; + borderSuffix,
+			l = property + &#x27;Left&#x27; + borderSuffix;
+
+			style[property] = (style[t] === style[r] &amp;&amp; style[t] === style[b] &amp;&amp; style[t] === style[l] ? [ style[t] ] :
+												 style[t] === style[b] &amp;&amp; style[l] === style[r] ? [ style[t], style[r] ] :
+												 style[l] === style[r] ? [ style[t], style[r], style[b] ] :
+												 [ style[t], style[r], style[b], style[l] ]).join(&#x27; &#x27;);
+		}
+
+		// &lt;CSSStyleDeclaration&gt;
+		function CSSStyleDeclaration(element) {
+			var
+			style = this,
+			currentStyle = element.currentStyle,
+			fontSize = getComputedStylePixel(element, &#x27;fontSize&#x27;),
+			unCamelCase = function (match) {
+				return &#x27;-&#x27; + match.toLowerCase();
+			},
+			property;
+
+			for (property in currentStyle) {
+				Array.prototype.push.call(style, property === &#x27;styleFloat&#x27; ? &#x27;float&#x27; : property.replace(/[A-Z]/, unCamelCase));
+
+				if (property === &#x27;width&#x27;) {
+					style[property] = element.offsetWidth + &#x27;px&#x27;;
+				} else if (property === &#x27;height&#x27;) {
+					style[property] = element.offsetHeight + &#x27;px&#x27;;
+				} else if (property === &#x27;styleFloat&#x27;) {
+					style.float = currentStyle[property];
+				} else if (/margin.|padding.|border.+W/.test(property) &amp;&amp; style[property] !== &#x27;auto&#x27;) {
+					style[property] = Math.round(getComputedStylePixel(element, property, fontSize)) + &#x27;px&#x27;;
+				} else if (/^outline/.test(property)) {
+					// errors on checking outline
+					try {
+						style[property] = currentStyle[property];
+					} catch (error) {
+						style.outlineColor = currentStyle.color;
+						style.outlineStyle = style.outlineStyle || &#x27;none&#x27;;
+						style.outlineWidth = style.outlineWidth || &#x27;0px&#x27;;
+						style.outline = [style.outlineColor, style.outlineWidth, style.outlineStyle].join(&#x27; &#x27;);
+					}
+				} else {
+					style[property] = currentStyle[property];
+				}
+			}
+
+			setShortStyleProperty(style, &#x27;margin&#x27;);
+			setShortStyleProperty(style, &#x27;padding&#x27;);
+			setShortStyleProperty(style, &#x27;border&#x27;);
+
+			style.fontSize = Math.round(fontSize) + &#x27;px&#x27;;
+		}
+
+		CSSStyleDeclaration.prototype = {
+			constructor: CSSStyleDeclaration,
+			// &lt;CSSStyleDeclaration&gt;.getPropertyPriority
+			getPropertyPriority: function () {
+				throw new Error(&#x27;NotSupportedError: DOM Exception 9&#x27;);
+			},
+			// &lt;CSSStyleDeclaration&gt;.getPropertyValue
+			getPropertyValue: function (property) {
+				return this[property.replace(/-\w/g, function (match) {
+					return match[1].toUpperCase();
+				})];
+			},
+			// &lt;CSSStyleDeclaration&gt;.item
+			item: function (index) {
+				return this[index];
+			},
+			// &lt;CSSStyleDeclaration&gt;.removeProperty
+			removeProperty: function () {
+				throw new Error(&#x27;NoModificationAllowedError: DOM Exception 7&#x27;);
+			},
+			// &lt;CSSStyleDeclaration&gt;.setProperty
+			setProperty: function () {
+				throw new Error(&#x27;NoModificationAllowedError: DOM Exception 7&#x27;);
+			},
+			// &lt;CSSStyleDeclaration&gt;.getPropertyCSSValue
+			getPropertyCSSValue: function () {
+				throw new Error(&#x27;NotSupportedError: DOM Exception 9&#x27;);
+			}
+		};
+
+		if( !window.getComputedStyle ) {
+			// &lt;window&gt;.getComputedStyle
+			// NOTE Window is not defined in all browsers
+			window.getComputedStyle = function (element) {
+				return new CSSStyleDeclaration(element);
+			};
+
+			if ( window.Window ) {
+				window.Window.prototype.getComputedStyle = window.getComputedStyle;
+			}
+		}
+	})();
+
+
+
+	(function() {
+		var cssExceptions = shoestring.cssExceptions;
+
+		// IE8 uses marginRight instead of margin-right
+		function convertPropertyName( str ) {
+			return str.replace( /\-([A-Za-z])/g, function ( match, character ) {
+				return character.toUpperCase();
+			});
+		}
+
+		function _getStyle( element, property ) {
+			// polyfilled in getComputedStyle module
+			return window.getComputedStyle( element, null ).getPropertyValue( property );
+		}
+
+		var vendorPrefixes = [ &#x27;&#x27;, &#x27;-webkit-&#x27;, &#x27;-ms-&#x27;, &#x27;-moz-&#x27;, &#x27;-o-&#x27;, &#x27;-khtml-&#x27; ];
+
+		/**
+		 * Private function for getting the computed style of an element.
+		 *
+		 * **NOTE** Please use the [css](../css.js.html) method instead.
+		 *
+		 * @method _getStyle
+		 * @param {HTMLElement} element The element we want the style property for.
+		 * @param {string} property The css property we want the style for.
+		 */
+		shoestring._getStyle = function( element, property ) {
+			var convert, value, j, k;
+
+			if( cssExceptions[ property ] ) {
+				for( j = 0, k = cssExceptions[ property ].length; j &lt; k; j++ ) {
+					value = _getStyle( element, cssExceptions[ property ][ j ] );
+
+					if( value ) {
+						return value;
+					}
+				}
+			}
+
+			for( j = 0, k = vendorPrefixes.length; j &lt; k; j++ ) {
+				convert = convertPropertyName( vendorPrefixes[ j ] + property );
+
+				// VendorprefixKeyName || key-name
+				value = _getStyle( element, convert );
+
+				if( convert !== property ) {
+					value = value || _getStyle( element, property );
+				}
+
+				if( vendorPrefixes[ j ] ) {
+					// -vendorprefix-key-name
+					value = value || _getStyle( element, vendorPrefixes[ j ] + property );
+				}
+
+				if( value ) {
+					return value;
+				}
+			}
+
+			return undefined;
+		};
+	})();
+
+
+
+	(function() {
+		var cssExceptions = shoestring.cssExceptions;
+
+		// IE8 uses marginRight instead of margin-right
+		function convertPropertyName( str ) {
+			return str.replace( /\-([A-Za-z])/g, function ( match, character ) {
+				return character.toUpperCase();
+			});
+		}
+
+		/**
+		 * Private function for setting the style of an element.
+		 *
+		 * **NOTE** Please use the [css](../css.js.html) method instead.
+		 *
+		 * @method _setStyle
+		 * @param {HTMLElement} element The element we want to style.
+		 * @param {string} property The property being used to style the element.
+		 * @param {string} value The css value for the style property.
+		 */
+		shoestring._setStyle = function( element, property, value ) {
+			var convertedProperty = convertPropertyName(property);
+
+			element.style[ property ] = value;
+
+			if( convertedProperty !== property ) {
+				element.style[ convertedProperty ] = value;
+			}
+
+			if( cssExceptions[ property ] ) {
+				for( var j = 0, k = cssExceptions[ property ].length; j&lt;k; j++ ) {
+					element.style[ cssExceptions[ property ][ j ] ] = value;
+				}
+			}
+		};
+	})();
+
+
+
+	/**
+	 * Get the compute style property of the first element or set the value of a style property
+	 * on all elements in the set.
+	 *
+	 * @method _setStyle
+	 * @param {string} property The property being used to style the element.
+	 * @param {string|undefined} value The css value for the style property.
+	 * @return {string|shoestring}
+	 * @this shoestring
+	 */
+	shoestring.fn.css = function( property, value ){
+		if( !this[0] ){
+			return;
+		}
+
+		if( typeof property === &quot;object&quot; ) {
+			return this.each(function() {
+				for( var key in property ) {
+					if( property.hasOwnProperty( key ) ) {
+						shoestring._setStyle( this, key, property[key] );
+					}
+				}
+			});
+		}	else {
+			// assignment else retrieve first
+			if( value !== undefined ){
+				return this.each(function(){
+					shoestring._setStyle( this, property, value );
+				});
+			}
+
+			return shoestring._getStyle( this[0], property );
+		}
+	};
+
+
+
+	/**
+	 * Returns the indexed element wrapped in a new &#x60;shoestring&#x60; object.
+	 *
+	 * @param {integer} index The index of the element to wrap and return.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.eq = function( index ){
+		if( this[index] ){
+			return shoestring( this[index] );
+		}
+
+		return shoestring([]);
+	};
+
+
+
+	/**
+	 * Filter out the current set if they do *not* match the passed selector or
+	 * the supplied callback returns false
+	 *
+	 * @param {string,function} selector The selector or boolean return value callback used to filter the elements.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.filter = function( selector ){
+		var ret = [];
+
+		this.each(function( index ){
+			var wsel;
+
+			if( typeof selector === &#x27;function&#x27; ) {
+				if( selector.call( this, index ) !== false ) {
+					ret.push( this );
+				}
+			} else {
+				if( !this.parentNode ){
+					var context = shoestring( document.createDocumentFragment() );
+
+					context[ 0 ].appendChild( this );
+					wsel = shoestring( selector, context );
+				} else {
+					wsel = shoestring( selector, this.parentNode );
+				}
+
+				if( shoestring.inArray( this, wsel ) &gt; -1 ){
+					ret.push( this );
+				}
+			}
+		});
+
+		return shoestring( ret );
+	};
+
+
+
+	/**
+	 * Find descendant elements of the current collection.
+	 *
+	 * @param {string} selector The selector used to find the children
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.find = function( selector ){
+		var ret = [],
+			finds;
+		this.each(function(){
+				finds = this.querySelectorAll( selector );
+
+			for( var i = 0, il = finds.length; i &lt; il; i++ ){
+				ret = ret.concat( finds[i] );
+			}
+		});
+		return shoestring( ret );
+	};
+
+
+
+	/**
+	 * Returns the first element of the set wrapped in a new &#x60;shoestring&#x60; object.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.first = function(){
+		return this.eq( 0 );
+	};
+
+
+
+	/**
+	 * Returns the raw DOM node at the passed index.
+	 *
+	 * @param {integer} index The index of the element to wrap and return.
+	 * @return HTMLElement
+	 * @this shoestring
+	 */
+	shoestring.fn.get = function( index ){
+		return this[ index ];
+	};
+
+
+
+	/**
+	 * Private function for setting/getting the offset property for height/width.
+	 *
+	 * **NOTE** Please use the [width](width.js.html) or [height](height.js.html) methods instead.
+	 *
+	 * @param {shoestring} set The set of elements.
+	 * @param {string} name The string &quot;height&quot; or &quot;width&quot;.
+	 * @param {float|undefined} value The value to assign.
+	 * @return shoestring
+	 * @this window
+	 */
+	shoestring._dimension = function( set, name, value ){
+		var offsetName;
+
+		if( value === undefined ){
+			offsetName = name.replace(/^[a-z]/, function( letter ) {
+				return letter.toUpperCase();
+			});
+
+			return set[ 0 ][ &quot;offset&quot; + offsetName ];
+		} else {
+			// support integer values as pixels
+			value = typeof value === &quot;string&quot; ? value : value + &quot;px&quot;;
+
+			return set.each(function(){
+				this.style[ name ] = value;
+			});
+		}
+	};
+
+
+
+	/**
+	 * Gets the height value of the first element or sets the height for the whole set.
+	 *
+	 * @param {float|undefined} value The value to assign.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.height = function( value ){
+		return shoestring._dimension( this, &quot;height&quot;, value );
+	};
+
+
+
+	var set = function( html ){
+		if( typeof html === &quot;string&quot; ){
+			return this.each(function(){
+				this.innerHTML = html;
+			});
+		} else {
+			var h = &quot;&quot;;
+			if( typeof html.length !== &quot;undefined&quot; ){
+				for( var i = 0, l = html.length; i &lt; l; i++ ){
+					h += html[i].outerHTML;
+				}
+			} else {
+				h = html.outerHTML;
+			}
+			return this.each(function(){
+				this.innerHTML = h;
+			});
+		}
+	};
+	/**
+	 * Gets or sets the &#x60;innerHTML&#x60; from all the elements in the set.
+	 *
+	 * @param {string|undefined} html The html to assign
+	 * @return {string|shoestring}
+	 * @this shoestring
+	 */
+	shoestring.fn.html = function( html ){
+				if( typeof html !== &quot;undefined&quot; ){
+			return set.call( this, html );
+		} else { // get
+			var pile = &quot;&quot;;
+
+			this.each(function(){
+				pile += this.innerHTML;
+			});
+
+			return pile;
+		}
+	};
+
+
+
+	(function() {
+		function _getIndex( set, test ) {
+			var i, result, element;
+
+			for( i = result = 0; i &lt; set.length; i++ ) {
+				element = set.item ? set.item(i) : set[i];
+
+				if( test(element) ){
+					return result;
+				}
+
+				// ignore text nodes, etc
+				// NOTE may need to be more permissive
+				if( element.nodeType === 1 ){
+					result++;
+				}
+			}
+
+			return -1;
+		}
+
+		/**
+		 * Find the index in the current set for the passed selector.
+		 * Without a selector it returns the index of the first node within the array of its siblings.
+		 *
+		 * @param {string|undefined} selector The selector used to search for the index.
+		 * @return {integer}
+		 * @this {shoestring}
+		 */
+		shoestring.fn.index = function( selector ){
+			var self, children;
+
+			self = this;
+
+			// no arg? check the children, otherwise check each element that matches
+			if( selector === undefined ){
+				children = ( ( this[ 0 ] &amp;&amp; this[0].parentNode ) || document.documentElement).childNodes;
+
+				// check if the element matches the first of the set
+				return _getIndex(children, function( element ) {
+					return self[0] === element;
+				});
+			} else {
+
+				// check if the element matches the first selected node from the parent
+				return _getIndex(self, function( element ) {
+					return element === (shoestring( selector, element.parentNode )[ 0 ]);
+				});
+			}
+		};
+	})();
+
+
+
+	/**
+	 * Insert the current set after the elements matching the selector.
+	 *
+	 * @param {string} selector The selector after which to insert the current set.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.insertAfter = function( selector ){
+		return this.each(function(){
+			shoestring( selector ).after( this );
+		});
+	};
+
+
+
+	/**
+	 * Insert the current set before the elements matching the selector.
+	 *
+	 * @param {string} selector The selector before which to insert the current set.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.insertBefore = function( selector ){
+		return this.each(function(){
+			shoestring( selector ).before( this );
+		});
+	};
+
+
+
+	/**
+	 * Returns the last element of the set wrapped in a new &#x60;shoestring&#x60; object.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.last = function(){
+		return this.eq( this.length - 1 );
+	};
+
+
+
+	/**
+	 * Returns a &#x60;shoestring&#x60; object with the set of siblings of each element in the original set.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.next = function(){
+		
+		var result = [];
+
+		// TODO need to implement map
+		this.each(function() {
+			var children, item, found;
+
+			// get the child nodes for this member of the set
+			children = shoestring( this.parentNode )[0].childNodes;
+
+			for( var i = 0; i &lt; children.length; i++ ){
+				item = children.item( i );
+
+				// found the item we needed (found) which means current item value is
+				// the next node in the list, as long as it&#x27;s viable grab it
+				// NOTE may need to be more permissive
+				if( found &amp;&amp; item.nodeType === 1 ){
+					result.push( item );
+					break;
+				}
+
+				// find the current item and mark it as found
+				if( item === this ){
+					found = true;
+				}
+			}
+		});
+
+		return shoestring( result );
+	};
+
+
+
+	/**
+	 * Removes elements from the current set.
+	 *
+	 * @param {string} selector The selector to use when removing the elements.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.not = function( selector ){
+		var ret = [];
+
+		this.each(function(){
+			var found = shoestring( selector, this.parentNode );
+
+			if( shoestring.inArray(this, found) === -1 ){
+				ret.push( this );
+			}
+		});
+
+		return shoestring( ret );
+	};
+
+
+
+	/**
+	 * Returns an object with the &#x60;top&#x60; and &#x60;left&#x60; properties corresponging to the first elements offsets.
+	 *
+	 * @return object
+	 * @this shoestring
+	 */
+	shoestring.fn.offset = function(){
+		return {
+			top: this[ 0 ].offsetTop,
+			left: this[ 0 ].offsetLeft
+		};
+	};
+
+
+
+	/**
+	 * Returns the set of first parents for each element in the current set.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.parent = function(){
+		var ret = [],
+			parent;
+
+		this.each(function(){
+			// no parent node, assume top level
+			// jQuery parent: return the document object for &lt;html&gt; or the parent node if it exists
+			parent = (this === document.documentElement ? document : this.parentNode);
+
+			// if there is a parent and it&#x27;s not a document fragment
+			if( parent &amp;&amp; parent.nodeType !== 11 ){
+				ret.push( parent );
+			}
+		});
+
+		return shoestring(ret);
+	};
+
+
+
+	/**
+	 * Returns the set of all parents matching the selector if provided for each element in the current set.
+	 *
+	 * @param {string} selector The selector to check the parents with.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.parents = function( selector ){
+		var ret = [];
+
+		this.each(function(){
+			var curr = this, match;
+
+			while( curr.parentElement &amp;&amp; !match ){
+				curr = curr.parentElement;
+
+				if( selector ){
+					if( curr === shoestring( selector )[0] ){
+						match = true;
+
+						if( shoestring.inArray( curr, ret ) === -1 ){
+							ret.push( curr );
+						}
+					}
+				} else {
+					if( shoestring.inArray( curr, ret ) === -1 ){
+						ret.push( curr );
+					}
+				}
+			}
+		});
+
+		return shoestring(ret);
+	};
+
+
+
+	/**
+	 * Add an HTML string or element before the children of each element in the current set.
+	 *
+	 * @param {string|HTMLElement} fragment The HTML string or element to add.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.prepend = function( fragment ){
+		if( typeof( fragment ) === &quot;string&quot; || fragment.nodeType !== undefined ){
+			fragment = shoestring( fragment );
+		}
+
+		return this.each(function( i ){
+
+			for( var j = 0, jl = fragment.length; j &lt; jl; j++ ){
+				var insertEl = i &gt; 0 ? fragment[ j ].cloneNode( true ) : fragment[ j ];
+				if ( this.firstChild ){
+					this.insertBefore( insertEl, this.firstChild );
+				} else {
+					this.appendChild( insertEl );
+				}
+			}
+		});
+	};
+
+
+
+	/**
+	 * Add each element of the current set before the children of the selected elements.
+	 *
+	 * @param {string} selector The selector for the elements to add the current set to..
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.prependTo = function( selector ){
+		return this.each(function(){
+			shoestring( selector ).prepend( this );
+		});
+	};
+
+
+
+	/**
+	 * Returns a &#x60;shoestring&#x60; object with the set of *one* siblingx before each element in the original set.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.prev = function(){
+		
+		var result = [];
+
+		// TODO need to implement map
+		this.each(function() {
+			var children, item, found;
+
+			// get the child nodes for this member of the set
+			children = shoestring( this.parentNode )[0].childNodes;
+
+			for( var i = children.length -1; i &gt;= 0; i-- ){
+				item = children.item( i );
+
+				// found the item we needed (found) which means current item value is
+				// the next node in the list, as long as it&#x27;s viable grab it
+				// NOTE may need to be more permissive
+				if( found &amp;&amp; item.nodeType === 1 ){
+					result.push( item );
+					break;
+				}
+
+				// find the current item and mark it as found
+				if( item === this ){
+					found = true;
+				}
+			}
+		});
+
+		return shoestring( result );
+	};
+
+
+
+	/**
+	 * Returns a &#x60;shoestring&#x60; object with the set of *all* siblings before each element in the original set.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.prevAll = function(){
+		
+		var result = [];
+
+		this.each(function() {
+			var $previous = shoestring( this ).prev();
+
+			while( $previous.length ){
+				result.push( $previous[0] );
+				$previous = $previous.prev();
+			}
+		});
+
+		return shoestring( result );
+	};
+
+
+
+	// Property normalization, a subset taken from jQuery src
+	shoestring.propFix = {
+		&quot;class&quot;: &quot;className&quot;,
+		contenteditable: &quot;contentEditable&quot;,
+		&quot;for&quot;: &quot;htmlFor&quot;,
+		readonly: &quot;readOnly&quot;,
+		tabindex: &quot;tabIndex&quot;
+	};
+
+
+
+	/**
+	 * Gets the property value from the first element or sets the property value on all elements of the currrent set.
+   *
+	 * @param {string} name The property name.
+   * @param {any} value The property value.
+	 * @return {any|shoestring}
+	 * @this shoestring
+	 */
+	shoestring.fn.prop = function( name, value ){
+		if( !this[0] ){
+			return;
+		}
+
+		name = shoestring.propFix[ name ] || name;
+
+		if( value !== undefined ){
+			return this.each(function(){
+				this[ name ] = value;
+			});
+		}	else {
+			return this[ 0 ][ name ];
+		}
+	};
+
+
+
+	/**
+	 * Remove an attribute from each element in the current set.
+	 *
+	 * @param {string} name The name of the attribute.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.removeAttr = function( name ){
+		return this.each(function(){
+			this.removeAttribute( name );
+		});
+	};
+
+
+
+	/**
+	 * Remove a class from each DOM element in the set of elements.
+	 *
+	 * @param {string} className The name of the class to be removed.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.removeClass = function( cname ){
+		var classes = cname.replace(/^\s+|\s+$/g, &#x27;&#x27;).split( &quot; &quot; );
+
+		return this.each(function(){
+			var newClassName, regex;
+
+			for( var i = 0, il = classes.length; i &lt; il; i++ ){
+				if( this.className !== undefined ){
+					regex = new RegExp( &quot;(^|\\s)&quot; + classes[ i ] + &quot;($|\\s)&quot;, &quot;gmi&quot; );
+					newClassName = this.className.replace( regex, &quot; &quot; );
+
+					this.className = newClassName.replace(/^\s+|\s+$/g, &#x27;&#x27;);
+				}
+			}
+		});
+	};
+
+
+
+	/**
+	 * Remove the current set of elements from the DOM.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.remove = function(){
+		return this.each(function(){
+			if( this.parentNode ) {
+				this.parentNode.removeChild( this );
+			}
+		});
+	};
+
+
+
+	/**
+	 * Remove a proprety from each element in the current set.
+	 *
+	 * @param {string} name The name of the property.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.removeProp = function( property ){
+		var name = shoestring.propFix[ property ] || property;
+
+		return this.each(function(){
+			this[ name ] = undefined;
+			delete this[ name ];
+		});
+	};
+
+
+
+	/**
+	 * Replace each element in the current set with that argument HTML string or HTMLElement.
+	 *
+	 * @param {string|HTMLElement} fragment The value to assign.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.replaceWith = function( fragment ){
+		if( typeof( fragment ) === &quot;string&quot; ){
+			fragment = shoestring( fragment );
+		}
+
+		var ret = [];
+
+		if( fragment.length &gt; 1 ){
+			fragment = fragment.reverse();
+		}
+		this.each(function( i ){
+			var clone = this.cloneNode( true ),
+				insertEl;
+			ret.push( clone );
+
+			// If there is no parentNode, this is pointless, drop it.
+			if( !this.parentNode ){ return; }
+
+			if( fragment.length === 1 ){
+				insertEl = i &gt; 0 ? fragment[ 0 ].cloneNode( true ) : fragment[ 0 ];
+				this.parentNode.replaceChild( insertEl, this );
+			} else {
+				for( var j = 0, jl = fragment.length; j &lt; jl; j++ ){
+					insertEl = i &gt; 0 ? fragment[ j ].cloneNode( true ) : fragment[ j ];
+					this.parentNode.insertBefore( insertEl, this.nextSibling );
+				}
+				this.parentNode.removeChild( this );
+			}
+		});
+
+		return shoestring( ret );
+	};
+
+
+
+	shoestring.inputTypes = [
+		&quot;text&quot;,
+		&quot;hidden&quot;,
+		&quot;password&quot;,
+		&quot;color&quot;,
+		&quot;date&quot;,
+		&quot;datetime&quot;,
+		// &quot;datetime\-local&quot; matched by datetime
+		&quot;email&quot;,
+		&quot;month&quot;,
+		&quot;number&quot;,
+		&quot;range&quot;,
+		&quot;search&quot;,
+		&quot;tel&quot;,
+		&quot;time&quot;,
+		&quot;url&quot;,
+		&quot;week&quot;
+	];
+
+	shoestring.inputTypeTest = new RegExp( shoestring.inputTypes.join( &quot;|&quot; ) );
+
+
+	/**
+	 * Serialize child input element values into an object.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.serialize = function(){
+		var data = {};
+
+		shoestring( &quot;input, select&quot;, this ).each(function(){
+			var type = this.type, name = this.name,	value = this.value;
+
+			if( shoestring.inputTypeTest.test( type ) ||
+					( type === &quot;checkbox&quot; || type === &quot;radio&quot; ) &amp;&amp;
+					this.checked ){
+
+				data[ name ] = value;
+			}	else if( this.nodeName === &quot;SELECT&quot; ){
+				data[ name ] = this.options[ this.selectedIndex ].nodeValue;
+			}
+		});
+
+		return data;
+	};
+
+
+
+  /**
+	 * Get all of the sibling elements for each element in the current set.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.siblings = function(){
+		
+		if( !this.length ) {
+			return shoestring( [] );
+		}
+
+		var sibs = [], el = this[ 0 ].parentNode.firstChild;
+
+		do {
+			if( el.nodeType === 1 &amp;&amp; el !== this[ 0 ] ) {
+				sibs.push( el );
+			}
+
+      el = el.nextSibling;
+		} while( el );
+
+		return shoestring( sibs );
+	};
+
+
+
+	var getText = function( elem ){
+		var node,
+			ret = &quot;&quot;,
+			i = 0,
+			nodeType = elem.nodeType;
+
+		if ( !nodeType ) {
+			// If no nodeType, this is expected to be an array
+			while ( (node = elem[i++]) ) {
+				// Do not traverse comment nodes
+				ret += getText( node );
+			}
+		} else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
+			// Use textContent for elements
+			// innerText usage removed for consistency of new lines (jQuery #11153)
+			if ( typeof elem.textContent === &quot;string&quot; ) {
+				return elem.textContent;
+			} else {
+				// Traverse its children
+				for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
+					ret += getText( elem );
+				}
+			}
+		} else if ( nodeType === 3 || nodeType === 4 ) {
+			return elem.nodeValue;
+		}
+		// Do not include comment or processing instruction nodes
+
+		return ret;
+	};
+
+  /**
+	 * Recursively retrieve the text content of the each element in the current set.
+	 *
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.text = function() {
+		
+		return getText( this );
+	};
+
+
+
+
+	/**
+	 * Get the value of the first element or set the value of all elements in the current set.
+	 *
+	 * @param {string} value The value to set.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.val = function( value ){
+		var el;
+		if( value !== undefined ){
+			return this.each(function(){
+				if( this.tagName === &quot;SELECT&quot; ){
+					var optionSet, option,
+						options = this.options,
+						values = [],
+						i = options.length,
+						newIndex;
+
+					values[0] = value;
+					while ( i-- ) {
+						option = options[ i ];
+						if ( (option.selected = shoestring.inArray( option.value, values ) &gt;= 0) ) {
+							optionSet = true;
+							newIndex = i;
+						}
+					}
+					// force browsers to behave consistently when non-matching value is set
+					if ( !optionSet ) {
+						this.selectedIndex = -1;
+					} else {
+						this.selectedIndex = newIndex;
+					}
+				} else {
+					this.value = value;
+				}
+			});
+		} else {
+			el = this[0];
+
+			if( el.tagName === &quot;SELECT&quot; ){
+				if( el.selectedIndex &lt; 0 ){ return &quot;&quot;; }
+				return el.options[ el.selectedIndex ].value;
+			} else {
+				return el.value;
+			}
+		}
+	};
+
+
+
+	/**
+	 * Gets the width value of the first element or sets the width for the whole set.
+	 *
+	 * @param {float|undefined} value The value to assign.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.width = function( value ){
+		return shoestring._dimension( this, &quot;width&quot;, value );
+	};
+
+
+
+	/**
+	 * Wraps the child elements in the provided HTML.
+	 *
+	 * @param {string} html The wrapping HTML.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.wrapInner = function( html ){
+		return this.each(function(){
+			var inH = this.innerHTML;
+
+			this.innerHTML = &quot;&quot;;
+			shoestring( this ).append( shoestring( html ).html( inH ) );
+		});
+	};
+
+
+
+	function initEventCache( el, evt ) {
+		if ( !el.shoestringData ) {
+			el.shoestringData = {};
+		}
+		if ( !el.shoestringData.events ) {
+			el.shoestringData.events = {};
+		}
+		if ( !el.shoestringData.loop ) {
+			el.shoestringData.loop = {};
+		}
+		if ( !el.shoestringData.events[ evt ] ) {
+			el.shoestringData.events[ evt ] = [];
+		}
+	}
+
+	function addToEventCache( el, evt, eventInfo ) {
+		var obj = {};
+		obj.isCustomEvent = eventInfo.isCustomEvent;
+		obj.callback = eventInfo.callfunc;
+		obj.originalCallback = eventInfo.originalCallback;
+		obj.namespace = eventInfo.namespace;
+
+		el.shoestringData.events[ evt ].push( obj );
+
+		if( eventInfo.customEventLoop ) {
+			el.shoestringData.loop[ evt ] = eventInfo.customEventLoop;
+		}
+	}
+
+	// In IE8 the events trigger in a reverse order (LIFO). This code
+	// unbinds and rebinds all callbacks on an element in the a FIFO order.
+	function reorderEvents( node, eventName ) {
+		if( node.addEventListener || !node.shoestringData || !node.shoestringData.events ) {
+			// add event listner obviates the need for all the callback order juggling
+			return;
+		}
+
+		var otherEvents = node.shoestringData.events[ eventName ] || [];
+		for( var j = otherEvents.length - 1; j &gt;= 0; j-- ) {
+			// DOM Events only, Custom events maintain their own order internally.
+			if( !otherEvents[ j ].isCustomEvent ) {
+				node.detachEvent( &quot;on&quot; + eventName, otherEvents[ j ].callback );
+				node.attachEvent( &quot;on&quot; + eventName, otherEvents[ j ].callback );
+			}
+		}
+	}
+
+	/**
+	 * Bind a callback to an event for the currrent set of elements.
+	 *
+	 * @param {string} evt The event(s) to watch for.
+	 * @param {object,function} data Data to be included with each event or the callback.
+	 * @param {function} originalCallback Callback to be invoked when data is define.d.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.bind = function( evt, data, originalCallback ){
+
+				if( typeof data === &quot;function&quot; ){
+			originalCallback = data;
+			data = null;
+		}
+
+		var evts = evt.split( &quot; &quot; ),
+			docEl = document.documentElement;
+
+		// NOTE the &#x60;triggeredElement&#x60; is purely for custom events from IE
+		function encasedCallback( e, namespace, triggeredElement ){
+			var result;
+
+			if( e._namespace &amp;&amp; e._namespace !== namespace ) {
+				return;
+			}
+
+			e.data = data;
+			e.namespace = e._namespace;
+
+			var returnTrue = function(){
+				return true;
+			};
+
+			e.isDefaultPrevented = function(){
+				return false;
+			};
+
+			var originalPreventDefault = e.preventDefault;
+			var preventDefaultConstructor = function(){
+				if( originalPreventDefault ) {
+					return function(){
+						e.isDefaultPrevented = returnTrue;
+						originalPreventDefault.call(e);
+					};
+				} else {
+					return function(){
+						e.isDefaultPrevented = returnTrue;
+						e.returnValue = false;
+					};
+				}
+			};
+
+			// thanks https://github.com/jonathantneal/EventListener
+			e.target = triggeredElement || e.target || e.srcElement;
+			e.preventDefault = preventDefaultConstructor();
+			e.stopPropagation = e.stopPropagation || function () {
+				e.cancelBubble = true;
+			};
+
+			result = originalCallback.apply(this, [ e ].concat( e._args ) );
+
+			if( result === false ){
+				e.preventDefault();
+				e.stopPropagation();
+			}
+
+			return result;
+		}
+
+		// This is exclusively for custom events on browsers without addEventListener (IE8)
+		function propChange( originalEvent, boundElement, namespace ) {
+			var lastEventInfo = document.documentElement[ originalEvent.propertyName ],
+				triggeredElement = lastEventInfo.el;
+
+			var boundCheckElement = boundElement;
+
+			if( boundElement === document &amp;&amp; triggeredElement !== document ) {
+				boundCheckElement = document.documentElement;
+			}
+
+			if( triggeredElement !== undefined &amp;&amp;
+				shoestring( triggeredElement ).closest( boundCheckElement ).length ) {
+
+				originalEvent._namespace = lastEventInfo._namespace;
+				originalEvent._args = lastEventInfo._args;
+				encasedCallback.call( boundElement, originalEvent, namespace, triggeredElement );
+			}
+		}
+
+		return this.each(function(){
+			var domEventCallback,
+				customEventCallback,
+				customEventLoop,
+				oEl = this;
+
+			for( var i = 0, il = evts.length; i &lt; il; i++ ){
+				var split = evts[ i ].split( &quot;.&quot; ),
+					evt = split[ 0 ],
+					namespace = split.length &gt; 0 ? split[ 1 ] : null;
+
+				domEventCallback = function( originalEvent ) {
+					if( oEl.ssEventTrigger ) {
+						originalEvent._namespace = oEl.ssEventTrigger._namespace;
+						originalEvent._args = oEl.ssEventTrigger._args;
+
+						oEl.ssEventTrigger = null;
+					}
+					return encasedCallback.call( oEl, originalEvent, namespace );
+				};
+				customEventCallback = null;
+				customEventLoop = null;
+
+				initEventCache( this, evt );
+
+				if( &quot;addEventListener&quot; in this ){
+					this.addEventListener( evt, domEventCallback, false );
+				} else if( this.attachEvent ){
+					if( this[ &quot;on&quot; + evt ] !== undefined ) {
+						this.attachEvent( &quot;on&quot; + evt, domEventCallback );
+					} else {
+						customEventCallback = (function() {
+							var eventName = evt;
+							return function( e ) {
+								if( e.propertyName === eventName ) {
+									propChange( e, oEl, namespace );
+								}
+							};
+						})();
+
+						// only assign one onpropertychange per element
+						if( this.shoestringData.events[ evt ].length === 0 ) {
+							customEventLoop = (function() {
+								var eventName = evt;
+								return function( e ) {
+									if( !oEl.shoestringData || !oEl.shoestringData.events ) {
+										return;
+									}
+									var events = oEl.shoestringData.events[ eventName ];
+									if( !events ) {
+										return;
+									}
+
+									// TODO stopImmediatePropagation
+									for( var j = 0, k = events.length; j &lt; k; j++ ) {
+										events[ j ].callback( e );
+									}
+								};
+							})();
+
+							docEl.attachEvent( &quot;onpropertychange&quot;, customEventLoop );
+						}
+					}
+				}
+
+				addToEventCache( this, evt, {
+					callfunc: customEventCallback || domEventCallback,
+					isCustomEvent: !!customEventCallback,
+					customEventLoop: customEventLoop,
+					originalCallback: originalCallback,
+					namespace: namespace
+				});
+
+				// Don’t reorder custom events, only DOM Events.
+				if( !customEventCallback ) {
+					reorderEvents( oEl, evt );
+				}
+			}
+		});
+	};
+
+	shoestring.fn.on = shoestring.fn.bind;
+
+	
+
+
+	/**
+	 * Unbind a previous bound callback for an event.
+	 *
+	 * @param {string} event The event(s) the callback was bound to..
+	 * @param {function} callback Callback to unbind.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.unbind = function( event, callback ){
+
+		
+		var evts = event ? event.split( &quot; &quot; ) : [];
+
+		return this.each(function(){
+			if( !this.shoestringData || !this.shoestringData.events ) {
+				return;
+			}
+
+			if( !evts.length ) {
+				unbindAll.call( this );
+			} else {
+				var split, evt, namespace;
+				for( var i = 0, il = evts.length; i &lt; il; i++ ){
+					split = evts[ i ].split( &quot;.&quot; ),
+					evt = split[ 0 ],
+					namespace = split.length &gt; 0 ? split[ 1 ] : null;
+
+					if( evt ) {
+						unbind.call( this, evt, namespace, callback );
+					} else {
+						unbindAll.call( this, namespace, callback );
+					}
+				}
+			}
+		});
+	};
+
+	function unbind( evt, namespace, callback ) {
+		var bound = this.shoestringData.events[ evt ];
+		if( !(bound &amp;&amp; bound.length) ) {
+			return;
+		}
+
+		var matched = [], j, jl;
+		for( j = 0, jl = bound.length; j &lt; jl; j++ ) {
+			if( !namespace || namespace === bound[ j ].namespace ) {
+				if( callback === undefined || callback === bound[ j ].originalCallback ) {
+					if( &quot;removeEventListener&quot; in window ){
+						this.removeEventListener( evt, bound[ j ].callback, false );
+					} else if( this.detachEvent ){
+						// dom event
+						this.detachEvent( &quot;on&quot; + evt, bound[ j ].callback );
+
+						// only unbind custom events if its the last one on the element
+						if( bound.length === 1 &amp;&amp; this.shoestringData.loop &amp;&amp; this.shoestringData.loop[ evt ] ) {
+							document.documentElement.detachEvent( &quot;onpropertychange&quot;, this.shoestringData.loop[ evt ] );
+						}
+					}
+					matched.push( j );
+				}
+			}
+		}
+
+		for( j = 0, jl = matched.length; j &lt; jl; j++ ) {
+			this.shoestringData.events[ evt ].splice( j, 1 );
+		}
+	}
+
+	function unbindAll( namespace, callback ) {
+		for( var evtKey in this.shoestringData.events ) {
+			unbind.call( this, evtKey, namespace, callback );
+		}
+	}
+
+	shoestring.fn.off = shoestring.fn.unbind;
+
+
+	/**
+	 * Bind a callback to an event for the currrent set of elements, unbind after one occurence.
+	 *
+	 * @param {string} event The event(s) to watch for.
+	 * @param {function} callback Callback to invoke on the event.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.one = function( event, callback ){
+		var evts = event.split( &quot; &quot; );
+
+		return this.each(function(){
+			var thisevt, cbs = {},	$t = shoestring( this );
+
+			for( var i = 0, il = evts.length; i &lt; il; i++ ){
+				thisevt = evts[ i ];
+
+				cbs[ thisevt ] = function( e ){
+					var $t = shoestring( this );
+
+					for( var j in cbs ) {
+						$t.unbind( j, cbs[ j ] );
+					}
+
+					return callback.apply( this, [ e ].concat( e._args ) );
+				};
+
+				$t.bind( thisevt, cbs[ thisevt ] );
+			}
+		});
+	};
+
+
+
+	/**
+	 * Trigger an event on the first element in the set, no bubbling, no defaults.
+	 *
+	 * @param {string} event The event(s) to trigger.
+	 * @param {object} args Arguments to append to callback invocations.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.triggerHandler = function( event, args ){
+		var e = event.split( &quot; &quot; )[ 0 ],
+			el = this[ 0 ],
+			ret;
+
+		// TODO needs IE8 support
+		// See this.fireEvent( &#x27;on&#x27; + evts[ i ], document.createEventObject() ); instead of click() etc in trigger.
+		if( document.createEvent &amp;&amp; el.shoestringData &amp;&amp; el.shoestringData.events &amp;&amp; el.shoestringData.events[ e ] ){
+			var bindings = el.shoestringData.events[ e ];
+			for (var i in bindings ){
+				if( bindings.hasOwnProperty( i ) ){
+					event = document.createEvent( &quot;Event&quot; );
+					event.initEvent( e, true, true );
+					event._args = args;
+					args.unshift( event );
+
+					ret = bindings[ i ].originalCallback.apply( event.target, args );
+				}
+			}
+		}
+
+		return ret;
+	};
+
+
+
+	/**
+	 * Trigger an event on each of the DOM elements in the current set.
+	 *
+	 * @param {string} event The event(s) to trigger.
+	 * @param {object} args Arguments to append to callback invocations.
+	 * @return shoestring
+	 * @this shoestring
+	 */
+	shoestring.fn.trigger = function( event, args ){
+		var evts = event.split( &quot; &quot; );
+
+		return this.each(function(){
+			var split, evt, namespace;
+			for( var i = 0, il = evts.length; i &lt; il; i++ ){
+				split = evts[ i ].split( &quot;.&quot; ),
+				evt = split[ 0 ],
+				namespace = split.length &gt; 0 ? split[ 1 ] : null;
+
+				if( evt === &quot;click&quot; ){
+					if( this.tagName === &quot;INPUT&quot; &amp;&amp; this.type === &quot;checkbox&quot; &amp;&amp; this.click ){
+						this.click();
+						return false;
+					}
+				}
+
+				if( document.createEvent ){
+					var event = document.createEvent( &quot;Event&quot; );
+					event.initEvent( evt, true, true );
+					event._args = args;
+					event._namespace = namespace;
+
+					this.dispatchEvent( event );
+				} else if ( document.createEventObject ) {
+					if( ( &quot;&quot; + this[ evt ] ).indexOf( &quot;function&quot; ) &gt; -1 ) {
+						this.ssEventTrigger = {
+							_namespace: namespace,
+							_args: args
+						};
+
+						this[ evt ]();
+					} else {
+						document.documentElement[ evt ] = {
+							&quot;el&quot;: this,
+							_namespace: namespace,
+							_args: args
+						};
+					}
+				}
+			}
+		});
+	};
+
+
+
+})( this );
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

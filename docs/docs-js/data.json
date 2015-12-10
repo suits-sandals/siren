@@ -6,22 +6,10 @@
         "url": ""
     },
     "files": {
-        "js/jsSrc/libs/TweenMax.js": {
-            "name": "js/jsSrc/libs/TweenMax.js",
+        "js/jsSrc/libs/shoestring.js": {
+            "name": "js/jsSrc/libs/shoestring.js",
             "modules": {},
             "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "js/jsSrc/contact.js": {
-            "name": "js/jsSrc/contact.js",
-            "modules": {
-                "Contact-Page": 1
-            },
-            "classes": {
-                "form-browserSupport": 1,
-                "formValidation": 1
-            },
             "fors": {},
             "namespaces": {}
         },
@@ -31,32 +19,18 @@
                 "Global": 1
             },
             "classes": {
-                "navigationUI": 1
+                "setUp": 1
             },
             "fors": {},
             "namespaces": {}
         }
     },
     "modules": {
-        "Contact-Page": {
-            "name": "Contact-Page",
-            "submodules": {},
-            "classes": {
-                "form-browserSupport": 1,
-                "formValidation": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "js/jsSrc/contact.js",
-            "line": 24,
-            "description": "This file contains core functions used in the Siren Framework"
-        },
         "Global": {
             "name": "Global",
             "submodules": {},
             "classes": {
-                "navigationUI": 1
+                "setUp": 1
             },
             "fors": {},
             "namespaces": {},
@@ -67,39 +41,9 @@
         }
     },
     "classes": {
-        "form-browserSupport": {
-            "name": "form-browserSupport",
-            "shortname": "form-browserSupport",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Contact-Page",
-            "namespace": "",
-            "file": "js/jsSrc/contact.js",
-            "line": 7,
-            "description": "Functionality checks for cross Browser",
-            "static": 1
-        },
-        "formValidation": {
-            "name": "formValidation",
-            "shortname": "formValidation",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Contact-Page",
-            "namespace": "",
-            "file": "js/jsSrc/contact.js",
-            "line": 24,
-            "description": "Methods related to manipulating classes in the HTML",
-            "static": 1
-        },
-        "navigationUI": {
-            "name": "navigationUI",
-            "shortname": "navigationUI",
+        "setUp": {
+            "name": "setUp",
+            "shortname": "setUp",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -109,886 +53,1599 @@
             "namespace": "",
             "file": "js/jsSrc/global.js",
             "line": 6,
-            "description": "Related to navigation.",
+            "description": "Creates the neccessary additional markup",
             "static": 1
         }
     },
     "classitems": [
         {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2215,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2317,
-            "access": "private",
-            "tagname": "Returns the css style for a particular property of an element. For example, to get whatever the current \"left\" css value for an element with an ID of \"myElement\", you could do:\nvar currentLeft = CSSPlugin.getStyle( document.getElementById(\"myElement\"), \"left\");",
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 5,
+            "description": "The shoestring object constructor.",
             "params": [
                 {
-                    "name": "t",
-                    "description": "Target element whose style property you want to query",
-                    "type": "!Object"
+                    "name": "prim",
+                    "description": "The selector to find or element to wrap.",
+                    "type": "String,object"
                 },
                 {
-                    "name": "p",
-                    "description": "Property name (like \"left\" or \"top\" or \"marginTop\", etc.)",
-                    "type": "!string"
-                },
-                {
-                    "name": "cs",
-                    "description": "Computed style object. This just provides a way to speed processing if you're going to get several properties on the same element in quick succession - you can reuse the result of the getComputedStyle() call.",
-                    "type": "Object="
-                },
-                {
-                    "name": "calc",
-                    "description": "If true, the value will not be read directly from the element's \"style\" property (if it exists there), but instead the getComputedStyle() result will be used. This can be useful when you want to ensure that the browser itself is interpreting the value.",
-                    "type": "Boolean="
-                },
-                {
-                    "name": "dflt",
-                    "description": "Default value that should be returned in the place of null, \"none\", \"auto\" or \"auto auto\".",
-                    "type": "String="
-                }
-            ],
-            "return": {
-                "description": "The current property value",
-                "type": "?string"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2344,
-            "access": "private",
-            "tagname": "Pass the target element, the property name, the numeric value, and the suffix (like \"%\", \"em\", \"px\", etc.) and it will spit back the equivalent pixel number.",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "Target element",
-                    "type": "!Object"
-                },
-                {
-                    "name": "p",
-                    "description": "Property name (like \"left\", \"top\", \"marginLeft\", etc.)",
-                    "type": "!string"
-                },
-                {
-                    "name": "v",
-                    "description": "Value",
-                    "type": "!number"
-                },
-                {
-                    "name": "sfx",
-                    "description": "Suffix (like \"px\" or \"%\" or \"em\")",
-                    "type": "String="
-                },
-                {
-                    "name": "recurse",
-                    "description": "If true, the call is a recursive one. In some browsers (like IE7/8), occasionally the value isn't accurately reported initially, but if we run the function again it will take effect.",
-                    "type": "Boolean="
-                }
-            ],
-            "return": {
-                "description": "value in pixels",
-                "type": "Number"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2458,
-            "access": "private",
-            "tagname": "Gets the width or height of an element",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "Target element",
-                    "type": "!Object"
-                },
-                {
-                    "name": "p",
-                    "description": "Property name (\"width\" or \"height\")",
-                    "type": "!string"
-                },
-                {
-                    "name": "cs",
-                    "description": "Computed style object (if one exists). Just a speed optimization.",
-                    "type": "Object="
-                }
-            ],
-            "return": {
-                "description": "Dimension (in pixels)",
-                "type": "Number"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2504,
-            "access": "private",
-            "tagname": "Takes an ending value (typically a string, but can be a number) and a starting value and returns the change between the two, looking for relative value indicators like += and -= and it also ignores suffixes (but make sure the ending value starts with a number or +=/-= and that the starting value is a NUMBER!)",
-            "params": [
-                {
-                    "name": "e",
-                    "description": "End value which is typically a string, but could be a number",
-                    "type": "(number|string)"
-                },
-                {
-                    "name": "b",
-                    "description": "Beginning value which is typically a string but could be a number",
-                    "type": "(number|string)"
-                }
-            ],
-            "return": {
-                "description": "Amount of change between the beginning and ending values (relative values that have a \"+=\" or \"-=\" are recognized)",
-                "type": "Number"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2514,
-            "access": "private",
-            "tagname": "Takes a value and a default number, checks if the value is relative, null, or numeric and spits back a normalized number accordingly. Primarily used in the _parseTransform() function.",
-            "params": [
-                {
-                    "name": "v",
-                    "description": "Value to be parsed",
+                    "name": "sec",
+                    "description": "The context in which to match the `prim` selector.",
                     "type": "Object"
-                },
-                {
-                    "name": "d",
-                    "description": "Default value (which is also used for relative calculations if \"+=\" or \"-=\" is found in the first parameter)",
-                    "type": "!number"
                 }
             ],
             "return": {
-                "description": "Parsed value",
-                "type": "Number"
+                "description": "shoestring"
             },
-            "class": "form-browserSupport"
+            "this": "window",
+            "class": "setUp"
         },
         {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2524,
-            "access": "private",
-            "tagname": "Translates strings like \"40deg\" or \"40\" or 40rad\" or \"+=40deg\" or \"270_short\" or \"-90_cw\" or \"+=45_ccw\" to a numeric radian angle. Of course a starting/default value must be fed in too so that relative values can be calculated properly.",
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 130,
+            "description": "Make an HTTP request to a url.\n\n**NOTE** the following options are supported:\n\n- *method* - The HTTP method used with the request. Default: `GET`.\n- *data* - Raw object with keys and values to pass with request as query params. Default `null`.\n- *headers* - Set of request headers to add. Default `{}`.\n- *async* - Whether the opened request is asynchronouse. Default `true`.\n- *success* - Callback for successful request and response. Passed the response data.\n- *error* - Callback for failed request and response.\n- *cancel* - Callback for cancelled request and response.",
             "params": [
                 {
-                    "name": "v",
-                    "description": "Value to be parsed",
-                    "type": "Object"
-                },
-                {
-                    "name": "d",
-                    "description": "Default value (which is also used for relative calculations if \"+=\" or \"-=\" is found in the first parameter)",
-                    "type": "!number"
-                },
-                {
-                    "name": "p",
-                    "description": "property name for directionalEnd (optional - only used when the parsed value is directional (\"_short\", \"_cw\", or \"_ccw\" suffix). We need a way to store the uncompensated value so that at the end of the tween, we set it to exactly what was requested with no directional compensation). Property name would be \"rotation\", \"rotationX\", or \"rotationY\"",
-                    "type": "String="
-                },
-                {
-                    "name": "directionalEnd",
-                    "description": "An object that will store the raw end values for directional angles (\"_short\", \"_cw\", or \"_ccw\" suffix). We need a way to store the uncompensated value so that at the end of the tween, we set it to exactly what was requested with no directional compensation.",
-                    "type": "Object="
-                }
-            ],
-            "return": {
-                "description": "parsed angle in radians",
-                "type": "Number"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2593,
-            "access": "private",
-            "tagname": "Parses a color (like #9F0, #FF9900, or rgb(255,51,153)) into an array with 3 elements for red, green, and blue. Also handles rgba() values (splits into array of 4 elements of course)",
-            "params": [
-                {
-                    "name": "v",
-                    "description": "The value the should be parsed which could be a string like #9F0 or rgb(255,102,51) or rgba(255,0,0,0.5) or it could be a number like 0xFF00CC or even a named color like red, blue, purple, etc.",
-                    "type": "(string|number)"
-                }
-            ],
-            "return": {
-                "description": "An array containing red, green, and blue (and optionally alpha) in that order.",
-                "type": "Array.<number>"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2653,
-            "access": "private",
-            "tagname": "Returns a formatter function that handles taking a string (or number in some cases) and returning a consistently formatted one in terms of delimiters, quantity of values, etc. For example, we may get boxShadow values defined as \"0px red\" or \"0px 0px 10px rgb(255,0,0)\" or \"0px 0px 20px 20px #F00\" and we need to ensure that what we get back is described with 4 numbers and a color. This allows us to feed it into the _parseComplex() method and split the values up appropriately. The neat thing about this _getFormatter() function is that the dflt defines a pattern as well as a default, so for example, _getFormatter(\"0px 0px 0px 0px #777\", true) not only sets the default as 0px for all distances and #777 for the color, but also sets the pattern such that 4 numbers and a color will always get returned.",
-            "params": [
-                {
-                    "name": "dflt",
-                    "description": "The default value and pattern to follow. So \"0px 0px 0px 0px #777\" will ensure that 4 numbers and a color will always get returned.",
-                    "type": "!string"
-                },
-                {
-                    "name": "clr",
-                    "description": "If true, the values should be searched for color-related data. For example, boxShadow values typically contain a color whereas borderRadius don't.",
-                    "type": "Boolean="
-                },
-                {
-                    "name": "collapsible",
-                    "description": "If true, the value is a top/left/right/bottom style one that acts like margin or padding, where if only one value is received, it's used for all 4; if 2 are received, the first is duplicated for 3rd (bottom) and the 2nd is duplicated for the 4th spot (left), etc.",
-                    "type": "Boolean="
-                }
-            ],
-            "return": {
-                "description": "formatter function",
-                "type": "Function"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2723,
-            "access": "private",
-            "tagname": "returns a formatter function that's used for edge-related values like marginTop, marginLeft, paddingBottom, paddingRight, etc. Just pass a comma-delimited list of property names related to the edges.",
-            "params": [
-                {
-                    "name": "props",
-                    "description": "a comma-delimited list of property names in order from top to left, like \"marginTop,marginRight,marginBottom,marginLeft\"",
-                    "type": "!string"
-                }
-            ],
-            "return": {
-                "description": "a formatter function",
-                "type": "Function"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2781,
-            "access": "private",
-            "tagname": "@constructor Used by a few SpecialProps to hold important values for proxies. For example, _parseToProxy() creates a MiniPropTween instance for each property that must get tweened on the proxy, and we record the original property name as well as the unique one we create for the proxy, plus whether or not the value needs to be rounded plus the original value.",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "target object whose property we're tweening (often a CSSPropTween)",
-                    "type": "!Object"
-                },
-                {
-                    "name": "p",
-                    "description": "property name",
-                    "type": "!string"
-                },
-                {
-                    "name": "v",
-                    "description": "value",
-                    "type": "(number|string|object)"
-                },
-                {
-                    "name": "next",
-                    "description": "next MiniPropTween in the linked list",
-                    "type": "MiniPropTween="
-                },
-                {
-                    "name": "r",
-                    "description": "if true, the tweened value should be rounded to the nearest integer",
-                    "type": "Boolean="
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2800,
-            "access": "private",
-            "tagname": "Most other plugins (like BezierPlugin and ThrowPropsPlugin and others) can only tween numeric values, but CSSPlugin must accommodate special values that have a bunch of extra data (like a suffix or strings between numeric values, etc.). For example, boxShadow has values like \"10px 10px 20px 30px rgb(255,0,0)\" which would utterly confuse other plugins. This method allows us to split that data apart and grab only the numeric data and attach it to uniquely-named properties of a generic proxy object ({}) so that we can feed that to virtually any plugin to have the numbers tweened. However, we must also keep track of which properties from the proxy go with which CSSPropTween values and instances. So we create a linked list of MiniPropTweens. Each one records a target (the original CSSPropTween), property (like \"s\" or \"xn1\" or \"xn2\") that we're tweening and the unique property name that was used for the proxy (like \"boxShadow_xn1\" and \"boxShadow_xn2\") and whether or not they need to be rounded. That way, in the _setPluginRatio() method we can simply copy the values over from the proxy to the CSSPropTween instance(s). Then, when the main CSSPlugin setRatio() method runs and applies the CSSPropTween values accordingly, they're updated nicely. So the external plugin tweens the numbers, _setPluginRatio() copies them over, and setRatio() acts normally, applying css-specific values to the element.\nThis method returns an object that has the following properties:\n - proxy: a generic object containing the starting values for all the properties that will be tweened by the external plugin.  This is what we feed to the external _onInitTween() as the target\n - end: a generic object containing the ending values for all the properties that will be tweened by the external plugin. This is what we feed to the external plugin's _onInitTween() as the destination values\n - firstMPT: the first MiniPropTween in the linked list\n - pt: the first CSSPropTween in the linked list that was created when parsing. If shallow is true, this linked list will NOT attach to the one passed into the _parseToProxy() as the \"pt\" (4th) parameter.",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "target object to be tweened",
-                    "type": "!Object"
-                },
-                {
-                    "name": "vars",
-                    "description": "the object containing the information about the tweening values (typically the end/destination values) that should be parsed",
-                    "type": "!(Object|string)"
-                },
-                {
-                    "name": "cssp",
-                    "description": "The CSSPlugin instance",
-                    "type": "!CSSPlugin"
-                },
-                {
-                    "name": "pt",
-                    "description": "the next CSSPropTween in the linked list",
-                    "type": "CSSPropTween="
-                },
-                {
-                    "name": "plugin",
-                    "description": "the external TweenPlugin instance that will be handling tweening the numeric values",
-                    "type": "TweenPlugin="
-                },
-                {
-                    "name": "shallow",
-                    "description": "if true, the resulting linked list from the parse will NOT be attached to the CSSPropTween that was passed in as the \"pt\" (4th) parameter.",
-                    "type": "Boolean="
-                }
-            ],
-            "return": {
-                "description": "An object containing the following properties: proxy, end, firstMPT, and pt (see above for descriptions)"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2865,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "t",
-                    "description": "Target object whose property will be tweened. Often a DOM element, but not always. It could be anything.",
-                    "type": "!Object"
-                },
-                {
-                    "name": "p",
-                    "description": "Property to tween (name). For example, to tween element.width, p would be \"width\".",
+                    "name": "url",
+                    "description": "The url to request.",
                     "type": "String"
-                },
-                {
-                    "name": "s",
-                    "description": "Starting numeric value",
-                    "type": "Number"
-                },
-                {
-                    "name": "c",
-                    "description": "Change in numeric value over the course of the entire tween. For example, if element.width starts at 5 and should end at 100, c would be 95.",
-                    "type": "Number"
-                },
-                {
-                    "name": "next",
-                    "description": "The next CSSPropTween in the linked list. If one is defined, we will define its _prev as the new instance, and the new instance's _next will be pointed at it.",
-                    "type": "CSSPropTween="
-                },
-                {
-                    "name": "type",
-                    "description": "The type of CSSPropTween where -1 = a non-tweening value, 0 = a standard simple tween, 1 = a complex value (like one that has multiple numbers in a comma- or space-delimited string like border:\"1px solid red\"), and 2 = one that uses a custom setRatio function that does all of the work of applying the values on each update.",
-                    "type": "Number="
-                },
-                {
-                    "name": "n",
-                    "description": "Name of the property that should be used for overwriting purposes which is typically the same as p but not always. For example, we may need to create a subtween for the 2nd part of a \"clip:rect(...)\" tween in which case \"p\" might be xs1 but \"n\" is still \"clip\"",
-                    "type": "String="
-                },
-                {
-                    "name": "r",
-                    "description": "If true, the value(s) should be rounded",
-                    "type": "Boolean="
-                },
-                {
-                    "name": "pr",
-                    "description": "Priority in the linked list order. Higher priority CSSPropTweens will be updated before lower priority ones. The default priority is 0.",
-                    "type": "Number="
-                },
-                {
-                    "name": "b",
-                    "description": "Beginning value. We store this to ensure that it is EXACTLY what it was when the tween began without any risk of interpretation issues.",
-                    "type": "String="
-                },
-                {
-                    "name": "e",
-                    "description": "Ending value. We store this to ensure that it is EXACTLY what the user defined at the end of the tween without any risk of interpretation issues.",
-                    "type": "String="
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 2908,
-            "description": "Takes a target, the beginning value and ending value (as strings) and parses them into a CSSPropTween (possibly with child CSSPropTweens) that accommodates multiple numbers, colors, comma-delimited values, etc. For example:\nsp.parseComplex(element, \"boxShadow\", \"5px 10px 20px rgb(255,102,51)\", \"0px 0px 0px red\", true, \"0px 0px 0px rgb(0,0,0,0)\", pt);\nIt will walk through the beginning and ending values (which should be in the same format with the same number and type of values) and figure out which parts are numbers, what strings separate the numeric/tweenable values, and then create the CSSPropTweens accordingly. If a plugin is defined, no child CSSPropTweens will be created. Instead, the ending values will be stored in the \"data\" property of the returned CSSPropTween like: {s:-5, xn1:-10, xn2:-20, xn3:255, xn4:0, xn5:0} so that it can be fed to any other plugin and it'll be plain numeric tweens but the recomposition of the complex value will be handled inside CSSPlugin's setRatio().\nIf a setRatio is defined, the type of the CSSPropTween will be set to 2 and recomposition of the values will be the responsibility of that method.",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "Target whose property will be tweened",
-                    "type": "!Object"
-                },
-                {
-                    "name": "p",
-                    "description": "Property that will be tweened (its name, like \"left\" or \"backgroundColor\" or \"boxShadow\")",
-                    "type": "!string"
-                },
-                {
-                    "name": "b",
-                    "description": "Beginning value",
-                    "type": "String"
-                },
-                {
-                    "name": "e",
-                    "description": "Ending value",
-                    "type": "String"
-                },
-                {
-                    "name": "clrs",
-                    "description": "If true, the value could contain a color value like \"rgb(255,0,0)\" or \"#F00\" or \"red\". The default is false, so no colors will be recognized (a performance optimization)",
-                    "type": "Boolean"
-                },
-                {
-                    "name": "dflt",
-                    "description": "The default beginning value that should be used if no valid beginning value is defined or if the number of values inside the complex beginning and ending values don't match",
-                    "type": "(string|number|Object)"
-                },
-                {
-                    "name": "pt",
-                    "description": "CSSPropTween instance that is the current head of the linked list (we'll prepend to this).",
-                    "type": "?CSSPropTween"
-                },
-                {
-                    "name": "pr",
-                    "description": "Priority in the linked list order. Higher priority properties will be updated before lower priority ones. The default priority is 0.",
-                    "type": "Number="
-                },
-                {
-                    "name": "plugin",
-                    "description": "If a plugin should handle the tweening of extra properties, pass the plugin instance here. If one is defined, then NO subtweens will be created for any extra properties (the properties will be created - just not additional CSSPropTween instances to tween them) because the plugin is expected to do so. However, the end values WILL be populated in the \"data\" property, like {s:100, xn1:50, xn2:300}",
-                    "type": "TweenPlugin="
-                },
-                {
-                    "name": "setRatio",
-                    "description": "If values should be set in a custom function instead of being pieced together in a type:1 (complex-value) CSSPropTween, define that custom function here.",
-                    "type": "Function(number)="
-                }
-            ],
-            "return": {
-                "description": "The first CSSPropTween in the linked list which includes the new one(s) added by the parseComplex() call.",
-                "type": "CSSPropTween"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 3031,
-            "description": "Appends and extra tweening value to a CSSPropTween and automatically manages any prefix and suffix strings. The first extra value is stored in the s and c of the main CSSPropTween instance, but thereafter any extras are stored in the xn1, xn2, xn3, etc. The prefixes and suffixes are stored in the xs0, xs1, xs2, etc. properties. For example, if I walk through a clip value like \"rect(10px, 5px, 0px, 20px)\", the values would be stored like this:\nxs0:\"rect(\", s:10, xs1:\"px, \", xn1:5, xs2:\"px, \", xn2:0, xs3:\"px, \", xn3:20, xn4:\"px)\"\nAnd they'd all get joined together when the CSSPlugin renders (in the setRatio() method).",
-            "params": [
-                {
-                    "name": "pfx",
-                    "description": "Prefix (if any)",
-                    "type": "String="
-                },
-                {
-                    "name": "s",
-                    "description": "Starting value",
-                    "type": "!number"
-                },
-                {
-                    "name": "c",
-                    "description": "Change in numeric value over the course of the entire tween. For example, if the start is 5 and the end is 100, the change would be 95.",
-                    "type": "!number"
-                },
-                {
-                    "name": "sfx",
-                    "description": "Suffix (if any)",
-                    "type": "String="
-                },
-                {
-                    "name": "r",
-                    "description": "Round (if true).",
-                    "type": "Boolean="
-                },
-                {
-                    "name": "pad",
-                    "description": "If true, this extra value should be separated by the previous one by a space. If there is no previous extra and pad is true, it will automatically drop the space.",
-                    "type": "Boolean="
-                }
-            ],
-            "return": {
-                "description": "returns itself so that multiple methods can be chained together.",
-                "type": "CSSPropTween"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 3072,
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "p",
-                    "description": "Property name (like \"boxShadow\" or \"throwProps\")",
-                    "type": "!string"
                 },
                 {
                     "name": "options",
-                    "description": "An object containing any of the following configuration options:\n                     - defaultValue: the default value\n                     - parser: A function that should be called when the associated property name is found in the vars. This function should return a CSSPropTween instance and it should ensure that it is properly inserted into the linked list. It will receive 4 paramters: 1) The target, 2) The value defined in the vars, 3) The CSSPlugin instance (whose _firstPT should be used for the linked list), and 4) A computed style object if one was calculated (this is a speed optimization that allows retrieval of starting values quicker)\n                     - formatter: a function that formats any value received for this special property (for example, boxShadow could take \"5px 5px red\" and format it to \"5px 5px 0px 0px red\" so that both the beginning and ending values have a common order and quantity of values.)\n                     - prefix: if true, we'll determine whether or not this property requires a vendor prefix (like Webkit or Moz or ms or O)\n                     - color: set this to true if the value for this SpecialProp may contain color-related values like rgb(), rgba(), etc.\n                     - priority: priority in the linked list order. Higher priority SpecialProps will be updated before lower priority ones. The default priority is 0.\n                     - multi: if true, the formatter should accommodate a comma-delimited list of values, like boxShadow could have multiple boxShadows listed out.\n                     - collapsible: if true, the formatter should treat the value like it's a top/right/bottom/left value that could be collapsed, like \"5px\" would apply to all, \"5px, 10px\" would use 5px for top/bottom and 10px for right/left, etc.\n                     - keyword: a special keyword that can [optionally] be found inside the value (like \"inset\" for boxShadow). This allows us to validate beginning/ending values to make sure they match (if the keyword is found in one, it'll be added to the other for consistency by default).",
-                    "type": "Object="
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 3136,
-            "description": "Alias for _parseComplex() that automatically plugs in certain values for this SpecialProp, like its property name, whether or not colors should be sensed, the default value, and priority. It also looks for any keyword that the SpecialProp defines (like \"inset\" for boxShadow) and ensures that the beginning and ending values have the same number of values for SpecialProps where multi is true (like boxShadow and textShadow can have a comma-delimited list)",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "target element",
-                    "type": "!Object"
-                },
-                {
-                    "name": "b",
-                    "description": "beginning value",
-                    "type": "(string|number|object)"
-                },
-                {
-                    "name": "e",
-                    "description": "ending (destination) value",
-                    "type": "(string|number|object)"
-                },
-                {
-                    "name": "pt",
-                    "description": "next CSSPropTween in the linked list",
-                    "type": "CSSPropTween="
-                },
-                {
-                    "name": "plugin",
-                    "description": "If another plugin will be tweening the complex value, that TweenPlugin instance goes here.",
-                    "type": "TweenPlugin="
-                },
-                {
-                    "name": "setRatio",
-                    "description": "If a custom setRatio() method should be used to handle this complex value, that goes here.",
-                    "type": "Function="
-                }
-            ],
-            "return": {
-                "description": "First CSSPropTween in the linked list",
-                "type": "CSSPropTween="
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 3177,
-            "description": "Accepts a target and end value and spits back a CSSPropTween that has been inserted into the CSSPlugin's linked list and conforms with all the conventions we use internally, like type:-1, 0, 1, or 2, setting up any extra property tweens, priority, etc. For example, if we have a boxShadow SpecialProp and call:\nthis._firstPT = sp.parse(element, \"5px 10px 20px rgb(2550,102,51)\", \"boxShadow\", this);\nIt should figure out the starting value of the element's boxShadow, compare it to the provided end value and create all the necessary CSSPropTweens of the appropriate types to tween the boxShadow. The CSSPropTween that gets spit back should already be inserted into the linked list (the 4th parameter is the current head, so prepend to that).",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "Target object whose property is being tweened",
-                    "type": "!Object"
-                },
-                {
-                    "name": "e",
-                    "description": "End value as provided in the vars object (typically a string, but not always - like a throwProps would be an object).",
-                    "type": "Object"
-                },
-                {
-                    "name": "p",
-                    "description": "Property name",
-                    "type": "!string"
-                },
-                {
-                    "name": "cssp",
-                    "description": "The CSSPlugin instance that should be associated with this tween.",
-                    "type": "!CSSPlugin"
-                },
-                {
-                    "name": "pt",
-                    "description": "The CSSPropTween that is the current head of the linked list (we'll prepend to it)",
-                    "type": "?CSSPropTween"
-                },
-                {
-                    "name": "plugin",
-                    "description": "If a plugin will be used to tween the parsed value, this is the plugin instance.",
-                    "type": "TweenPlugin="
-                },
-                {
-                    "name": "vars",
-                    "description": "Original vars object that contains the data for parsing.",
-                    "type": "Object="
-                }
-            ],
-            "return": {
-                "description": "The first CSSPropTween in the linked list which includes the new one(s) added by the parse() call.",
-                "type": "CSSPropTween"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 3194,
-            "description": "Registers a special property that should be intercepted from any \"css\" objects defined in tweens. This allows you to handle them however you want without CSSPlugin doing it for you. The 2nd parameter should be a function that accepts 3 parameters:\n 1) Target object whose property should be tweened (typically a DOM element)\n 2) The end/destination value (could be a string, number, object, or whatever you want)\n 3) The tween instance (you probably don't need to worry about this, but it can be useful for looking up information like the duration)\n\nThen, your function should return a function which will be called each time the tween gets rendered, passing a numeric \"ratio\" parameter to your function that indicates the change factor (usually between 0 and 1). For example:\n\nCSSPlugin.registerSpecialProp(\"myCustomProp\", function(target, value, tween) {\n     var start = target.style.width;\n     return function(ratio) {\n             target.style.width = (start + value * ratio) + \"px\";\n             console.log(\"set width to \" + target.style.width);\n         }\n}, 0);\n\nThen, when I do this tween, it will trigger my special property:\n\nTweenLite.to(element, 1, {css:{myCustomProp:100}});\n\nIn the example, of course, we're just changing the width, but you can do anything you want.",
-            "params": [
-                {
-                    "name": "name",
-                    "description": "Property name (or comma-delimited list of property names) that should be intercepted and handled by your function. For example, if I define \"myCustomProp\", then it would handle that portion of the following tween: TweenLite.to(element, 1, {css:{myCustomProp:100}})",
-                    "type": "!string"
-                },
-                {
-                    "name": "onInitTween",
-                    "description": "The function that will be called when a tween of this special property is performed. The function will receive 4 parameters: 1) Target object that should be tweened, 2) Value that was passed to the tween, 3) The tween instance itself (rarely used), and 4) The property name that's being tweened. Your function should return a function that should be called on every update of the tween. That function will receive a single parameter that is a \"change factor\" value (typically between 0 and 1) indicating the amount of change as a ratio. You can use this to determine how to set the values appropriately in your function.",
-                    "type": "!function(Object, Object, Object, string):function(number)"
-                },
-                {
-                    "name": "priority",
-                    "description": "Priority that helps the engine determine the order in which to set the properties (default: 0). Higher priority properties will be updated before lower priority ones.",
-                    "type": "Number="
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 3243,
-            "description": "Parses the transform values for an element, returning an object with x, y, z, scaleX, scaleY, scaleZ, rotation, rotationX, rotationY, skewX, and skewY properties. Note: by default (for performance reasons), all skewing is combined into skewX and rotation but skewY still has a place in the transform object so that we can record how much of the skew is attributed to skewX vs skewY. Remember, a skewY of 10 looks the same as a rotation of 10 and skewX of -10.",
-            "params": [
-                {
-                    "name": "t",
-                    "description": "target element",
-                    "type": "!Object"
-                },
-                {
-                    "name": "cs",
-                    "description": "computed style object (optional)",
-                    "type": "Object="
-                },
-                {
-                    "name": "rec",
-                    "description": "if true, the transform values will be recorded to the target element's _gsTransform object, like target._gsTransform = {x:0, y:0, z:0, scaleX:1...}",
-                    "type": "Boolean="
-                },
-                {
-                    "name": "parse",
-                    "description": "if true, we'll ignore any _gsTransform values that already exist on the element, and force a reparsing of the css (calculated style)",
-                    "type": "Boolean="
-                }
-            ],
-            "return": {
-                "description": "object containing all of the transform properties/values like {x:0, y:0, z:0, scaleX:1...}",
-                "type": "Object"
-            },
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 4304,
-            "access": "private",
-            "tagname": "Forces rendering of the target's transforms (rotation, scale, etc.) whenever the CSSPlugin's setRatio() is called.\nBasically, this tells the CSSPlugin to create a CSSPropTween (type 2) after instantiation that runs last in the linked\nlist and calls the appropriate (3D or 2D) rendering function. We separate this into its own method so that we can call\nit from other plugins like BezierPlugin if, for example, it needs to apply an autoRotation and this CSSPlugin\ndoesn't have any transform-related properties of its own. You can call this method as many times as you\nwant and it won't create duplicate CSSPropTweens.",
-            "params": [
-                {
-                    "name": "threeD",
-                    "description": "if true, it should apply 3D tweens (otherwise, just 2D ones are fine and typically faster)",
-                    "type": "Boolean"
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 4320,
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 4404,
-            "description": "Typically only useful for className tweens that may affect child elements, this method creates a TweenLite\nand then compares the style properties of all the target's child elements at the tween's start and end, and\nif any are different, it also creates tweens for those and returns an array containing ALL of the resulting\ntweens (so that you can easily add() them to a TimelineLite, for example). The reason this functionality is\nwrapped into a separate static method of CSSPlugin instead of being integrated into all regular className tweens\nis because it creates entirely new tweens that may have completely different targets than the original tween,\nso if they were all lumped into the original tween instance, it would be inconsistent with the rest of the API\nand it would create other problems. For example:\n - If I create a tween of elementA, that tween instance may suddenly change its target to include 50 other elements (unintuitive if I specifically defined the target I wanted)\n - We can't just create new independent tweens because otherwise, what happens if the original/parent tween is reversed or pause or dropped into a TimelineLite for tight control? You'd expect that tween's behavior to affect all the others.\n - Analyzing every style property of every child before and after the tween is an expensive operation when there are many children, so this behavior shouldn't be imposed on all className tweens by default, especially since it's probably rare that this extra functionality is needed.",
-            "params": [
-                {
-                    "name": "target",
-                    "description": "object to be tweened",
-                    "type": "Object"
-                },
-                {
-                    "name": "Duration",
-                    "description": "in seconds (or frames for frames-based tweens)",
-                    "type": "Number"
-                },
-                {
-                    "name": "Object",
-                    "description": "containing the end values, like {className:\"newClass\", ease:Linear.easeNone}",
+                    "description": "The options object, see Notes.",
                     "type": "Object"
                 }
             ],
             "return": {
-                "description": "An array of TweenLite instances",
-                "type": "Array"
+                "description": "shoestring"
             },
-            "class": "form-browserSupport"
+            "this": "shoestring",
+            "class": "setUp"
         },
         {
-            "file": "js/jsSrc/libs/TweenMax.js",
-            "line": 5049,
-            "is_constructor": 1,
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 244,
+            "description": "Helper function wrapping a call to [ajax](ajax.js.html) using the `GET` method.",
             "params": [
                 {
-                    "name": "ns",
-                    "description": "The namespace of the class definition, leaving off \"com.greensock.\" as that's assumed. For example, \"TweenLite\" or \"plugins.CSSPlugin\" or \"easing.Back\".",
-                    "type": "!string"
-                },
-                {
-                    "name": "dependencies",
-                    "description": "An array of dependencies (described as their namespaces minus \"com.greensock.\" prefix). For example [\"TweenLite\",\"plugins.TweenPlugin\",\"core.Animation\"]",
-                    "type": "!Array.<string>"
-                },
-                {
-                    "name": "func",
-                    "description": "The function that should be called and passed the resolved dependencies which will return the actual class for this definition.",
-                    "type": "!function():Object"
-                },
-                {
-                    "name": "global",
-                    "description": "If true, the class will be added to the global scope (typically window unless you define a window.GreenSockGlobals object)",
-                    "type": "Boolean="
-                }
-            ],
-            "class": "form-browserSupport"
-        },
-        {
-            "file": "js/jsSrc/contact.js",
-            "line": 13,
-            "description": "Checks if browser has HTML5 form validation",
-            "itemtype": "method",
-            "name": "hasFormValidation",
-            "return": {
-                "description": "boolean"
-            },
-            "class": "form-browserSupport",
-            "module": "Contact-Page"
-        },
-        {
-            "file": "js/jsSrc/contact.js",
-            "line": 30,
-            "itemtype": "method",
-            "name": "FormValidator",
-            "requires": [
-                "Validate.js and hasFormValidation"
-            ],
-            "return": {
-                "description": "boolean"
-            },
-            "class": "formValidation",
-            "module": "Contact-Page"
-        },
-        {
-            "file": "js/jsSrc/global.js",
-            "line": 12,
-            "description": "Test if a css selector can be used",
-            "itemtype": "method",
-            "name": "mobileNav",
-            "params": [
-                {
-                    "name": "triggerID",
-                    "description": "",
+                    "name": "url",
+                    "description": "The url to GET from.",
                     "type": "String"
                 },
                 {
-                    "name": "widthLimit",
-                    "description": "",
-                    "type": "Int"
+                    "name": "callback",
+                    "description": "Callback to invoke on success.",
+                    "type": "Function"
                 }
             ],
-            "class": "navigationUI",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 258,
+            "description": "Load the HTML response from `url` into the current set of elements.",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The url to GET from.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback to invoke after HTML is inserted.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 285,
+            "description": "Helper function wrapping a call to [ajax](ajax.js.html) using the `POST` method.",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The url to POST to.",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The data to send.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback to invoke on success.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 300,
+            "description": "Iterates over `shoestring` collections.",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "The callback to be invoked on each element and index",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 325,
+            "description": "Check for array membership.",
+            "params": [
+                {
+                    "name": "needle",
+                    "description": "The thing to find.",
+                    "type": "Object"
+                },
+                {
+                    "name": "haystack",
+                    "description": "The thing to find the needle in.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "this": "window",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 345,
+            "description": "Bind callbacks to be run when the DOM is \"ready\".",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The callback to be run",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 408,
+            "description": "Checks the current set of elements against the selector, if one matches return `true`.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "this": "{shoestring}",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 467,
+            "description": "Get data attached to the first element or set data values on all elements in the current set.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The data attribute name.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value assigned to the data attribute.",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Any|shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 500,
+            "description": "Remove data associated with `name` or all the data, for each element in the current set.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The data attribute name.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 520,
+            "description": "An alias for the `shoestring` constructor.",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 527,
+            "description": "Add a class to each DOM element in the set of elements.",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "The name of the class to be added.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 550,
+            "description": "Add elements matching the selector to the current set.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector for the elements to add from the DOM",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 572,
+            "description": "Insert an element or HTML string after each element in the current set.",
+            "params": [
+                {
+                    "name": "fragment",
+                    "description": "The HTML or HTMLElement to insert.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 597,
+            "description": "Insert an element or HTML string as the last child of each element in the set.",
+            "params": [
+                {
+                    "name": "fragment",
+                    "description": "The HTML or HTMLElement to insert.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 618,
+            "description": "Insert the current set as the last child of the elements matching the selector.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector after which to append the current set.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 633,
+            "description": "Get the value of the first element of the set or set the value of all the elements in the set.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The attribute name.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The new value for the attribute.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Shoestring|string|undefined"
+            },
+            "this": "{shoestring}",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 663,
+            "description": "Insert an element or HTML string before each element in the current set.",
+            "params": [
+                {
+                    "name": "fragment",
+                    "description": "The HTML or HTMLElement to insert.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 684,
+            "description": "Get the children of the current collection.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 708,
+            "description": "Clone and return the current set of nodes into a new `shoestring` object.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 726,
+            "description": "Find an element matching the selector in the set of the current element and its parents.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector used to identify the target element.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 769,
+            "description": "A polyfill to support computed styles in IE < 9\n\nNOTE this is taken directly from https://github.com/jonathantneal/polyfill",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 917,
+            "description": "Private function for getting the computed style of an element.\n\n**NOTE** Please use the [css](../css.js.html) method instead.",
+            "itemtype": "method",
+            "name": "_getStyle",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The element we want the style property for.",
+                    "type": "HTMLElement"
+                },
+                {
+                    "name": "property",
+                    "description": "The css property we want the style for.",
+                    "type": "String"
+                }
+            ],
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 975,
+            "description": "Private function for setting the style of an element.\n\n**NOTE** Please use the [css](../css.js.html) method instead.",
+            "itemtype": "method",
+            "name": "_setStyle",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The element we want to style.",
+                    "type": "HTMLElement"
+                },
+                {
+                    "name": "property",
+                    "description": "The property being used to style the element.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The css value for the style property.",
+                    "type": "String"
+                }
+            ],
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1004,
+            "description": "Get the compute style property of the first element or set the value of a style property\non all elements in the set.",
+            "itemtype": "method",
+            "name": "_setStyle",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The property being used to style the element.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The css value for the style property.",
+                    "type": "String|undefined"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String|shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1041,
+            "description": "Returns the indexed element wrapped in a new `shoestring` object.",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "The index of the element to wrap and return.",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1058,
+            "description": "Filter out the current set if they do *not* match the passed selector or\nthe supplied callback returns false",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector or boolean return value callback used to filter the elements.",
+                    "type": "String,function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1097,
+            "description": "Find descendant elements of the current collection.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector used to find the children",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1119,
+            "description": "Returns the first element of the set wrapped in a new `shoestring` object.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1131,
+            "description": "Returns the raw DOM node at the passed index.",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "The index of the element to wrap and return.",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "HTMLElement"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1144,
+            "description": "Private function for setting/getting the offset property for height/width.\n\n**NOTE** Please use the [width](width.js.html) or [height](height.js.html) methods instead.",
+            "params": [
+                {
+                    "name": "set",
+                    "description": "The set of elements.",
+                    "type": "Shoestring"
+                },
+                {
+                    "name": "name",
+                    "description": "The string \"height\" or \"width\".",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value to assign.",
+                    "type": "Float|undefined"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "window",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1176,
+            "description": "Gets the height value of the first element or sets the height for the whole set.",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to assign.",
+                    "type": "Float|undefined"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1208,
+            "description": "Gets or sets the `innerHTML` from all the elements in the set.",
+            "params": [
+                {
+                    "name": "html",
+                    "description": "The html to assign",
+                    "type": "String|undefined"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String|shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1252,
+            "description": "Find the index in the current set for the passed selector.\nWithout a selector it returns the index of the first node within the array of its siblings.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector used to search for the index.",
+                    "type": "String|undefined"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Integer"
+            },
+            "this": "{shoestring}",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1285,
+            "description": "Insert the current set after the elements matching the selector.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector after which to insert the current set.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1300,
+            "description": "Insert the current set before the elements matching the selector.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector before which to insert the current set.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1315,
+            "description": "Returns the last element of the set wrapped in a new `shoestring` object.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1327,
+            "description": "Returns a `shoestring` object with the set of siblings of each element in the original set.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1367,
+            "description": "Removes elements from the current set.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector to use when removing the elements.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1390,
+            "description": "Returns an object with the `top` and `left` properties corresponging to the first elements offsets.",
+            "return": {
+                "description": "object"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1405,
+            "description": "Returns the set of first parents for each element in the current set.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1431,
+            "description": "Returns the set of all parents matching the selector if provided for each element in the current set.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector to check the parents with.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1468,
+            "description": "Add an HTML string or element before the children of each element in the current set.",
+            "params": [
+                {
+                    "name": "fragment",
+                    "description": "The HTML string or element to add.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1495,
+            "description": "Add each element of the current set before the children of the selected elements.",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector for the elements to add the current set to..",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1510,
+            "description": "Returns a `shoestring` object with the set of *one* siblingx before each element in the original set.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1550,
+            "description": "Returns a `shoestring` object with the set of *all* siblings before each element in the original set.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1585,
+            "description": "Gets the property value from the first element or sets the property value on all elements of the currrent set.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The property name.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The property value.",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Any|shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1611,
+            "description": "Remove an attribute from each element in the current set.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the attribute.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1626,
+            "description": "Remove a class from each DOM element in the set of elements.",
+            "params": [
+                {
+                    "name": "className",
+                    "description": "The name of the class to be removed.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1652,
+            "description": "Remove the current set of elements from the DOM.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1668,
+            "description": "Remove a proprety from each element in the current set.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the property.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1686,
+            "description": "Replace each element in the current set with that argument HTML string or HTMLElement.",
+            "params": [
+                {
+                    "name": "fragment",
+                    "description": "The value to assign.",
+                    "type": "String|HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1750,
+            "description": "Serialize child input element values into an object.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1777,
+            "description": "Get all of the sibling elements for each element in the current set.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1835,
+            "description": "Recursively retrieve the text content of the each element in the current set.",
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1849,
+            "description": "Get the value of the first element or set the value of all elements in the current set.",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to set.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1899,
+            "description": "Gets the width value of the first element or sets the width for the whole set.",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to assign.",
+                    "type": "Float|undefined"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1912,
+            "description": "Wraps the child elements in the provided HTML.",
+            "params": [
+                {
+                    "name": "html",
+                    "description": "The wrapping HTML.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 1977,
+            "description": "Bind a callback to an event for the currrent set of elements.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "The event(s) to watch for.",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "Data to be included with each event or the callback.",
+                    "type": "Object,function"
+                },
+                {
+                    "name": "originalCallback",
+                    "description": "Callback to be invoked when data is define.d.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 2153,
+            "description": "Unbind a previous bound callback for an event.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The event(s) the callback was bound to..",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback to unbind.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 2230,
+            "description": "Bind a callback to an event for the currrent set of elements, unbind after one occurence.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The event(s) to watch for.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Callback to invoke on the event.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 2264,
+            "description": "Trigger an event on the first element in the set, no bubbling, no defaults.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The event(s) to trigger.",
+                    "type": "String"
+                },
+                {
+                    "name": "args",
+                    "description": "Arguments to append to callback invocations.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/libs/shoestring.js",
+            "line": 2298,
+            "description": "Trigger an event on each of the DOM elements in the current set.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The event(s) to trigger.",
+                    "type": "String"
+                },
+                {
+                    "name": "args",
+                    "description": "Arguments to append to callback invocations.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "shoestring"
+            },
+            "this": "shoestring",
+            "class": "setUp"
+        },
+        {
+            "file": "js/jsSrc/global.js",
+            "line": 13,
+            "itemtype": "method",
+            "name": "navPrimarySetup",
+            "class": "setUp",
             "module": "Global"
         }
     ],
     "warnings": [
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2215"
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js/jsSrc/libs/shoestring.js:5"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2317"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:5"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2344"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:130"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2458"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:244"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2504"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:258"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2514"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:285"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2524"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:300"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2593"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:325"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2653"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:345"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2723"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:408"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2781"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:467"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2800"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:500"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:2865"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:527"
         },
         {
-            "message": "Missing item type\nTakes a target, the beginning value and ending value (as strings) and parses them into a CSSPropTween (possibly with child CSSPropTweens) that accommodates multiple numbers, colors, comma-delimited values, etc. For example:\nsp.parseComplex(element, \"boxShadow\", \"5px 10px 20px rgb(255,102,51)\", \"0px 0px 0px red\", true, \"0px 0px 0px rgb(0,0,0,0)\", pt);\nIt will walk through the beginning and ending values (which should be in the same format with the same number and type of values) and figure out which parts are numbers, what strings separate the numeric/tweenable values, and then create the CSSPropTweens accordingly. If a plugin is defined, no child CSSPropTweens will be created. Instead, the ending values will be stored in the \"data\" property of the returned CSSPropTween like: {s:-5, xn1:-10, xn2:-20, xn3:255, xn4:0, xn5:0} so that it can be fed to any other plugin and it'll be plain numeric tweens but the recomposition of the complex value will be handled inside CSSPlugin's setRatio().\nIf a setRatio is defined, the type of the CSSPropTween will be set to 2 and recomposition of the values will be the responsibility of that method.",
-            "line": " js/jsSrc/libs/TweenMax.js:2908"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:550"
         },
         {
-            "message": "Missing item type\nAppends and extra tweening value to a CSSPropTween and automatically manages any prefix and suffix strings. The first extra value is stored in the s and c of the main CSSPropTween instance, but thereafter any extras are stored in the xn1, xn2, xn3, etc. The prefixes and suffixes are stored in the xs0, xs1, xs2, etc. properties. For example, if I walk through a clip value like \"rect(10px, 5px, 0px, 20px)\", the values would be stored like this:\nxs0:\"rect(\", s:10, xs1:\"px, \", xn1:5, xs2:\"px, \", xn2:0, xs3:\"px, \", xn3:20, xn4:\"px)\"\nAnd they'd all get joined together when the CSSPlugin renders (in the setRatio() method).",
-            "line": " js/jsSrc/libs/TweenMax.js:3031"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:572"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:3072"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:597"
         },
         {
-            "message": "Missing item type\nAlias for _parseComplex() that automatically plugs in certain values for this SpecialProp, like its property name, whether or not colors should be sensed, the default value, and priority. It also looks for any keyword that the SpecialProp defines (like \"inset\" for boxShadow) and ensures that the beginning and ending values have the same number of values for SpecialProps where multi is true (like boxShadow and textShadow can have a comma-delimited list)",
-            "line": " js/jsSrc/libs/TweenMax.js:3136"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:618"
         },
         {
-            "message": "Missing item type\nAccepts a target and end value and spits back a CSSPropTween that has been inserted into the CSSPlugin's linked list and conforms with all the conventions we use internally, like type:-1, 0, 1, or 2, setting up any extra property tweens, priority, etc. For example, if we have a boxShadow SpecialProp and call:\nthis._firstPT = sp.parse(element, \"5px 10px 20px rgb(2550,102,51)\", \"boxShadow\", this);\nIt should figure out the starting value of the element's boxShadow, compare it to the provided end value and create all the necessary CSSPropTweens of the appropriate types to tween the boxShadow. The CSSPropTween that gets spit back should already be inserted into the linked list (the 4th parameter is the current head, so prepend to that).",
-            "line": " js/jsSrc/libs/TweenMax.js:3177"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:633"
         },
         {
-            "message": "Missing item type\nRegisters a special property that should be intercepted from any \"css\" objects defined in tweens. This allows you to handle them however you want without CSSPlugin doing it for you. The 2nd parameter should be a function that accepts 3 parameters:\n 1) Target object whose property should be tweened (typically a DOM element)\n 2) The end/destination value (could be a string, number, object, or whatever you want)\n 3) The tween instance (you probably don't need to worry about this, but it can be useful for looking up information like the duration)\n\nThen, your function should return a function which will be called each time the tween gets rendered, passing a numeric \"ratio\" parameter to your function that indicates the change factor (usually between 0 and 1). For example:\n\nCSSPlugin.registerSpecialProp(\"myCustomProp\", function(target, value, tween) {\n     var start = target.style.width;\n     return function(ratio) {\n             target.style.width = (start + value * ratio) + \"px\";\n             console.log(\"set width to \" + target.style.width);\n         }\n}, 0);\n\nThen, when I do this tween, it will trigger my special property:\n\nTweenLite.to(element, 1, {css:{myCustomProp:100}});\n\nIn the example, of course, we're just changing the width, but you can do anything you want.",
-            "line": " js/jsSrc/libs/TweenMax.js:3194"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:663"
         },
         {
-            "message": "Missing item type\nParses the transform values for an element, returning an object with x, y, z, scaleX, scaleY, scaleZ, rotation, rotationX, rotationY, skewX, and skewY properties. Note: by default (for performance reasons), all skewing is combined into skewX and rotation but skewY still has a place in the transform object so that we can record how much of the skew is attributed to skewX vs skewY. Remember, a skewY of 10 looks the same as a rotation of 10 and skewX of -10.",
-            "line": " js/jsSrc/libs/TweenMax.js:3243"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:684"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:4304"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:708"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:4320"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:726"
         },
         {
-            "message": "Missing item type\nTypically only useful for className tweens that may affect child elements, this method creates a TweenLite\nand then compares the style properties of all the target's child elements at the tween's start and end, and\nif any are different, it also creates tweens for those and returns an array containing ALL of the resulting\ntweens (so that you can easily add() them to a TimelineLite, for example). The reason this functionality is\nwrapped into a separate static method of CSSPlugin instead of being integrated into all regular className tweens\nis because it creates entirely new tweens that may have completely different targets than the original tween,\nso if they were all lumped into the original tween instance, it would be inconsistent with the rest of the API\nand it would create other problems. For example:\n - If I create a tween of elementA, that tween instance may suddenly change its target to include 50 other elements (unintuitive if I specifically defined the target I wanted)\n - We can't just create new independent tweens because otherwise, what happens if the original/parent tween is reversed or pause or dropped into a TimelineLite for tight control? You'd expect that tween's behavior to affect all the others.\n - Analyzing every style property of every child before and after the tween is an expensive operation when there are many children, so this behavior shouldn't be imposed on all className tweens by default, especially since it's probably rare that this extra functionality is needed.",
-            "line": " js/jsSrc/libs/TweenMax.js:4404"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1004"
         },
         {
-            "message": "Missing item type",
-            "line": " js/jsSrc/libs/TweenMax.js:5049"
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1041"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1058"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1097"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1119"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1131"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1144"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1176"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1208"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1252"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1285"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1300"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1315"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1327"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1367"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1390"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1405"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1431"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1468"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1495"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1510"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1550"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1585"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1611"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1626"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1652"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1668"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1686"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1750"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1777"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1835"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1849"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1899"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1912"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:1977"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:2153"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:2230"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:2264"
+        },
+        {
+            "message": "unknown tag: this",
+            "line": " js/jsSrc/libs/shoestring.js:2298"
+        },
+        {
+            "message": "Missing item type\nThe shoestring object constructor.",
+            "line": " js/jsSrc/libs/shoestring.js:5"
+        },
+        {
+            "message": "Missing item type\nMake an HTTP request to a url.\n\n**NOTE** the following options are supported:\n\n- *method* - The HTTP method used with the request. Default: `GET`.\n- *data* - Raw object with keys and values to pass with request as query params. Default `null`.\n- *headers* - Set of request headers to add. Default `{}`.\n- *async* - Whether the opened request is asynchronouse. Default `true`.\n- *success* - Callback for successful request and response. Passed the response data.\n- *error* - Callback for failed request and response.\n- *cancel* - Callback for cancelled request and response.",
+            "line": " js/jsSrc/libs/shoestring.js:130"
+        },
+        {
+            "message": "Missing item type\nHelper function wrapping a call to [ajax](ajax.js.html) using the `GET` method.",
+            "line": " js/jsSrc/libs/shoestring.js:244"
+        },
+        {
+            "message": "Missing item type\nLoad the HTML response from `url` into the current set of elements.",
+            "line": " js/jsSrc/libs/shoestring.js:258"
+        },
+        {
+            "message": "Missing item type\nHelper function wrapping a call to [ajax](ajax.js.html) using the `POST` method.",
+            "line": " js/jsSrc/libs/shoestring.js:285"
+        },
+        {
+            "message": "Missing item type\nIterates over `shoestring` collections.",
+            "line": " js/jsSrc/libs/shoestring.js:300"
+        },
+        {
+            "message": "Missing item type\nCheck for array membership.",
+            "line": " js/jsSrc/libs/shoestring.js:325"
+        },
+        {
+            "message": "Missing item type\nBind callbacks to be run when the DOM is \"ready\".",
+            "line": " js/jsSrc/libs/shoestring.js:345"
+        },
+        {
+            "message": "Missing item type\nChecks the current set of elements against the selector, if one matches return `true`.",
+            "line": " js/jsSrc/libs/shoestring.js:408"
+        },
+        {
+            "message": "Missing item type\nGet data attached to the first element or set data values on all elements in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:467"
+        },
+        {
+            "message": "Missing item type\nRemove data associated with `name` or all the data, for each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:500"
+        },
+        {
+            "message": "Missing item type\nAn alias for the `shoestring` constructor.",
+            "line": " js/jsSrc/libs/shoestring.js:520"
+        },
+        {
+            "message": "Missing item type\nAdd a class to each DOM element in the set of elements.",
+            "line": " js/jsSrc/libs/shoestring.js:527"
+        },
+        {
+            "message": "Missing item type\nAdd elements matching the selector to the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:550"
+        },
+        {
+            "message": "Missing item type\nInsert an element or HTML string after each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:572"
+        },
+        {
+            "message": "Missing item type\nInsert an element or HTML string as the last child of each element in the set.",
+            "line": " js/jsSrc/libs/shoestring.js:597"
+        },
+        {
+            "message": "Missing item type\nInsert the current set as the last child of the elements matching the selector.",
+            "line": " js/jsSrc/libs/shoestring.js:618"
+        },
+        {
+            "message": "Missing item type\nGet the value of the first element of the set or set the value of all the elements in the set.",
+            "line": " js/jsSrc/libs/shoestring.js:633"
+        },
+        {
+            "message": "Missing item type\nInsert an element or HTML string before each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:663"
+        },
+        {
+            "message": "Missing item type\nGet the children of the current collection.",
+            "line": " js/jsSrc/libs/shoestring.js:684"
+        },
+        {
+            "message": "Missing item type\nClone and return the current set of nodes into a new `shoestring` object.",
+            "line": " js/jsSrc/libs/shoestring.js:708"
+        },
+        {
+            "message": "Missing item type\nFind an element matching the selector in the set of the current element and its parents.",
+            "line": " js/jsSrc/libs/shoestring.js:726"
+        },
+        {
+            "message": "Missing item type\nA polyfill to support computed styles in IE < 9\n\nNOTE this is taken directly from https://github.com/jonathantneal/polyfill",
+            "line": " js/jsSrc/libs/shoestring.js:769"
+        },
+        {
+            "message": "Missing item type\nReturns the indexed element wrapped in a new `shoestring` object.",
+            "line": " js/jsSrc/libs/shoestring.js:1041"
+        },
+        {
+            "message": "Missing item type\nFilter out the current set if they do *not* match the passed selector or\nthe supplied callback returns false",
+            "line": " js/jsSrc/libs/shoestring.js:1058"
+        },
+        {
+            "message": "Missing item type\nFind descendant elements of the current collection.",
+            "line": " js/jsSrc/libs/shoestring.js:1097"
+        },
+        {
+            "message": "Missing item type\nReturns the first element of the set wrapped in a new `shoestring` object.",
+            "line": " js/jsSrc/libs/shoestring.js:1119"
+        },
+        {
+            "message": "Missing item type\nReturns the raw DOM node at the passed index.",
+            "line": " js/jsSrc/libs/shoestring.js:1131"
+        },
+        {
+            "message": "Missing item type\nPrivate function for setting/getting the offset property for height/width.\n\n**NOTE** Please use the [width](width.js.html) or [height](height.js.html) methods instead.",
+            "line": " js/jsSrc/libs/shoestring.js:1144"
+        },
+        {
+            "message": "Missing item type\nGets the height value of the first element or sets the height for the whole set.",
+            "line": " js/jsSrc/libs/shoestring.js:1176"
+        },
+        {
+            "message": "Missing item type\nGets or sets the `innerHTML` from all the elements in the set.",
+            "line": " js/jsSrc/libs/shoestring.js:1208"
+        },
+        {
+            "message": "Missing item type\nFind the index in the current set for the passed selector.\nWithout a selector it returns the index of the first node within the array of its siblings.",
+            "line": " js/jsSrc/libs/shoestring.js:1252"
+        },
+        {
+            "message": "Missing item type\nInsert the current set after the elements matching the selector.",
+            "line": " js/jsSrc/libs/shoestring.js:1285"
+        },
+        {
+            "message": "Missing item type\nInsert the current set before the elements matching the selector.",
+            "line": " js/jsSrc/libs/shoestring.js:1300"
+        },
+        {
+            "message": "Missing item type\nReturns the last element of the set wrapped in a new `shoestring` object.",
+            "line": " js/jsSrc/libs/shoestring.js:1315"
+        },
+        {
+            "message": "Missing item type\nReturns a `shoestring` object with the set of siblings of each element in the original set.",
+            "line": " js/jsSrc/libs/shoestring.js:1327"
+        },
+        {
+            "message": "Missing item type\nRemoves elements from the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1367"
+        },
+        {
+            "message": "Missing item type\nReturns an object with the `top` and `left` properties corresponging to the first elements offsets.",
+            "line": " js/jsSrc/libs/shoestring.js:1390"
+        },
+        {
+            "message": "Missing item type\nReturns the set of first parents for each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1405"
+        },
+        {
+            "message": "Missing item type\nReturns the set of all parents matching the selector if provided for each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1431"
+        },
+        {
+            "message": "Missing item type\nAdd an HTML string or element before the children of each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1468"
+        },
+        {
+            "message": "Missing item type\nAdd each element of the current set before the children of the selected elements.",
+            "line": " js/jsSrc/libs/shoestring.js:1495"
+        },
+        {
+            "message": "Missing item type\nReturns a `shoestring` object with the set of *one* siblingx before each element in the original set.",
+            "line": " js/jsSrc/libs/shoestring.js:1510"
+        },
+        {
+            "message": "Missing item type\nReturns a `shoestring` object with the set of *all* siblings before each element in the original set.",
+            "line": " js/jsSrc/libs/shoestring.js:1550"
+        },
+        {
+            "message": "Missing item type\nGets the property value from the first element or sets the property value on all elements of the currrent set.",
+            "line": " js/jsSrc/libs/shoestring.js:1585"
+        },
+        {
+            "message": "Missing item type\nRemove an attribute from each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1611"
+        },
+        {
+            "message": "Missing item type\nRemove a class from each DOM element in the set of elements.",
+            "line": " js/jsSrc/libs/shoestring.js:1626"
+        },
+        {
+            "message": "Missing item type\nRemove the current set of elements from the DOM.",
+            "line": " js/jsSrc/libs/shoestring.js:1652"
+        },
+        {
+            "message": "Missing item type\nRemove a proprety from each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1668"
+        },
+        {
+            "message": "Missing item type\nReplace each element in the current set with that argument HTML string or HTMLElement.",
+            "line": " js/jsSrc/libs/shoestring.js:1686"
+        },
+        {
+            "message": "Missing item type\nSerialize child input element values into an object.",
+            "line": " js/jsSrc/libs/shoestring.js:1750"
+        },
+        {
+            "message": "Missing item type\nGet all of the sibling elements for each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1777"
+        },
+        {
+            "message": "Missing item type\nRecursively retrieve the text content of the each element in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1835"
+        },
+        {
+            "message": "Missing item type\nGet the value of the first element or set the value of all elements in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:1849"
+        },
+        {
+            "message": "Missing item type\nGets the width value of the first element or sets the width for the whole set.",
+            "line": " js/jsSrc/libs/shoestring.js:1899"
+        },
+        {
+            "message": "Missing item type\nWraps the child elements in the provided HTML.",
+            "line": " js/jsSrc/libs/shoestring.js:1912"
+        },
+        {
+            "message": "Missing item type\nBind a callback to an event for the currrent set of elements.",
+            "line": " js/jsSrc/libs/shoestring.js:1977"
+        },
+        {
+            "message": "Missing item type\nUnbind a previous bound callback for an event.",
+            "line": " js/jsSrc/libs/shoestring.js:2153"
+        },
+        {
+            "message": "Missing item type\nBind a callback to an event for the currrent set of elements, unbind after one occurence.",
+            "line": " js/jsSrc/libs/shoestring.js:2230"
+        },
+        {
+            "message": "Missing item type\nTrigger an event on the first element in the set, no bubbling, no defaults.",
+            "line": " js/jsSrc/libs/shoestring.js:2264"
+        },
+        {
+            "message": "Missing item type\nTrigger an event on each of the DOM elements in the current set.",
+            "line": " js/jsSrc/libs/shoestring.js:2298"
         }
     ]
 }

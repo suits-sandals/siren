@@ -1,20 +1,12 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "form-browserSupport",
-        "formValidation",
-        "navigationUI"
+        "setUp"
     ],
     "modules": [
-        "Contact-Page",
         "Global"
     ],
     "allModules": [
-        {
-            "displayName": "Contact-Page",
-            "name": "Contact-Page",
-            "description": "This file contains core functions used in the Siren Framework"
-        },
         {
             "displayName": "Global",
             "name": "Global",

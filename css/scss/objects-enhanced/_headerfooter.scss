@@ -30,14 +30,18 @@ File Notes:
   #Navigation
 \*-------------------------*/
 
-.nav_list{
-	max-height: 0px;
+.nav{
   	overflow: hidden;
-	transition: .5s all;
 
-  	&.active{
-  		max-height: 999px;
-  	}
+	.navigation-enabled & {
+		max-height: 0px;
+		transition: 0.5s all;
+
+	  	&.active{
+	  		max-height: 999px;
+	  	}
+
+	}
 
 	&_link{ 
 		color: $color2;
@@ -47,7 +51,7 @@ File Notes:
 		}
 	}
 
-	&_button{
+	&_btn{
 		color: $color1;
 		background: $color2;
 		width: 100%;

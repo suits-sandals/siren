@@ -4,31 +4,50 @@
 */
 
 /**
-Related to navigation.
-@class navigationUI
+Creates the neccessary additional markup
+@class setUp
 @static
 */
 
+
 /**
-Test if a css selector can be used
-@method mobileNav
-@param triggerID {string} 
-@param widthLimit {int} 
+@method navPrimarySetup
 */
 
-$('.siteNav_button').click(function(){
+$('html').addClass('navigation-enabled');
 
-	if($(this).hasClass('active')){
+var pInit = false;
+var navPrimarySetup = function() {
+	$('.nav').before('<button class="nav_btn">Menu</button>');
 
-		$(this).removeClass('active');
-		$('.siteNav_list').removeClass('active');
+	//Click event
+	$('.nav_btn').bind("click", function(){
+		
+		if($(this).is('.s-active')) {
 
+			$(this).removeClass('s-active');
+
+			$('.nav').removeClass('s-active');
+
+		}
+		else {
+			$(this).addClass('s-active');
+			$('.nav').addClass('s-active');
+		}
+
+	});
+};
+
+if(window.innerWidth < 650) {
+	navPrimarySetup();
+
+	pInit = true;
+}
+
+window.onresize = function() {
+	if(window.innerWidth < 650 && !pInit) {
+		navPrimarySetup();
+
+		pInit = true;
 	}
-	else {
-
-		$(this).addClass('active');
-		$('.siteNav_list').addClass('active');
-
-	}
-	return false;
-});
+};
