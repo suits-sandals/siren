@@ -17,8 +17,8 @@ module.exports = function(grunt) {
         }
       },
       scss: {
-        files: ['css/sass/*.scss','css/sass/*/*.scss'],
-       tasks: ['compass', 'postcss', 'criticalcss', 'cssmin'],
+        files: ['css/scss/*.scss','css/scss/*/*.scss'],
+        tasks: ['sass', 'criticalcss', 'postcss' ],
         options: {
           spawn: false,
         }
@@ -46,14 +46,16 @@ module.exports = function(grunt) {
       }
     },
 
-    //Compass for SCSS
-    compass: {                 
-      dist: { 
-        options: {    
-          config: 'config.rb',       
-          sassDir: 'css/sass',
-          cssDir: 'css',
-          environment: 'development'
+    //SASS
+    sass: {                              
+      dist: {                            
+        options: {                   
+          style: 'expanded',
+          sourcemap: 'none'
+        },
+        files: {                        
+          'css/style.css': 'css/scss/style.scss',       
+          'css/ie8.css': 'css/scss/ie8.scss'
         }
       }
     },
@@ -66,75 +68,28 @@ module.exports = function(grunt) {
       //Home
       homePage: {
         options: {
-          url: "http://localhost:8888/siren-wordpress/",
-          outputfile: "css/critical/raw/critical-home.css",
-          filename: "style.css"
-        }
-      },
-
-      //Archives - index, taxonomies, archives, etc.
-      archives: {
-        options: {
-          url: "http://localhost:8888/siren-wordpress/news/",
-          outputfile: "css/critical/raw/critical-archives.css",
-          filename: "style.css"
-        }
-      },
-
-      //Post
-      post: {
-        options: {
-          url: "http://localhost:8888/siren-wordpress/news/",
-          outputfile: "css/critical/raw/critical-post.css",
-          filename: "style.css"
-        }
-      },
-
-      //Page
-      page: {
-        options: {
-          url: "http://localhost:8888/siren-wordpress/store/",
-          outputfile: "css/critical/raw/critical-page.css",
-          filename: "style.css"
+          url: "http://siren.dev/",
+          outputfile: "css/critical/standard.css",
+          filename: "css/style.css"
         }
       }
 
     },
-
-    //CSS Min
-    cssmin: {
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'css/critical/raw',
-          src: ['*.css'],
-          dest: 'css/critical'
-        }]
-      }
-    },
-
-    //Combine Media Queries
-    /*combine_mq: {
-      options: {
-        beautify: false
-      },
-      main: {
-        src: 'style.css',
-        dest: 'style.css'
-      }
-    },*/
 
     postcss: {
       options: {
-        map: true, // inline sourcemaps
+        map: false, // inline sourcemaps
 
         processors: [
-          require('autoprefixer')({browsers: 'last 2 versions'}),
-          require('css-mqpacker')()
+          require('autoprefixer')({browsers: 'last 4 versions'}),
+          require('css-mqpacker')(),
+          require('cssnano')()
         ]
       },
       dist: {
-        src: 'css/*.css'
+        files: [{
+          src: ['css/*.css', 'css/**/*.css']
+        }]
       }
     },
 
@@ -170,15 +125,14 @@ module.exports = function(grunt) {
   // Load up pluggins
   grunt.loadNpmTasks('grunt-contrib-watch'); //Update watcher
   grunt.loadNpmTasks('grunt-contrib-uglify'); //Uglify JS
-  grunt.loadNpmTasks('grunt-contrib-compass'); //Compress Compass
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
   grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
-  grunt.loadNpmTasks('grunt-contrib-cssmin'); //CSS Minification
   grunt.loadNpmTasks('grunt-postcss'); //Post CSS
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task(s).
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['sass', 'criticalcss', 'postcss' ]);
 
 };

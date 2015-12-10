@@ -1,0 +1,87 @@
+/********
+
+Siren Framework v3.5
+
+File Name: Forms
+
+File Purpose: The standard echanced stylings for form elements.
+
+File Notes: 
+
+*********/
+
+
+/*-------------------------*\
+	#Form-Containers
+\*-------------------------*/
+
+form, fieldset{
+	width: 100%;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Inputs-Selects-Textarea
+\*-------------------------*/
+input, textarea, select{
+	outline: 0;
+	-webkit-appearance: none;
+	border-radius: 0;
+	width: 100%;
+	padding: 5px;
+}
+
+input, select{
+	height: 35px;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Textarea
+\*-------------------------*/
+
+textarea{
+	height: 100px;
+	resize: none;
+	overflow: auto;
+}
+
+
+
+
+/*-------------------------*\
+	#Checkboxes-Radiobuttons
+\*-------------------------*/
+
+.checkbox_label, .checkbox{
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	float: none;
+	display: inline;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Submit-Buttons
+\*-------------------------*/
+
+input[type="submit"]{
+	background: $color3;
+	width: 100px;
+	transition: all .7s;
+
+	&:hover{
+		color: $color4;
+	}
+}
