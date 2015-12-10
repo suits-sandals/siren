@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         }
       },
       images: {
-        files: ['images/imagesSrc/*.{png,jpg,gif}'],
+        files: ['images/*.{png,jpg,gif}'],
         tasks: ['imagemin'],
         options: {
           spawn: false,
