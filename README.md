@@ -18,8 +18,8 @@ The following list are the dependencies built into Siren.
 - PHP 5.0 +
 - Grunt 0.4.3 +
 	- Default plugins listed in TOC
+- PostCSS 
 - SCSS 3.3+ (Soon to settle on 3.4+)
-- Compass 
 - HTML5SHIV
 - Respond.js
 - Boxsizing Polyfill
