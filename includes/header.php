@@ -38,7 +38,7 @@
 	//Critical CSS is Served based on major template groupings
 	echo '<style>';
 
-		require_once(  'css/critical/critical-generic.css');
+		require_once(  'css/critical/standard.css');
 
 	echo '</style>';
 ?>
@@ -107,7 +107,6 @@
 	</div>
 
 	<nav class="nav">
-		<a href="#navList" class="nav_button" id="navBtn">MENU</a>
 		<ul class="nav_list" id="navList">
 			<li class="nav_item" ><a href="index" class="nav_link">Home</a></li>
 			<li class="nav_item" ><a href="#" class="nav_link">About</a></li>
