@@ -20,7 +20,7 @@
 		require_once('js/loading/fonts.js');
 ?>
 		var observer = new FontFaceObserver("Avenir Next LT W01 Bold", {
-		  weight: 300
+		  weight: 700
 		});
 		observer.check().then(function () {
 			document.getElementsByTagName('body')[0].className += " font-loaded";

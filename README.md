@@ -30,7 +30,7 @@ The following list are the dependencies built into Siren.
 
 
 ## Table of Contents ##
-This index is for files and directories in the top level directory. Sub-directories have their own indexes where noted. Update this list and related lists throughout a project.
+This index is for files and directories in the top level directory. Update this list and related lists throughout a project.
 
 ### Directories ###
 1. CSS
@@ -67,15 +67,12 @@ This index is for files and directories in the top level directory. Sub-director
 	- The projects Gruntfile. By default the Gruntfile includes the plugins:
 		- grunt-contrib-watch : For automating Grunt tasks during file changes.
         - grunt-contrib-uglify : For Uglifiing Javascript and concatenating files
-        - grunt-contrib-compass : For running compass tasks and processing the SCSS
+        - grunt-contrib-sass : For compiling SCSS
         - grunt-contrib-jshint : For checking for javascript errors
         - grunt-contrib-imagemin : For optimizing images
-        - grunt-combine-mq : Used to combine like mediaqueries in the production style sheet.
-        - grunt-contrib-cssmin : Used to minify the Critical CSS stylesheets
+        - grunt-postcss : "Post processing" for CSS
         - grunt-criticalcss : Determines the critical CSS for different templates and delivers style sheets with just the critical CSS to be inlined
         - grunt-contrib-yuidoc : For autogenerating Javascript documentation as formated in the comments
-		- grunt-perfbudget : For running automated performance budget tests
-		- grunt-manifest : For autocreating the .appcache manifest
 6. config.rb 
 	- The Compass configuration file.
 	- Processed CSS is compressed by default but can be processed normally for debugging.
