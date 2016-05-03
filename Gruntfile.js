@@ -83,7 +83,9 @@ module.exports = function(grunt) {
         processors: [
           require('autoprefixer')({browsers: 'last 4 versions'}),
           require('css-mqpacker')(),
-          require('cssnano')()
+          require('cssnano')(),
+          require('postcss-cssstats')()
+          //,require('list-selectors')
         ]
       },
       dist: {
