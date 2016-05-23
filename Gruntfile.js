@@ -22,13 +22,6 @@ module.exports = function(grunt) {
         options: {
           spawn: false,
         }
-      },
-      images: {
-        files: ['images/*.{png,jpg,gif}'],
-        tasks: ['imagemin'],
-        options: {
-          spawn: false,
-        }
       }
     },
 
@@ -83,26 +76,12 @@ module.exports = function(grunt) {
         processors: [
           require('autoprefixer')({browsers: 'last 4 versions'}),
           require('css-mqpacker')(),
-          require('cssnano')(),
-          require('postcss-cssstats')()
-          //,require('list-selectors')
+          require('cssnano')()
         ]
       },
       dist: {
         files: [{
           src: ['css/*.css', 'css/**/*.css']
-        }]
-      }
-    },
-
-    //Image Optimization
-    imagemin: {  
-      standard: {                  
-        files: [{
-          expand: true,    
-          src: ['**/*.{png,jpg,gif}'],
-          cwd: 'images/imagesSrc',
-          dest: 'images/'   
         }]
       }
     },
@@ -128,7 +107,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch'); //Update watcher
   grunt.loadNpmTasks('grunt-contrib-uglify'); //Uglify JS
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
-  grunt.loadNpmTasks('grunt-contrib-imagemin'); //Image Optimization
   grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
   grunt.loadNpmTasks('grunt-postcss'); //Post CSS
