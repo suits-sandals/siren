@@ -11,14 +11,15 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['js/jsSrc/*.js','js/jsSrc/*/*.js'],
-        tasks: ['jshint', 'uglify', 'yuidoc'],
+        tasks: ['jshint', 'uglify'],
         options: {
           spawn: false
         }
       },
       scss: {
         files: ['css/scss/*.scss','css/scss/*/*.scss'],
-        tasks: ['sass', 'criticalcss', 'postcss' ],
+        //tasks: ['sass', 'criticalcss', 'postcss' ],
+        tasks: ['sass', 'postcss' ],
         options: {
           spawn: false,
         }
@@ -84,20 +85,6 @@ module.exports = function(grunt) {
           src: ['css/*.css', 'css/**/*.css']
         }]
       }
-    },
-
-    //Javascript documentation
-    yuidoc: {
-        all: {
-            name: 'Siren Core',
-            description: 'Change this on project start',
-            version: '0',
-            url: '',
-            options: {
-                paths: ['js/jsSrc/'],
-                outdir: 'docs/docs-js/'
-            }
-        }
     }
 
     
@@ -107,7 +94,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch'); //Update watcher
   grunt.loadNpmTasks('grunt-contrib-uglify'); //Uglify JS
   grunt.loadNpmTasks('grunt-contrib-jshint'); //JS Hint
-  grunt.loadNpmTasks("grunt-contrib-yuidoc"); //JS Documentation
   grunt.loadNpmTasks('grunt-criticalcss'); //Critical CSS
   grunt.loadNpmTasks('grunt-postcss'); //Post CSS
   grunt.loadNpmTasks('grunt-contrib-sass');

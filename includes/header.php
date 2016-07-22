@@ -37,7 +37,7 @@
 
 	//Critical CSS is Served based on major template groupings
 	echo '<style>';
-
+		
 		require_once(  'css/critical/standard.css');
 
 	echo '</style>';
