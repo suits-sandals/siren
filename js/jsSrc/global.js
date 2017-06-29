@@ -18,34 +18,34 @@ $('html').addClass('navigation-enabled');
 
 var pInit = false;
 var navPrimarySetup = function() {
-	$('.nav').before('<button class="nav_btn">Menu</button>');
+	$('.nav-primary').before('<button class="nav-primary_btn">Menu</button>');
 
 	//Click event
-	$('.nav_btn').bind("click", function(){
+	$('.nav-primary_btn').bind("click", function(){
 		
 		if($(this).is('.s-active')) {
 
 			$(this).removeClass('s-active');
 
-			$('.nav').removeClass('s-active');
+			$('.nav-primary').removeClass('s-active');
 
 		}
 		else {
 			$(this).addClass('s-active');
-			$('.nav').addClass('s-active');
+			$('.nav-primary').addClass('s-active');
 		}
 
 	});
 };
 
-if(window.innerWidth < 650) {
+if(window.innerWidth < 600) {
 	navPrimarySetup();
 
 	pInit = true;
 }
 
 window.onresize = function() {
-	if(window.innerWidth < 650 && !pInit) {
+	if(window.innerWidth < 600 && !pInit) {
 		navPrimarySetup();
 
 		pInit = true;

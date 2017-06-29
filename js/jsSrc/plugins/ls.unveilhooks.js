@@ -22,14 +22,29 @@ For background images, use data-bg attribute:
  <div class="lazyload" data-require="module-name"></div>
 */
 
-(function(window, document){
+(function(window, factory) {
+	var globalInstall = function(){
+		factory(window.lazySizes);
+		window.removeEventListener('lazyunveilread', globalInstall, true);
+	};
+
+	factory = factory.bind(null, window, window.document);
+
+	if(typeof module == 'object' && module.exports){
+		factory(require('lazysizes'));
+	} else if(window.lazySizes) {
+		globalInstall();
+	} else {
+		window.addEventListener('lazyunveilread', globalInstall, true);
+	}
+}(window, function(window, document, lazySizes) {
 	/*jshint eqnull:true */
 	'use strict';
-	var config, bgLoad;
+	var bgLoad, regBgUrlEscape;
 	var uniqueUrls = {};
 
-	if(document.addEventListener && window.getComputedStyle){
-		config = (window.lazySizes && lazySizes.cfg) || window.lazySizesConfig || {};
+	if(document.addEventListener){
+		regBgUrlEscape = /\(|\)|\s|'/;
 
 		bgLoad = function (url, cb){
 			var img = document.createElement('img');
@@ -49,6 +64,8 @@ For background images, use data-bg attribute:
 		};
 
 		addEventListener('lazybeforeunveil', function(e){
+			if(e.detail.instance != lazySizes){return;}
+
 			var tmp, load, bg, poster;
 			if(!e.defaultPrevented) {
 
@@ -59,61 +76,49 @@ For background images, use data-bg attribute:
 				tmp = e.target.getAttribute('data-link');
 				if(tmp){
 					addStyleScript(tmp, true);
-					if(config.clearAttr){
-						e.target.removeAttribute('data-link');
-					}
 				}
 
 				// handle data-script
 				tmp = e.target.getAttribute('data-script');
 				if(tmp){
 					addStyleScript(tmp);
-					if(config.clearAttr){
-						e.target.removeAttribute('data-script');
-					}
 				}
 
 				// handle data-require
 				tmp = e.target.getAttribute('data-require');
 				if(tmp){
-					if(window.require){
-						require([tmp]);
-					}
-					if(config.clearAttr){
-						e.target.removeAttribute('data-require');
+					if(lazySizes.cfg.requireJs){
+						lazySizes.cfg.requireJs([tmp]);
+					} else {
+						addStyleScript(tmp);
 					}
 				}
 
 				// handle data-bg
 				bg = e.target.getAttribute('data-bg');
 				if (bg) {
-					e.details.firesLoad = true;
+					e.detail.firesLoad = true;
 					load = function(){
-						e.target.style.backgroundImage = 'url(' + bg + ')';
-						lazySizes.fire(e.target, '_lazyloaded');
+						e.target.style.backgroundImage = 'url(' + (regBgUrlEscape.test(bg) ? JSON.stringify(bg) : bg ) + ')';
+						e.detail.firesLoad = false;
+						lazySizes.fire(e.target, '_lazyloaded', {}, true, true);
 					};
 
 					bgLoad(bg, load);
-
-					if(config.clearAttr){
-						e.target.removeAttribute('data-bg');
-					}
 				}
 
 				// handle data-poster
 				poster = e.target.getAttribute('data-poster');
 				if(poster){
-					e.details.firesLoad = true;
+					e.detail.firesLoad = true;
 					load = function(){
 						e.target.poster = poster;
-						lazySizes.fire(e.target, '_lazyloaded');
+						e.detail.firesLoad = false;
+						lazySizes.fire(e.target, '_lazyloaded', {}, true, true);
 					};
 
 					bgLoad(poster, load);
 
-					if(config.clearAttr){
-						e.target.removeAttribute('data-poster');
-					}
 				}
 			}
 		}, false);
@@ -137,4 +142,4 @@ For background images, use data-bg attribute:
 		uniqueUrls[elem.src || elem.href] = true;
 		insertElem.parentNode.insertBefore(elem, insertElem);
 	}
-})(window, document);
+}));

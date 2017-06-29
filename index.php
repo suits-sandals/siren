@@ -23,8 +23,6 @@
 	<hr>
 </header>
 
-
-
 <article class="blurb-page row">
 	<p class="blurb-page_p">Occupy flexitarian incididunt, ad typewriter laborum whatever. Organic mollit chillwave helvetica do lomo, skateboard gluten-free williamsburg nulla. Wolf jean shorts id qui. Sapiente godard master cleanse, fap locavore hella enim proident wolf next level.</p>
 </article>
