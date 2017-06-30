@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     example: [
       'babel-polyfill',
-      __dirname + '/js/jsSrcPreactEx/index.js'
+      __dirname + '/js/jsSrcPreactEx'
     ]
   },
   output: {
@@ -16,25 +16,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          plugins: ['transform-runtime', 'UglifyJsPlugin'],
-          presets: ['es2015', "react"]
-        }
+        test: /\.jsx?$/i,
+        exclude: [/node_modules/, /js\/jsSrc/],
+        loader: 'babel'
       }
     ]
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-    })
-  ]
+
+  devtool: 'source-map'
 
 };
