@@ -20,7 +20,6 @@
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
-    "jsx-webpack-loader": "^0.1.2",
     "webpack": "^3.0.0",
     "webpack-stream": "^3.2.0"
   },
