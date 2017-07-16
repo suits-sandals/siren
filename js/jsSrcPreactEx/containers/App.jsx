@@ -1,14 +1,13 @@
-import { h, Component, render } = preact; 
+import { h, Component, render } from 'preact';
 
-import Container from 'containers/Container';
+import Container from './Container.jsx';
 
-
-const App = ({children}) => {
+const App = ({ children }) => {
     return (
-      <div class="app_inside">
-	      <Container />
-	  </div>
-    )
+        <div class="app_inside">
+            <Container />
+        </div>
+    );
 };
 
 export default App;
