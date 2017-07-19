@@ -9177,9 +9177,22 @@ var _preact = __webpack_require__(59);
 
 var app = document.getElementsByClassName('app')[0];
 
+/**
+@method init
+*/
+
+/**
+* @module Example
+*/
+
+/**
+@class Initialization
+@static
+*/
+
 function init() {
-    var App = __webpack_require__(300).default;
-    root = (0, _preact.render)((0, _preact.h)(App, null), app.parentNode, app);
+	var App = __webpack_require__(300).default;
+	(0, _preact.render)((0, _preact.h)(App, null), app.parentNode, app);
 }
 
 init();
@@ -9192,7 +9205,7 @@ init();
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _preact = __webpack_require__(59);
@@ -9203,14 +9216,28 @@ var _Container2 = _interopRequireDefault(_Container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App(_ref) {
-    var children = _ref.children;
+/**
+@class App
+@static
+*/
 
-    return (0, _preact.h)(
-        'div',
-        { 'class': 'app_inside' },
-        (0, _preact.h)(_Container2.default, null)
-    );
+/**
+*
+* @module Example
+* @submodule Container-App
+*/
+
+var App = function App() {
+
+	/**
+ @method return
+ */
+
+	return (0, _preact.h)(
+		'div',
+		{ 'class': 'app_inside' },
+		(0, _preact.h)(_Container2.default, null)
+	);
 };
 
 exports.default = App;
@@ -9223,7 +9250,7 @@ exports.default = App;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9240,29 +9267,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @module Example
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @submodule Container-Container
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+/**
+@class Container
+@static
+*/
 
 var Container = function (_Component) {
-    _inherits(Container, _Component);
+	_inherits(Container, _Component);
 
-    function Container() {
-        _classCallCheck(this, Container);
+	function Container() {
+		_classCallCheck(this, Container);
 
-        return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
+	}
 
-    _createClass(Container, [{
-        key: 'render',
-        value: function render() {
-            (0, _preact.h)(
-                'div',
-                null,
-                (0, _preact.h)(_Clock2.default, null)
-            );
-        }
-    }]);
+	_createClass(Container, [{
+		key: 'render',
 
-    return Container;
+
+		/**
+  @method render
+  */
+
+		value: function render() {
+			(0, _preact.h)(
+				'div',
+				null,
+				(0, _preact.h)(_Clock2.default, null)
+			);
+		}
+	}]);
+
+	return Container;
 }(_preact.Component);
 
 exports.default = Container;
@@ -9275,7 +9317,7 @@ exports.default = Container;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9286,30 +9328,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @module Example
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @submodule Component-Clock
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+/**
+@class Clock
+@static
+*/
 
 var Clock = function (_Component) {
-    _inherits(Clock, _Component);
+	_inherits(Clock, _Component);
 
-    function Clock() {
-        _classCallCheck(this, Clock);
+	function Clock() {
+		_classCallCheck(this, Clock);
 
-        return _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).apply(this, arguments));
+	}
 
-    _createClass(Clock, [{
-        key: 'render',
-        value: function render() {
-            var time = new Date().toLocaleTimeString();
-            return (0, _preact.h)(
-                'span',
-                null,
-                time
-            );
-        }
-    }]);
+	_createClass(Clock, [{
+		key: 'render',
 
-    return Clock;
+
+		/**
+  @method render
+  */
+
+		value: function render() {
+			var time = new Date().toLocaleTimeString();
+			return (0, _preact.h)(
+				'span',
+				null,
+				time
+			);
+		}
+	}]);
+
+	return Clock;
 }(_preact.Component);
 
 exports.default = Clock;
