@@ -2,6 +2,8 @@
 * @module Animations
 */
 
+@import '../loading/cookie.js';
+
 /**
 @class animations
 @static

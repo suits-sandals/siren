@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   uglify = require('gulp-uglify'),
+  jsImport = require('gulp-js-import'),
   sass = require('gulp-sass'),
   postcss = require('gulp-postcss'),
   autoprefixer = require('autoprefixer'),
@@ -32,6 +33,7 @@ gulp.task('build-css', function() {
 gulp.task('build-js', function() {
   return gulp
     .src('js/jsSrc/*.js')
+    .pipe(jsImport())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(uglify())

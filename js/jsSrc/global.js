@@ -9,6 +9,11 @@ Creates the neccessary additional markup
 @static
 */
 
+@import 'polyfills/respimage.js';
+@import 'plugins/lazysizes.js';
+@import 'libs/shoestring.js';
+@import '../loading/cookie.js';
+
 
 /**
 @method navPrimarySetup
