@@ -9,7 +9,8 @@ var gulp = require('gulp'),
   cssnano = require('cssnano'),
   rename = require('gulp-rename'),
   webpack = require('webpack'),
-  webpackStream = require('webpack-stream');
+  webpackStream = require('webpack-stream'),
+  livereload = require('gulp-livereload');
 
 /* CSS Build Steps */
 
@@ -25,7 +26,8 @@ gulp.task('build-css', function() {
     .pipe(sass({ outputStyle: 'expanded' }))
     .on('error', sass.logError)
     .pipe(postcss(plugins))
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('css'))
+    .pipe(livereload({ start: true }));
 });
 
 /* JS Build Steps */
@@ -42,7 +44,8 @@ gulp.task('build-js', function() {
         path.basename += '.min';
       })
     )
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('js'))
+    .pipe(livereload({ start: true }));
 });
 
 /* Preact Build */
@@ -51,7 +54,8 @@ gulp.task('build-preact', function(callback) {
   return gulp
     .src('js/jsSrcPreactEx/index.js')
     .pipe(webpackStream(require('./webpack.config.js'), webpack))
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('js'))
+    .pipe(livereload({ start: true }));
 });
 
 /* Watching */
