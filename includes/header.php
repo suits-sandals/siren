@@ -29,29 +29,9 @@
 	    </script>
     <![endif]-->
 
-<?php if(isset($_COOKIE['fullCSS-project'])) { //If cookie is set load stylesheet normally ?>
-	
-	<link rel="stylesheet" href="css/style.css" type="text/css" data-test />
 
-<?php } else{
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
 
-	//Critical CSS is Served based on major template groupings
-	echo '<style>';
-		
-		require_once(  'css/critical/standard.css');
-
-	echo '</style>';
-?>
-
-
-	<script>
-		<?php require_once('js/loading/loadcss.js'); ?>
-	    loadCSS( "css/style.css" );
-		<?php require_once('js/loading/cookie.js'); ?>
-	    cookie( 'fullCSS', "true", 7 );
-	</script>
-	
-<?php } ?>
 
 	<script>
 		// JS Enhancment and Async Loading
