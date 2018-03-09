@@ -35,9 +35,9 @@ gulp.task('build-css', function() {
 gulp.task('build-js', function() {
   return gulp
     .src('js/jsSrc/*.js')
-    .pipe(jsImport())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(jsImport())
     .pipe(uglify())
     .pipe(
       rename(function(path) {

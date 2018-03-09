@@ -11,6 +11,7 @@ Creates the neccessary additional markup
 
 @import 'polyfills/respimage.js';
 @import 'plugins/lazysizes.js';
+@import 'plugins/ls.unveilhooks.js';
 @import 'libs/shoestring.js';
 @import '../loading/cookie.js';
 
