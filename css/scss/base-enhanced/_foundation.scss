@@ -19,24 +19,19 @@ File Notes:
 	#Document-Level
 \*-------------------------*/
 
-html{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box; *behavior: url(../js/polyfills/boxsizing.htc);
+html {
+	box-sizing: border-box;
 }
 
 
 *, *:before, *:after {
-  	-webkit-box-sizing: inherit;
-	-moz-box-sizing: inherit;
-	box-sizing: inherit; *behavior: url(../js/polyfills/boxsizing.htc);
+	box-sizing: inherit;
 }
 
 
-body{
+body {
 	margin: 0;
 }
-
 
 
 
@@ -50,7 +45,7 @@ p {
 }
 
 
-img{
+img {
 	max-width: 100%;
 }
 
@@ -63,20 +58,19 @@ img{
 \*-------------------------*/
 
 sub, sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
 }
 
 sup {
-  top: -0.5em;
+	top: -0.5em;
 }
 
 sub {
-  bottom: -0.25em;
+	bottom: -0.25em;
 }
-
 
 
 
@@ -87,7 +81,7 @@ sub {
 \*-------------------------*/
 
 svg:not(:root) {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 
@@ -99,8 +93,5 @@ svg:not(:root) {
 \*-------------------------*/
 
 pre {
-  overflow: auto;
+	overflow: auto;
 }
-
-
-

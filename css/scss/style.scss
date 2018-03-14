@@ -23,7 +23,9 @@ File Notes:
 /*-------------------------*\
   #Mixins-Variables
 \*-------------------------*/
-@import "variables/variables"; 
+@import "variables/mixins";
+@import "variables/variables";
+
 
 
 
@@ -42,6 +44,7 @@ File Notes:
   #Objects-Basic
 \*-------------------------*/
 @import "objects-basic/headerfooter";
+
 
 
 
@@ -122,6 +125,5 @@ File Notes:
 /*-------------------------*\
   #Misc
 \*-------------------------*/
-
 @import "misc/print"; //Print Styles
 

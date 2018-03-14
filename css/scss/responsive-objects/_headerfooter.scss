@@ -12,7 +12,7 @@ File Notes:
 *********/
 
 
-@media only screen and (min-width: 700px)  {
+@media only screen and (min-width: 700px) {
 	
 
 	/*-------------------------*\
@@ -20,33 +20,34 @@ File Notes:
 	\*-------------------------*/
 
 	.header {
-		&_title{
+		&_title {
 			float: left;
 		}
 	}
 
-	
+
+
 
 
 	/*-------------------------*\
 	  #Navigation
 	\*-------------------------*/
 
-	.nav{
+	.nav {
 		margin-top: 3px;
 		text-align: right;
 		max-height: 100%!important;
 
-		&_item, &_link{
+		&_item, &_link {
 			display: inline-block;
 		}
 
-		&_link{ 
+		&_link { 
 			margin-top: 0.5em;
 			padding: 0 1em;
 		}
 
-		&_button{
+		&_button {
 			display: none;
 		}
 	}

@@ -17,16 +17,16 @@ File Notes:
 \*-------------------------*/
 
 html {
-  @extend %primaryFont;
-  -ms-text-size-adjust: 100%; 
-  -webkit-text-size-adjust: 100%; 
+	@extend %primaryFont;
+	-ms-text-size-adjust: 100%; 
+	-webkit-text-size-adjust: 100%; 
 }
 
 
 body {
-  font-size: $mobile;
-  color: $color1;
-  margin: 1em;
+	font-size: $mobile;
+	color: $color1;
+	margin: 1em;
 }
 
 
@@ -38,24 +38,24 @@ body {
 \*-------------------------*/
 
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
-  display: block;
+	display: block;
 }
 
 
 audio, canvas, progress, video {
-  display: inline-block; 
-  vertical-align: baseline; 
+	display: inline-block; 
+	vertical-align: baseline; 
 }
 
 
 audio:not([controls]) {
-  display: none;
-  height: 0;
+	display: none;
+	height: 0;
 }
 
 
 [hidden], template {
-  display: none;
+	display: none;
 }
 
 
@@ -66,52 +66,55 @@ audio:not([controls]) {
   #Links
 \*-------------------------*/
 
-a{
-  text-decoration: none; 
-  color: $color4;
+a {
+	text-decoration: none; 
+	color: $color4;
 
-  &:hover, &:focus, &:active {
-    color: darken($color4,15%);
-  }
+	&:hover, &:focus, &:active {
+		color: darken($color4,15%);
+	}
 
-  &:focus{
-    outline: 0;
-  }
+	&:focus {
+		outline: 0;
+	}
 
-  &:focus img { 
-    border: 1px $color4 solid;
-  }
+	&:focus img { 
+		border: 1px $color4 solid;
+	}
 }
+
+
+
 
 
 /*-------------------------*\
   #Headers
 \*-------------------------*/
 
-h1,h2,h3, h4{
-  text-transform: uppercase;
-  line-height: $line-height;
+h1,h2,h3, h4 {
+	text-transform: uppercase;
+	line-height: $line-height;
 }
 
-h1  { 
-  font-size: $xLarge;
+h1 { 
+	font-size: $xLarge;
 }
 
-h2  { 
-  font-size: $large;
+h2 { 
+	font-size: $large;
 }
 
-h3   { 
-  font-size: $medium;
-  text-transform: none;
+h3 { 
+	font-size: $medium;
+	text-transform: none;
 }
 
 h4 {
-  font-size: $halfstep;
+	font-size: $halfstep;
 }
 
 h5 {
-  font-size: $body;
+	font-size: $body;
 }
 
 
@@ -122,13 +125,15 @@ h5 {
   #Block-Level-Content
 \*-------------------------*/
 
-p, ol, ul, li{ 
-  font-size: $body;
+p, ol, ul, li { 
+	font-size: $body;
 }
 
 p {
-  margin-bottom: $baseline;
+	margin-bottom: $baseline;
 }
+
+
 
 
 
@@ -137,28 +142,29 @@ p {
 \*-------------------------*/
 
 b, strong {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 //Abbreviation
 abbr[title] {
-  border-bottom: 1px dotted;
+	border-bottom: 1px dotted;
 }
 
 //Definition term
 dfn, i {
-  font-style: italic;
+	font-style: italic;
 }
 
 //Marked text
 mark {
-  background: #ff0;
-  color: #000;
+	background: #ff0;
+	color: #000;
 }
 
 small {
-  font-size: 80%;
+	font-size: 80%;
 }
+
 
 
 
@@ -168,22 +174,22 @@ small {
 \*-------------------------*/
 
 figure {
-  margin: 1em 40px;
+	margin: 1em 40px;
 }
 
 
 hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 100%;
-  height: 2px;
-  background: $color1;
-  border: none;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 100%;
+	height: 2px;
+	background: $color1;
+	border: none;
 }
 
 code, kbd, pre, samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
+	font-family: monospace, monospace;
+	font-size: 1em;
 }
 
 q, blockquote {
@@ -191,13 +197,13 @@ q, blockquote {
 }
 
 blockquote{
-  font-style:italic;
-  margin: 1em 2em;
+	font-style: italic;
+	margin: 1em 2em;
 }
 
 q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
+	content: "";
+	content: none;
 }
 
 
@@ -209,12 +215,10 @@ q:before, q:after, blockquote:before, blockquote:after {
 \*-------------------------*/
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 td, th {
-  padding: 0;
+	padding: 0;
 }
-
-

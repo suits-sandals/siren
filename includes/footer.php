@@ -12,20 +12,20 @@
 <!-- FONT LOADING -->
 <?php if(!isset($_COOKIE['fontloaded-project'])) { ?>
 	<script>
-<?php 	
-		if(isset($_COOKIE['fullCSS-project'])) { 
+<?php
+		if(isset($_COOKIE['fullCSS-project'])) {
 			require_once('js/loading/cookie.js');
-		} 
+		}
 
 		require_once('js/loading/fonts.js');
 ?>
 		var observer = new FontFaceObserver("Avenir Next LT W01 Bold", {
-		  weight: 700
+			weight: 700
 		});
 		observer.check().then(function () {
-			document.getElementsByTagName('body')[0].className += " font-loaded";
-		  	cookie( 'fontloaded-project', "true", 7 );
-		});		
+			document.getElementsByTagName('body')[0].className += "font-loaded";
+			cookie( 'fontloaded-project', "true", 7 );
+		});
 	</script>
 <?php } ?>
 

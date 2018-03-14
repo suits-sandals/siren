@@ -15,7 +15,7 @@ File Notes:
 	#Form-Containers
 \*-------------------------*/
 
-form, fieldset{
+form, fieldset {
 	width: 100%;
 }
 
@@ -26,7 +26,7 @@ form, fieldset{
 /*-------------------------*\
 	#Inputs-Selects-Textarea
 \*-------------------------*/
-input, textarea, select{
+input, textarea, select {
 	outline: 0;
 	-webkit-appearance: none;
 	border-radius: 0;
@@ -34,7 +34,7 @@ input, textarea, select{
 	padding: 5px;
 }
 
-input, select{
+input, select {
 	height: 35px;
 }
 
@@ -46,7 +46,7 @@ input, select{
 	#Textarea
 \*-------------------------*/
 
-textarea{
+textarea {
 	height: 100px;
 	resize: none;
 	overflow: auto;
@@ -55,11 +55,12 @@ textarea{
 
 
 
+
 /*-------------------------*\
 	#Checkboxes-Radiobuttons
 \*-------------------------*/
 
-.checkbox_label, .checkbox{
+.checkbox_label, .checkbox {
 	width: auto;
 	height: auto;
 	margin: 0;
@@ -76,7 +77,7 @@ textarea{
 	#Submit-Buttons
 \*-------------------------*/
 
-input[type="submit"]{
+input[type="submit"] {
 	background: $color3;
 	width: 100px;
 	transition: all .3s;

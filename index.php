@@ -7,9 +7,9 @@
 	//Page Data Variables
 	$pagename = 'index';
 
-    $meta_title = 'Homepage';
-    $meta_desc = "Welcome to the site";
-    $meta_keywords = "stuff";
+	$meta_title = 'Homepage';
+	$meta_desc = "Welcome to the site";
+	$meta_keywords = "stuff";
 
 
 	//Header

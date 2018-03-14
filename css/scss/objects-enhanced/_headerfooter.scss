@@ -17,7 +17,7 @@ File Notes:
   #Header
 \*-------------------------*/
 
-.header{
+.header {
 	background: $color1;
 	color: $color2;
 	overflow: hidden;
@@ -30,7 +30,7 @@ File Notes:
   #Navigation
 \*-------------------------*/
 
-.nav{
+.nav {
   	overflow: hidden;
 
 	.navigation-enabled & {
@@ -43,15 +43,15 @@ File Notes:
 
 	}
 
-	&_link{ 
+	&_link { 
 		color: $color2;
 
-		&:hover{
+		&:hover {
 			color: $color3;
 		}
 	}
 
-	&_btn{
+	&_btn {
 		color: $color1;
 		background: $color2;
 		width: 100%;
@@ -71,7 +71,7 @@ File Notes:
   #Footer
 \*-------------------------*/
 
-.footer{
+.footer {
 	background: $color1;
 	color: $color2;
 
