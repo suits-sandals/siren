@@ -1,0 +1,62 @@
+/********
+
+Siren Framework v4.0
+
+File Name: Accessibility Enhanced
+
+File Purpose: Classes for accessibility elements
+
+File Notes: 
+
+*********/
+
+/*-------------------------*\
+  #Tabhints
+\*-------------------------*/
+
+.tabhint {
+	text-transform: uppercase;
+	text-align: center;
+	margin: 1em 0;
+	position: absolute;
+
+	a {
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: $color1;
+		font-size: $halfstep;
+		letter-spacing: 0.1em;
+		background: $color2;
+		width: 100%;
+		padding: 0.5em 1em;	
+		display: block;
+		position: fixed;
+		top: -16em;
+		left: 0;
+		z-index: 100000;	
+
+		transition: transform 0.3s;
+
+
+		&:focus{
+			transform: translateY(16em);
+		}
+	}
+}
+
+
+
+
+
+
+
+/*-------------------------*\
+  #Form-Hints
+\*-------------------------*/
+
+.screen-reader-response {
+	position: absolute;
+	top: -90000em;
+	left: -9000000em;
+}

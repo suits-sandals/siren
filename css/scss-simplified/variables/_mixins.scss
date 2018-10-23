@@ -1,0 +1,22 @@
+/********
+
+Siren Framework v3.6
+
+File Name: Mixins
+
+File Purpose:
+
+File Notes:
+
+
+*********/
+
+/*-------------------------*\
+  #Antialias
+\*-------------------------*/
+
+@mixin antialias {
+	text-rendering: optimizeLegibility;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}

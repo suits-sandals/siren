@@ -1,0 +1,171 @@
+/********
+
+Siren Framework v3.5
+
+File Name: Forms
+
+File Purpose: The standard echanced stylings for form elements.
+
+File Notes: 
+
+*********/
+
+
+/*-------------------------*\
+	#Form-Containers
+\*-------------------------*/
+
+form, fieldset {
+	border: none;
+	margin: 1em 0;
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Inputs-Selects-Textarea
+\*-------------------------*/
+input, textarea, select {
+	color: $color1;
+	font-size: $body;
+	border: 1px $color1 solid;
+	outline: 0;
+	-webkit-appearance: none;
+	border-radius: 0;
+	width: 100%;
+	padding: 0.5em;
+}
+
+input, select {
+	height: 35px;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Inputs
+\*-------------------------*/
+
+input {	
+	line-height: normal;
+
+	&:focus{
+		color: $color4;
+	}
+}
+
+
+
+
+
+/*-------------------------*\
+	#Textarea
+\*-------------------------*/
+
+textarea {
+	height: 100px;
+	resize: none;
+	overflow: auto;
+}
+
+
+
+
+/*-------------------------*\
+	#Selects
+\*-------------------------*/
+
+select {
+	text-transform: none;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Checkboxes-Radiobuttons
+\*-------------------------*/
+
+input[type="checkbox"], input[type="radio"] {
+	padding: 0;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Checkboxes-Radiobuttons
+\*-------------------------*/
+
+.checkbox_label, .checkbox {
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	float: none;
+	display: inline;
+}
+
+
+
+
+/*-------------------------*\
+	#Special-Inputs
+\*-------------------------*/
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+}
+
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+
+
+
+
+/*-------------------------*\
+	#Submit-Buttons
+\*-------------------------*/
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+	-webkit-appearance: button; 
+	cursor: pointer;
+	overflow: visible; 
+}
+
+button[disabled], html input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input[type="submit"] {
+	text-align: center;
+	background: $color3;
+	width: 100px;
+	transition: all 0.3s;
+	cursor: pointer;
+
+	&:hover{
+		color: $color4;
+	}
+}

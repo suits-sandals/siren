@@ -2,6 +2,10 @@
   "name": "siren-scaffolding",
   "author": "Suits & Sandals",
   "version": "4.0.0",
+  "scripts": {
+    "pre-install": "rimraf package-lock.json rimraf node_modules",
+    "reinstall": "npm run pre-install && npm install"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
@@ -36,6 +40,7 @@
     "axios": "^0.16.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
+    "rimraf": "^2.6.2",
     "preact-compat": "^3.16.0",
     "preact-redux": "^2.0.1",
     "validator": "^7.0.0"

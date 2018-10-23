@@ -1,0 +1,45 @@
+/********
+
+Siren Framework v3.5
+
+File Name: Responsive Foundation
+
+File Purpose: Media query calls that effect foundation styles go here
+
+File Notes: 
+
+
+*********/
+
+
+@media only screen and (min-width: 700px)  {
+	
+
+	/*-------------------------*\
+	  #Document-Level
+	\*-------------------------*/
+
+	body {
+		font-size: $desktop;
+	}
+
+
+}
+
+
+
+
+
+@media only screen and (min-width: 1200px)  {
+	
+
+	/*-------------------------*\
+	  #Document-Level
+	\*-------------------------*/
+
+	body {
+		font-size: $cinema;
+	}
+
+
+}

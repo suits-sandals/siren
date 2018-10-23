@@ -1,0 +1,95 @@
+/********
+
+Siren Framework v3.7
+
+File Name: Global Styles
+
+File Purpose: Collects all the snippets
+
+File Notes: 
+	- This is built from mobile Up
+	- All the initial style are for mobile views and everything else is brought in through media-queries
+
+
+*********/
+
+@-webkit-viewport{width:device-width;}
+@-moz-viewport{width:device-width;}
+@-ms-viewport{width:device-width;}
+@-o-viewport{width:device-width;}
+@viewport{width:device-width;}
+
+
+/*-------------------------*\
+  #Mixins-Variables
+\*-------------------------*/
+@import "variables/mixins";
+@import "variables/variables";
+
+
+
+
+
+/*-------------------------*\
+  #Base
+\*-------------------------*/
+@import "base/foundation";
+@import "base/accessibility";
+@import "base/forms";
+
+
+
+
+
+/*-------------------------*\
+  #Objects
+\*-------------------------*/
+@import "objects/headerfooter";
+
+
+
+
+
+/*-------------------------*\
+  #Layout
+\*-------------------------*/
+@import "layout/spacing";
+@import "layout/positioning";
+@import "layout/grid";
+
+
+
+
+/*-------------------------*\
+  #Helpers
+\*-------------------------*/
+@import "helpers/typographic";
+
+
+
+
+
+/*-------------------------*\
+  #Responsive-Core
+\*-------------------------*/
+@import "responsive-core/foundation";
+@import "responsive-core/layout";
+
+
+
+
+
+/*-------------------------*\
+  #Responsive-Objects
+\*-------------------------*/
+@import "responsive-objects/headerfooter";
+
+
+
+
+
+/*-------------------------*\
+  #Misc
+\*-------------------------*/
+@import "misc/print"; //Print Styles
+

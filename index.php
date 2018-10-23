@@ -18,17 +18,17 @@
 
 <!-- Examples of classes and how to set up section and article correctly -->
 
-<header class="header-page row">
+<header class="header-page l-row">
 	<h1 class="title-page">Page Title</h1>
 	<hr>
 </header>
 
-<article class="blurb-page row">
+<article class="blurb-page l-row">
 	<p class="blurb-page_p">Occupy flexitarian incididunt, ad typewriter laborum whatever. Organic mollit chillwave helvetica do lomo, skateboard gluten-free williamsburg nulla. Wolf jean shorts id qui. Sapiente godard master cleanse, fap locavore hella enim proident wolf next level.</p>
 </article>
 
 <!-- An article/content class structure -->
-<section class="section-page section-articles row">
+<section class="section-page section-articles l-row">
 	<article class="article col_hlf">
 
 		<header class="article_header">
