@@ -3,6 +3,7 @@
 */
 
 @import '../loading/cookie.js';
+@import 'libs/shoestring.js';
 
 /**
 @class animations

@@ -3,57 +3,81 @@
 * @module Global
 */
 
+@import 'polyfills/respimage.js';
+@import 'plugins/lazysizes.js';
+@import 'plugins/ls.unveilhooks.js';
+@import '../loading/cookie.js';
+
 /**
 Creates the neccessary additional markup
 @class setUp
 @static
 */
 
-@import 'polyfills/respimage.js';
-@import 'plugins/lazysizes.js';
-@import 'plugins/ls.unveilhooks.js';
-@import 'libs/shoestring.js';
-@import '../loading/cookie.js';
-
 
 /**
 @method navPrimarySetup
 */
 
-$('html').addClass('navigation-enabled');
+document.querySelectorAll('body')[0].classList.add('navigation-enabled');
+cookie( 'nav-site', "true", 7 );
 
-var pInit = false;
+
 var navPrimarySetup = function() {
-	$('.nav-primary').before('<button class="nav-primary_btn">Menu</button>');
+	var navEl = document.querySelectorAll('.nav-primary')[0];
 
-	//Click event
-	$('.nav-primary_btn').bind("click", function(){
-		
-		if($(this).is('.s-active')) {
+	var btn = document.createElement('button');
 
-			$(this).removeClass('s-active');
+	btn.classList.add('nav-primary_btn');
 
-			$('.nav-primary').removeClass('s-active');
+	btn.innerHTML = "Menu";
+
+	navEl.parentNode.insertBefore(btn, navEl);
+
+	btn.onclick = function(e) {
+
+		if(this.classList.contains('s-nav-active')) { 
+			this.classList.remove('s-nav-active');
+			navEl.classList.remove('s-nav-active');
 
 		}
 		else {
-			$(this).addClass('s-active');
-			$('.nav-primary').addClass('s-active');
+			this.classList.add('s-nav-active');
+			navEl.classList.add('s-nav-active');
 		}
 
-	});
+	};
+
+	navEl.onclick = function(e) {
+		var target = e.target || e.toElement;
+
+		if(target.classList.contains('nav-primary_link-withchildren')) { 
+			e.preventDefault();
+			
+			if(target.classList.contains('s-subnav-active')) {
+
+				var active = document.querySelectorAll('.s-subnav-active');
+
+				active.forEach(function(el) {
+					el.classList.remove('s-subnav-active');
+				});
+
+			}
+			else {
+				var active = document.querySelectorAll('.s-subnav-active');
+
+				active.forEach(function(el) {
+					el.classList.remove('s-subnav-active');
+				});
+
+				target.classList.add('s-subnav-active');
+				target.nextElementSibling.classList.add('s-subnav-active');
+			}
+		}
+	};
+
 };
 
-if(window.innerWidth < 600) {
+if(typeof(document.querySelectorAll('body')[0].classList) != 'undefined'){
 	navPrimarySetup();
-
-	pInit = true;
 }
-
-window.onresize = function() {
-	if(window.innerWidth < 600 && !pInit) {
-		navPrimarySetup();
-
-		pInit = true;
-	}
-};
